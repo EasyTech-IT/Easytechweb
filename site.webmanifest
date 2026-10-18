@@ -1,0 +1,14 @@
+{
+  "name": "EasyTech IT-Solutions",
+  "short_name": "EasyTech",
+  "icons": [
+    {
+      "src": "/assets/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#111111",
+  "background_color": "#111111",
+  "display": "standalone"
+}

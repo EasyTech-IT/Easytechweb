@@ -1,0 +1,1 @@
+import{r as e}from"./react-vendor-DAatkCok.js";function t(t=1024){const[n,r]=e.useState(!1);return e.useEffect(()=>{const e=window.matchMedia(`(max-width: ${t-1}px)`),n=e=>r(e.matches);return n(e),e.addEventListener("change",n),()=>e.removeEventListener("change",n)},[t]),n}export{t as u};

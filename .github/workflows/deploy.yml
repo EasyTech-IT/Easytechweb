@@ -25,6 +25,15 @@ jobs:
       - name: SFTP-Client installieren
         run: sudo apt-get update && sudo apt-get install -y lftp
 
+      - name: Server-Struktur anzeigen
+        env:
+          SFTP_HOST: ${{ secrets.FTP_SERVER }}
+          SFTP_USER: ${{ secrets.FTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          SFTP_PORT: ${{ secrets.FTP_PORT }}
+        run: |
+          lftp -u "$SFTP_USER","$SFTP_PASSWORD" "sftp://$SFTP_HOST:${SFTP_PORT:-22}" -e "set sftp:auto-confirm yes; pwd; echo ROOT; ls -l /; echo PUBLIC; ls -l /public; echo JS; cls -l /public/js /js; bye" || true
+
       - name: Dateien zu IONOS übertragen
         env:
           SFTP_HOST: ${{ secrets.FTP_SERVER }}

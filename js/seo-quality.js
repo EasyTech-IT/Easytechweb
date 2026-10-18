@@ -234,7 +234,9 @@
     const canonicalLink =
       document.head.querySelector('link[rel="canonical"]') ||
       document.head.appendChild(document.createElement("link"));
-    canonicalLink.rel = "canonical";
+    if (canonicalLink.getAttribute("rel") !== "canonical") {
+      canonicalLink.rel = "canonical";
+    }
 
     if (canonicalLink.href !== canonical) {
       canonicalLink.href = canonical;

@@ -222,6 +222,19 @@
     addLink();
   }
 
+  function loadSiteEnhancements() {
+    const stylesheet = document.createElement("link");
+    stylesheet.rel = "stylesheet";
+    stylesheet.href = "/css/digital-check.css";
+    document.head.appendChild(stylesheet);
+
+    for (const source of ["/js/loader.js", "/js/digital-check.js"]) {
+      const script = document.createElement("script");
+      script.src = source;
+      document.body.appendChild(script);
+    }
+  }
+
   function synchronizePageMetadata() {
     const path = window.location.pathname.replace(/\/+$/, "") || "/";
     const metadata = pageMetadata[path];
@@ -280,6 +293,7 @@
   synchronizePageMetadata();
   removeUnverifiedHomeClaims();
   addRatgeberNavigationLink();
+  loadSiteEnhancements();
   new MutationObserver(synchronizePageMetadata).observe(document.head, {
     attributes: true,
     childList: true,

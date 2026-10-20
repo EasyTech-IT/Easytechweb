@@ -1,341 +1,650 @@
 (() => {
+  const unsure = ["Weiß ich nicht", "help"];
+  const sizeQuestion = ["Wie viele Personen arbeiten bei Ihnen?", [["1–5", "user"], ["6–20", "users"], ["21–50", "building"], ["Mehr als 50", "building"]]];
+  const goalQuestion = ["Was ist Ihnen am wichtigsten?", [["Mehr Anfragen", "target"], ["Zeit sparen", "clock"], ["Mehr Sicherheit", "shield"], ["Besserer Auftritt", "sparkles"]]];
+
   const services = [
     {
       id: "it-support",
-      icon: "🛠️",
-      title: "IT-Betreuung & IT-Support",
-      description: "Support, Wartung, Updates, Arbeitsplätze und Ausfallsicherheit.",
+      title: "IT-Betreuung & Support",
+      description: "Support, Wartung, Sicherheit",
+      icon: "tools",
       questions: [
-        ["problems", "Wie häufig treten IT-Probleme auf, die den Arbeitsalltag unterbrechen?", ["Selten; wir arbeiten überwiegend störungsfrei.", "Gelegentlich, einzelne Personen sind betroffen.", "Regelmäßig oder mehrere Arbeitsplätze gleichzeitig.", "Kann ich nicht einschätzen."]],
-        ["support", "Wie ist geregelt, wer bei einer Störung unterstützt?", ["Feste Ansprechperson und klarer Meldeweg.", "Es gibt eine Ansprechperson, aber keinen festen Ablauf.", "Zuständigkeiten sind unklar oder Hilfe kommt erst bei größeren Problemen.", "Kann ich nicht einschätzen."]],
-        ["maintenance", "Wie werden Geräte und Systeme regelmäßig gewartet?", ["Wartung und Zustand werden planmäßig überprüft.", "Ein Teil wird regelmäßig geprüft.", "Wartung erfolgt meist erst, wenn etwas nicht mehr funktioniert.", "Kann ich nicht einschätzen."]],
-        ["updates", "Wie werden Sicherheits- und Softwareupdates eingespielt?", ["Automatisiert oder nach einem dokumentierten Ablauf.", "Überwiegend regelmäßig, aber nicht zentral kontrolliert.", "Unregelmäßig oder erst bei sichtbaren Problemen.", "Kann ich nicht einschätzen."]],
-        ["backup", "Wie gut sind wichtige Daten und Arbeitsplätze gegen Ausfälle abgesichert?", ["Backups sind geplant und Wiederherstellungen werden getestet.", "Backups gibt es, Wiederherstellungen prüfen wir selten.", "Backup-Stand oder Wiederherstellbarkeit ist unklar.", "Kann ich nicht einschätzen."]],
-        ["workplace", "Wie einheitlich und nachvollziehbar sind die Arbeitsplätze eingerichtet?", ["Einrichtung, Zugänge und Software sind dokumentiert.", "Die meisten Geräte sind ähnlich eingerichtet.", "Geräte unterscheiden sich stark oder Wissen steckt bei Einzelnen.", "Kann ich nicht einschätzen."]],
+        ["Wie oft gibt es IT-Störungen?", [["Selten", "check"], ["Manchmal", "clock"], ["Oft", "alert"], unsure]],
+        ["Wer hilft aktuell bei IT-Problemen?", [["Interner Ansprechpartner", "user"], ["Externer Dienstleister", "tools"], ["Niemand fest", "alert"], unsure]],
+        ["Wie werden Updates erledigt?", [["Automatisch", "bolt"], ["Manuell", "tools"], ["Eher selten", "alert"], unsure]],
+        ["Gibt es regelmäßige Backups?", [["Ja, getestet", "shield"], ["Ja, ungetestet", "cloud"], ["Nein", "alert"], unsure]],
+        sizeQuestion,
       ],
-      followup: { after: "support", prompt: "Wie werden wiederkehrende Supportfälle heute bearbeitet?", options: ["Ursachen und Lösungen werden festgehalten.", "Einzelne Fälle werden gelöst, aber kaum dokumentiert.", "Es gibt keinen gemeinsamen Ablauf.", "Kann ich nicht einschätzen."], weakness: "Wiederkehrende Fehler ohne dokumentierte Lösung können unnötige Ausfallzeit verursachen.", action: "Häufige Supportfälle und ihre Lösungen an einem zentralen Ort dokumentieren." },
-      weaknesses: ["Häufige Unterbrechungen kosten Arbeitszeit und sollten nach Ursache und Häufigkeit erfasst werden.", "Unklare Zuständigkeiten können die Behebung von Störungen verzögern.", "Reaktive Wartung erhöht das Risiko ungeplanter Ausfälle.", "Nicht kontrollierte Updates lassen Sicherheitslücken möglicherweise länger offen.", "Ungetestete oder unklare Backups können eine Wiederherstellung erschweren.", "Uneinheitliche Geräte erschweren Support, Wartung und sichere Übergaben."],
-      actions: ["Störungen kurz mit Zeitpunkt, betroffenen Geräten und Auswirkung protokollieren.", "Einen zentralen Meldeweg und klare Prioritäten für Störungen festlegen.", "Einen regelmäßigen Wartungsplan für Geräte und zentrale Systeme vereinbaren.", "Update-Status zentral erfassen und einen festen Prüfprozess definieren.", "Wichtige Daten priorisieren und regelmäßig eine Wiederherstellung testen.", "Geräte, Software und Zugänge inventarisieren und ein Standardprofil festlegen."],
     },
     {
       id: "netzwerk",
-      icon: "📶",
       title: "Netzwerk & WLAN",
-      description: "Abdeckung, Ausfälle, Geräte, Gäste-WLAN und Netzwerksicherheit.",
+      description: "Abdeckung, Ausfälle, Zugang",
+      icon: "wifi",
       questions: [
-        ["coverage", "Wie zuverlässig ist die WLAN-Abdeckung an den benötigten Arbeitsplätzen?", ["In allen Arbeitsbereichen stabil.", "An einzelnen Stellen schwächer.", "Regelmäßige Funklöcher oder Abbrüche.", "Kann ich nicht einschätzen."]],
-        ["outages", "Wie häufig kommt es zu langsamen Verbindungen oder Ausfällen?", ["Selten und ohne merkliche Arbeitsunterbrechung.", "Gelegentlich, meist nur einzelne Geräte.", "Regelmäßig oder für mehrere Personen.", "Kann ich nicht einschätzen."]],
-        ["structure", "Ist bekannt, wie Router, Switches und WLAN-Zugangspunkte verbunden sind?", ["Ja, die Struktur ist dokumentiert.", "Teilweise; nicht alle Geräte oder Verbindungen sind erfasst.", "Nein, die Struktur ist weitgehend unbekannt.", "Kann ich nicht einschätzen."]],
-        ["guest", "Ist das WLAN für Gäste vom internen Firmennetz getrennt?", ["Ja, mit eigenem Gästezugang.", "Ein Gastzugang besteht, die Trennung ist aber unklar.", "Nein oder es gibt keine getrennte Zugangsmöglichkeit.", "Kann ich nicht einschätzen."]],
-        ["access", "Wie werden WLAN-Zugangsdaten und Zugriffsrechte verwaltet?", ["Sicher, mit begrenztem Zugriff und regelmäßiger Überprüfung.", "Zugangsdaten sind geteilt, werden aber gelegentlich geändert.", "Viele kennen dasselbe Passwort oder Zugänge sind unbekannt.", "Kann ich nicht einschätzen."]],
-        ["maintenance", "Werden Netzwerkgeräte und ihre Softwarestände regelmäßig überprüft?", ["Ja, Geräte und Updates werden nachvollziehbar geprüft.", "Teilweise, aber ohne festen Rhythmus.", "Nur wenn eine Störung auftritt.", "Kann ich nicht einschätzen."]],
+        ["Wie stabil ist Ihr WLAN?", [["Überall stabil", "check"], ["Einzelne Funklöcher", "wifi"], ["Oft Abbrüche", "alert"], unsure]],
+        ["Wo gibt es Probleme?", [["Büro", "building"], ["Lager / Halle", "devices"], ["Außenbereich", "globe"], ["Keine", "check"]]],
+        ["Gibt es ein separates Gäste-WLAN?", [["Ja", "check"], ["Nein", "alert"], unsure]],
+        ["Ist das Netzwerk dokumentiert?", [["Ja", "doc"], ["Teilweise", "doc"], ["Nein", "alert"], unsure]],
+        sizeQuestion,
       ],
-      followup: { after: "outages", prompt: "Wie grenzt du eine wiederkehrende Netzwerkstörung ein?", options: ["Ort, Zeit und betroffene Geräte werden verglichen.", "Wir prüfen einzelne Geräte, aber nicht systematisch.", "Die Ursache bleibt meist unklar.", "Kann ich nicht einschätzen."], weakness: "Ohne systematische Eingrenzung ist schwer zu unterscheiden, ob WLAN, Netzwerk oder Internetanschluss betroffen ist.", action: "Störungen nach Ort, Uhrzeit, Geräten und einer möglichen Kabelverbindung vergleichen." },
-      weaknesses: ["Schwache WLAN-Bereiche können auf ungünstige Platzierung, bauliche Hindernisse oder Kapazitätsprobleme hindeuten.", "Wiederkehrende Ausfälle sollten nach Ort, Zeit und betroffenen Geräten eingegrenzt werden.", "Ohne Netzplan sind Fehlersuche und Änderungen unnötig aufwendig.", "Ein nicht getrenntes Gäste-WLAN kann interne Geräte unnötig erreichbar machen.", "Geteilte oder veraltete Zugangsdaten erschweren eine kontrollierte Zugriffsbeschränkung.", "Ungeprüfte Geräte und Updates können die Stabilität und Sicherheit beeinträchtigen."],
-      actions: ["Empfang an Arbeitsplätzen vergleichen und Messpunkte auf einem Grundriss festhalten.", "Ausfälle mit Uhrzeit, Ort, Gerät und Vergleich einer Kabelverbindung dokumentieren.", "Router, Switches und Zugangspunkte erfassen und ihre Verbindungen skizzieren.", "Ein separates Gäste-WLAN einrichten und die Trennung zum Firmennetz prüfen.", "Zugangsdaten erneuern, Zugriff begrenzen und gemeinsam genutzte Passwörter vermeiden.", "Gerätebestand und Firmwarestände erfassen und regelmäßige Prüfintervalle festlegen."],
     },
     {
       id: "website",
-      icon: "🌐",
       title: "Webdesign & Website",
-      description: "Nutzerführung, Mobilansicht, Ladezeit, Vertrauen und Kontaktwege.",
+      description: "Auftritt, Mobilansicht, Anfragen",
+      icon: "globe",
       questions: [
-        ["first-impression", "Wird innerhalb weniger Sekunden klar, was dein Unternehmen anbietet?", ["Ja, Angebot und Zielgruppe sind sofort verständlich.", "Im Großen und Ganzen, einzelne Inhalte sind unklar.", "Nein, Leistungen oder Nutzen sind schwer zu erkennen.", "Kann ich nicht einschätzen."]],
-        ["mobile", "Lässt sich die Website auf Smartphones komfortabel bedienen?", ["Ja, Inhalte und Bedienelemente passen sich gut an.", "Überwiegend, manche Bereiche sind umständlich.", "Nein oder wichtige Inhalte sind mobil schwer nutzbar.", "Kann ich nicht einschätzen."]],
-        ["speed", "Wie wirkt die Ladezeit auf typischen Mobilgeräten?", ["Seiten und wichtige Inhalte erscheinen zügig.", "Einzelne Seiten oder Medien wirken langsam.", "Die Website fühlt sich häufig träge an.", "Kann ich nicht einschätzen."]],
-        ["contact", "Finden Interessierte schnell heraus, wie sie dich erreichen können?", ["Kontaktmöglichkeiten und nächster Schritt sind deutlich sichtbar.", "Kontakt ist vorhanden, aber nicht überall leicht zu finden.", "Kontaktweg oder klare Handlungsaufforderung fehlt.", "Kann ich nicht einschätzen."]],
-        ["trust", "Sind Referenzen, echte Einblicke oder andere Vertrauenssignale vorhanden?", ["Passende Referenzen und aktuelle Unternehmensinformationen.", "Einige Informationen sind vorhanden, könnten aktueller sein.", "Wenig Einblick oder nachvollziehbare Vertrauenssignale.", "Kann ich nicht einschätzen."]],
-        ["content", "Sind Leistungen und Inhalte aktuell und verständlich beschrieben?", ["Ja, Inhalte sind aktuell, konkret und gut strukturiert.", "Zum Teil, einige Seiten sind lückenhaft oder veraltet.", "Nein, wichtige Inhalte fehlen oder sind nicht mehr aktuell.", "Kann ich nicht einschätzen."]],
+        ["Haben Sie schon eine Website?", [["Ja, aktuell", "check"], ["Ja, veraltet", "clock"], ["Noch nicht", "alert"]]],
+        ["Was soll die Website leisten?", [["Mehr Anfragen", "target"], ["Seriös wirken", "sparkles"], ["Produkte verkaufen", "euro"], ["Informieren", "doc"]]],
+        ["Wie wirkt sie auf dem Handy?", [["Sehr gut", "mobile"], ["Okay", "mobile"], ["Schlecht", "alert"], unsure]],
+        ["Wie schnell lädt sie?", [["Schnell", "bolt"], ["Mittel", "clock"], ["Langsam", "alert"], unsure]],
+        ["Wann soll es losgehen?", [["So schnell wie möglich", "bolt"], ["In 1–3 Monaten", "clock"], ["Noch offen", "help"]]],
       ],
-      followup: { after: "mobile", prompt: "Wird die mobile Ansicht vor oder nach Änderungen gezielt geprüft?", options: ["Ja, auf mehreren Bildschirmgrößen und Geräten.", "Gelegentlich auf einem Smartphone.", "Nein, eine regelmäßige Prüfung findet nicht statt.", "Kann ich nicht einschätzen."], weakness: "Ohne gezielte Prüfung können Darstellungs- und Bedienprobleme auf mobilen Geräten unbemerkt bleiben.", action: "Die wichtigsten Seiten auf mehreren Smartphone-Größen und nach größeren Änderungen testen." },
-      weaknesses: ["Ein unklarer Einstieg erschwert es Besuchern, Relevanz und Angebot schnell einzuordnen.", "Schwächen in der mobilen Bedienung können Anfragen auf Smartphones verhindern.", "Langsame Seiten können die Nutzung erschweren; die tatsächliche Ursache erfordert eine technische Messung.", "Ein schwer auffindbarer Kontaktweg macht den nächsten Schritt unnötig kompliziert.", "Fehlende oder veraltete Vertrauenssignale lassen Interessierte wichtige Informationen vermissen.", "Veraltete oder lückenhafte Inhalte können Fragen offenlassen."],
-      actions: ["Die Startseite mit einem klaren Nutzenversprechen und einer eindeutigen Zielgruppe beginnen.", "Die wichtigsten Seiten auf mehreren Smartphone-Größen prüfen und Bedienelemente vereinfachen.", "Ladezeiten mit einem geeigneten Messwerkzeug prüfen und große Bilder priorisiert optimieren.", "Eine klare Kontaktmöglichkeit und einen passenden nächsten Schritt gut sichtbar platzieren.", "Aktuelle Referenzen, Team- oder Unternehmensinformationen ergänzen, sofern verfügbar.", "Angebot, Preise und Kontaktinformationen prüfen und die wichtigsten Fragen beantworten."],
     },
     {
       id: "seo",
-      icon: "🔎",
       title: "SEO & lokale Sichtbarkeit",
-      description: "Google-Auffindbarkeit, lokale Inhalte, Unternehmensprofil und Technik.",
+      description: "Auffindbarkeit bei Google",
+      icon: "search",
       questions: [
-        ["keywords", "Sind die Suchbegriffe bekannt, mit denen passende Kunden dich finden sollen?", ["Ja, Zielgruppen und Suchintention sind klar definiert.", "Einige Begriffe sind bekannt, aber nicht priorisiert.", "Nein, es gibt keine klare Suchbegriffsplanung.", "Kann ich nicht einschätzen."]],
-        ["titles", "Hat jede wichtige Seite einen eigenen, aussagekräftigen Seitentitel?", ["Ja, Titel passen jeweils zu Inhalt und Suchintention.", "Teilweise; manche Titel sind ähnlich oder wenig präzise.", "Nein oder Seitentitel sind nicht bekannt.", "Kann ich nicht einschätzen."]],
-        ["local-content", "Beschreiben die Seiten konkret, welche Leistungen du für wen anbietest?", ["Ja, Leistungen und Zielgruppen sind klar und individuell beschrieben.", "Teilweise; einzelne Leistungsseiten sind knapp.", "Nein, Inhalte sind allgemein oder wichtige Leistungen fehlen.", "Kann ich nicht einschätzen."]],
-        ["profile", "Ist dein Google-Unternehmensprofil vollständig und aktuell?", ["Ja, Angaben und Bilder werden aktuell gehalten.", "Teilweise ausgefüllt oder länger nicht überprüft.", "Nein oder kein Profil vorhanden.", "Kann ich nicht einschätzen."]],
-        ["technical", "Werden Indexierbarkeit, Mobilansicht und technische SEO-Grundlagen geprüft?", ["Ja, technische Punkte werden regelmäßig kontrolliert.", "Einige Grundlagen sind geprüft, aber nicht regelmäßig.", "Nein oder der technische Zustand ist unbekannt.", "Kann ich nicht einschätzen."]],
-        ["reviews", "Gibt es einen verlässlichen Prozess, um Kundenbewertungen und Rückmeldungen zu pflegen?", ["Ja, Rückmeldungen werden regelmäßig beobachtet und beantwortet.", "Bewertungen werden gelegentlich geprüft.", "Nein oder Zuständigkeiten sind unklar.", "Kann ich nicht einschätzen."]],
+        ["Werden Sie bei Google gefunden?", [["Ja, gut", "check"], ["Kaum", "search"], ["Gar nicht", "alert"], unsure]],
+        ["Wo suchen Ihre Kunden?", [["In meiner Region", "target"], ["Deutschlandweit", "globe"], ["Beides", "users"]]],
+        ["Gibt es ein Google-Unternehmensprofil?", [["Ja, gepflegt", "check"], ["Ja, ungepflegt", "clock"], ["Nein", "alert"], unsure]],
+        ["Wie oft kommen neue Inhalte dazu?", [["Regelmäßig", "check"], ["Selten", "clock"], ["Nie", "alert"]]],
+        goalQuestion,
       ],
-      followup: { after: "titles", prompt: "Wie prüfst du, ob die wichtigsten Seiten bei passenden Suchanfragen sichtbar sind?", options: ["Mit Search Console oder einem vergleichbaren Messverfahren.", "Gelegentlich über manuelle Suchen.", "Die Sichtbarkeit wird nicht gezielt geprüft.", "Kann ich nicht einschätzen."], weakness: "Ohne Daten zur Sichtbarkeit bleiben Veränderungen bei Impressionen und Suchanfragen schwer nachvollziehbar.", action: "Eine geeignete Messgrundlage einrichten und relevante Suchanfragen regelmäßig auswerten." },
-      weaknesses: ["Ohne klare Suchintention ist schwer zu entscheiden, welche Seiten und Inhalte Priorität haben.", "Unklare oder gleiche Seitentitel können die Einordnung wichtiger Seiten erschweren.", "Allgemeine Inhalte beantworten konkrete Fragen potenzieller Kunden möglicherweise nicht.", "Ein lückenhaftes Unternehmensprofil kann lokale Interessierte mit offenen Fragen zurücklassen.", "Ohne technische Prüfung bleiben Indexierungs- oder Darstellungsprobleme möglicherweise unentdeckt.", "Unbeantwortete Rückmeldungen lassen Chancen zur Information und Vertrauensbildung ungenutzt."],
-      actions: ["Suchanfragen von Kunden sammeln und passende Begriffe nach Relevanz gruppieren.", "Für jede wichtige Seite einen individuellen Titel und eine präzise Beschreibung formulieren.", "Leistungsseiten mit Zielgruppe, konkretem Nutzen, Ablauf und häufigen Fragen ausarbeiten.", "Profilangaben, Kategorien, Öffnungszeiten, Leistungen und aktuelle Bilder vervollständigen.", "Indexierung und Mobilansicht mit geeigneten Werkzeugen kontrollieren; Search-Console-Daten nur mit Zugriff einbeziehen.", "Bewertungen regelmäßig prüfen und sachlich sowie zeitnah beantworten."],
     },
     {
       id: "automation",
-      icon: "✨",
       title: "KI & Automatisierung",
-      description: "Wiederkehrende Aufgaben, manuelle Abläufe, Daten und KI-Potenziale.",
+      description: "Prozesse und KI-Einsatz",
+      icon: "sparkles",
       questions: [
-        ["repetition", "Wie viel Zeit beanspruchen wiederkehrende manuelle Aufgaben?", ["Wenig; wiederkehrende Schritte sind bereits vereinfacht.", "Einige Aufgaben kosten regelmäßig Zeit.", "Viele manuelle Abläufe wiederholen sich täglich oder wöchentlich.", "Kann ich nicht einschätzen."]],
-        ["process", "Sind die Abläufe, die du verbessern möchtest, klar dokumentiert?", ["Ja, Verantwortliche und Schritte sind nachvollziehbar.", "Teilweise; wichtige Schritte hängen von einzelnen Personen ab.", "Nein, der Ablauf ist uneinheitlich oder nicht dokumentiert.", "Kann ich nicht einschätzen."]],
-        ["data", "Liegen die dafür benötigten Informationen strukturiert und zuverlässig vor?", ["Ja, Daten sind zentral und gut nutzbar.", "Teilweise; es gibt mehrere Quellen oder manuelle Übertragungen.", "Nein, Daten sind verteilt, uneinheitlich oder schwer auffindbar.", "Kann ich nicht einschätzen."]],
-        ["volume", "Wie oft wird der betreffende Ablauf ausgeführt?", ["Selten oder in jedem Fall unterschiedlich.", "Regelmäßig, aber mit vielen Ausnahmen.", "Häufig und mit wiederkehrenden, ähnlichen Schritten.", "Kann ich nicht einschätzen."]],
-        ["privacy", "Ist geklärt, welche Daten in KI- oder Automatisierungswerkzeuge eingegeben werden dürfen?", ["Ja, Regeln und Freigaben sind festgelegt.", "Teilweise; es gibt noch offene Fragen zu Werkzeugen und Daten.", "Nein oder sensible Daten könnten ungeprüft eingegeben werden.", "Kann ich nicht einschätzen."]],
-        ["review", "Gibt es eine Möglichkeit, Ergebnisse automatisierter Schritte zu kontrollieren?", ["Ja, Ergebnisse werden nachvollziehbar geprüft und können korrigiert werden.", "Teilweise, die Kontrolle ist noch nicht durchgängig.", "Nein, Fehler würden wahrscheinlich unbemerkt bleiben.", "Kann ich nicht einschätzen."]],
+        ["Welche Aufgaben kosten Zeit?", [["E-Mails & Anfragen", "mail"], ["Angebote & Rechnungen", "doc"], ["Terminplanung", "clock"], ["Daten übertragen", "cloud"]]],
+        ["Wie viel Zeit geht dafür drauf?", [["Unter 2 Std./Woche", "clock"], ["2–10 Std.", "clock"], ["Über 10 Std.", "alert"], unsure]],
+        ["Nutzen Sie bereits KI-Tools?", [["Ja, regelmäßig", "check"], ["Ausprobiert", "sparkles"], ["Noch nicht", "alert"]]],
+        ["Welche Daten sind beteiligt?", [["Kundendaten", "users"], ["Interne Dokumente", "doc"], ["Nur öffentliche Daten", "globe"], unsure]],
+        sizeQuestion,
       ],
-      followup: { after: "process", prompt: "Ist für den Ablauf festgelegt, wer das Ergebnis kontrolliert und freigibt?", options: ["Ja, Verantwortlichkeit und Freigabe sind klar.", "Teilweise; die Zuständigkeit wechselt.", "Nein, eine feste Kontrolle fehlt.", "Kann ich nicht einschätzen."], weakness: "Ohne klaren Prüf- und Freigabeschritt können Fehler oder unerwünschte Ergebnisse weiterverarbeitet werden.", action: "Eine verantwortliche Person und einen klaren Freigabeschritt für den Ablauf festlegen." },
-      weaknesses: ["Häufige manuelle Wiederholungen können sich als Ansatzpunkt für Vereinfachungen eignen.", "Nicht dokumentierte Abläufe sind schwer zuverlässig zu automatisieren.", "Verteilte oder uneinheitliche Daten erschweren stabile Schnittstellen und Automatisierungen.", "Ein häufiger, gleichförmiger Ablauf ist eher prüfenswert als ein seltener Sonderfall.", "Unklare Regeln können zu unangemessener Verarbeitung vertraulicher oder personenbezogener Daten führen.", "Ohne Kontrolle können fehlerhafte automatisierte Ergebnisse unbemerkt weiterverwendet werden."],
-      actions: ["Aufwand und Häufigkeit eines konkreten Ablaufs eine Woche lang erfassen.", "Den Ablauf mit Ausnahmen, Verantwortlichkeiten und gewünschtem Ergebnis dokumentieren.", "Datenquellen, Zuständigkeiten und manuelle Übertragungen für den Prozess aufnehmen.", "Mit einem häufigen, klar begrenzten Prozess starten und Zeitersparnis realistisch vergleichen.", "Vor einem Test Datenklassen, Zugriffsrechte und zulässige Werkzeuge verbindlich festlegen.", "Einen menschlichen Freigabeschritt und nachvollziehbare Fehlerbehandlung vorsehen."],
     },
     {
       id: "social",
-      icon: "🎬",
       title: "Social Media & Videografie",
-      description: "Content-Planung, Markenauftritt, Zielgruppe und Handlungsimpulse.",
+      description: "Content, Videos, Reichweite",
+      icon: "video",
       questions: [
-        ["goal", "Gibt es ein konkretes Ziel für deine Social-Media-Inhalte?", ["Ja, Ziele und gewünschte Reaktionen sind definiert.", "Ein grobes Ziel besteht, ist aber nicht messbar festgehalten.", "Nein, es wird ohne klares Ziel veröffentlicht.", "Kann ich nicht einschätzen."]],
-        ["audience", "Ist klar, welche Zielgruppe du mit deinen Inhalten erreichen möchtest?", ["Ja, Zielgruppe und ihre Fragen sind gut bekannt.", "Teilweise; Zielgruppe ist noch recht breit.", "Nein, Zielgruppe und Themen sind unklar.", "Kann ich nicht einschätzen."]],
-        ["consistency", "Wie regelmäßig veröffentlichst du passende Inhalte?", ["Mit einem realistischen, verlässlichen Rhythmus.", "Unregelmäßig, abhängig von verfügbarer Zeit.", "Selten oder ohne Planung.", "Kann ich nicht einschätzen."]],
-        ["brand", "Erkennen Interessierte deine Marke über verschiedene Beiträge hinweg wieder?", ["Ja, Bildsprache und Botschaft sind konsistent.", "Teilweise; einzelne Inhalte weichen deutlich ab.", "Nein, ein erkennbarer Auftritt fehlt.", "Kann ich nicht einschätzen."]],
-        ["video", "Wirken Videos und Beiträge passend produziert und gut verständlich?", ["Ja, Qualität und Format passen zur Plattform.", "Überwiegend, Ton oder Bild könnten verbessert werden.", "Inhalte sind schwer verständlich oder uneinheitlich.", "Kann ich nicht einschätzen."]],
-        ["cta", "Wissen Betrachter, was sie nach einem Beitrag tun können?", ["Ja, passende Handlungsaufforderungen sind vorhanden.", "Manchmal; nicht bei allen passenden Beiträgen.", "Nein, der nächste Schritt ist meist unklar.", "Kann ich nicht einschätzen."]],
+        ["Was brauchen Sie?", [["Imagevideo", "video"], ["Social-Media-Content", "camera"], ["Drohnenaufnahmen", "camera"], ["Weiß ich noch nicht", "help"]]],
+        ["Wo soll der Inhalt laufen?", [["Instagram / TikTok", "mobile"], ["Website", "globe"], ["YouTube", "video"], ["Überall", "users"]]],
+        ["Wie oft wollen Sie posten?", [["Täglich", "bolt"], ["Wöchentlich", "clock"], ["Monatlich", "clock"], unsure]],
+        ["Haben Sie schon Material?", [["Ja, viel", "check"], ["Etwas", "camera"], ["Nein", "alert"]]],
+        goalQuestion,
       ],
-      followup: { after: "audience", prompt: "Wie gewinnst du Themen und Formulierungen, die für deine Zielgruppe relevant sind?", options: ["Aus echten Kundenfragen und Rückmeldungen.", "Aus eigener Einschätzung und gelegentlichem Feedback.", "Ohne systematische Orientierung an Kundenfragen.", "Kann ich nicht einschätzen."], weakness: "Ohne Bezug zu echten Kundenfragen kann Content an den Interessen der Zielgruppe vorbeigehen.", action: "Häufige Fragen aus Kundengesprächen sammeln und als konkrete Content-Themen planen." },
-      weaknesses: ["Ohne klares Ziel ist schwer zu erkennen, welche Inhalte Wirkung zeigen.", "Eine zu breite Zielgruppe erschwert passende Themen und Ansprache.", "Ein unrealistischer oder unregelmäßiger Rhythmus erschwert verlässliche Content-Arbeit.", "Ein uneinheitlicher Auftritt kann die Wiedererkennbarkeit mindern.", "Schwächen bei Ton, Bild oder Verständlichkeit lenken vom Inhalt ab.", "Ohne nächsten Schritt bleibt unklar, wie Interessierte weiter mit dir in Kontakt treten können."],
-      actions: ["Ein konkretes Ziel pro Kanal festlegen und eine passende Kennzahl auswählen.", "Häufige Fragen der Wunschkunden sammeln und daraus Themen ableiten.", "Einen realistischen Redaktionsrhythmus mit wiederverwendbaren Formaten planen.", "Wiederkehrende Farben, Schriften und Bildsprache in einer kompakten Vorlage festhalten.", "Vor der Veröffentlichung Ton, Bildausschnitt, Untertitel und mobile Lesbarkeit prüfen.", "Beiträge mit einer passenden, eindeutigen Handlungsaufforderung abschließen."],
     },
     {
       id: "digitalization",
-      icon: "💻",
       title: "Geräte-Setup & Digitalisierung",
-      description: "Neue Geräte, Datenübernahme, Einrichtung und digitale Arbeitsabläufe.",
+      description: "Geräte, Daten, Abläufe",
+      icon: "devices",
       questions: [
-        ["needs", "Sind Anforderungen und benötigte Software vor der Geräteauswahl geklärt?", ["Ja, Anforderungen sind dokumentiert und abgestimmt.", "Teilweise; wichtige Details werden noch geklärt.", "Nein, Geräte werden ohne klares Anforderungsprofil gewählt.", "Kann ich nicht einschätzen."]],
-        ["setup", "Werden Geräte nach einem einheitlichen Einrichtungsstandard vorbereitet?", ["Ja, Einrichtung und Grundeinstellungen sind standardisiert.", "Teilweise; einige Einstellungen werden manuell ergänzt.", "Nein, jedes Gerät wird anders oder spontan eingerichtet.", "Kann ich nicht einschätzen."]],
-        ["transfer", "Wie werden Daten und Einstellungen auf neue Geräte übertragen?", ["Mit geprüftem Ablauf und kontrollierter Datenvollständigkeit.", "Meist manuell, mit gelegentlicher Nachkontrolle.", "Ohne festen Ablauf oder mit unklarer Datensicherung.", "Kann ich nicht einschätzen."]],
-        ["access", "Sind benötigte Benutzerkonten und Berechtigungen nachvollziehbar geregelt?", ["Ja, Zugriffe sind rollenbezogen und dokumentiert.", "Teilweise, einzelne Konten oder Rechte sind unklar.", "Nein, Zugänge sind geteilt oder nicht vollständig erfasst.", "Kann ich nicht einschätzen."]],
-        ["workflow", "Sind digitale Abläufe im Team bekannt und werden sie einheitlich genutzt?", ["Ja, Abläufe sind verständlich dokumentiert.", "Teilweise; es gibt verschiedene Vorgehensweisen.", "Nein, viele Schritte sind manuell oder nur einzelnen bekannt.", "Kann ich nicht einschätzen."]],
-        ["recovery", "Kann ein Gerät bei Verlust oder Defekt sicher ersetzt und wiederhergestellt werden?", ["Ja, wichtige Daten und Einrichtung sind wiederherstellbar.", "Teilweise; der Ablauf wurde nicht vollständig getestet.", "Nein oder Wiederherstellung ist nicht geklärt.", "Kann ich nicht einschätzen."]],
+        ["Was soll eingerichtet werden?", [["Neuer PC / Laptop", "devices"], ["Smartphone / Tablet", "mobile"], ["Drucker & Zubehör", "tools"], ["Mehrere Geräte", "users"]]],
+        ["Müssen Daten übernommen werden?", [["Ja, viele", "cloud"], ["Ein paar", "doc"], ["Nein", "check"]]],
+        ["Wie sieht Ihre Sicherung aus?", [["Backup vorhanden", "shield"], ["Nur teilweise", "clock"], ["Keine", "alert"], unsure]],
+        ["Brauchen Sie eine Einweisung?", [["Ja", "user"], ["Kurz", "clock"], ["Nein", "check"]]],
+        ["Für wen ist es?", [["Privat", "user"], ["Familie", "users"], ["Kleine Firma", "building"]]],
       ],
-      followup: { after: "setup", prompt: "Gibt es eine dokumentierte Checkliste, die für jedes neue Gerät durchlaufen wird?", options: ["Ja, sie wird regelmäßig verwendet.", "Es gibt einzelne Notizen, aber keine vollständige Checkliste.", "Nein, die Einrichtung hängt von der jeweiligen Person ab.", "Kann ich nicht einschätzen."], weakness: "Ohne gemeinsame Checkliste können wichtige Einrichtungsschritte bei neuen Geräten fehlen.", action: "Eine wiederverwendbare Checkliste für Konten, Schutz, Updates und benötigte Software erstellen." },
-      weaknesses: ["Ohne Anforderungsprofil drohen ungeeignete Geräte oder unnötige Ausstattung.", "Uneinheitliche Einrichtungsabläufe erhöhen den Aufwand und die Fehlergefahr.", "Ungeprüfte Datenübernahmen können Dateien oder wichtige Einstellungen übersehen.", "Unklare Berechtigungen erschweren sichere Zugriffe und spätere Übergaben.", "Uneinheitliche Abläufe erschweren Zusammenarbeit und Einarbeitung.", "Ungeklärte Wiederherstellung kann einen Geräteausfall unnötig verlängern."],
-      actions: ["Arbeitsaufgaben, benötigte Software und Zubehör vor der Beschaffung festhalten.", "Eine Einrichtungscheckliste mit Updates, Konten, Schutz und benötigter Software erstellen.", "Daten vor der Übernahme sichern und Vollständigkeit nach einem festen Ablauf prüfen.", "Persönliche Konten verwenden, Berechtigungen dokumentieren und nicht mehr benötigte Zugänge entfernen.", "Einen zentralen digitalen Ablauf auswählen, dokumentieren und im Team abstimmen.", "Wiederherstellungsschritte dokumentieren und anhand eines Ersatzgeräts testen."],
     },
   ];
+  const industryQuestion = ["Aus welcher Branche kommen Sie?", [["Handwerk / Bau", "tools"], ["Handel / Gastro", "euro"], ["Dienstleistung", "users"], ["Sonstiges", "building"]]];
+  const budgetQuestion = ["Welches Budget ist geplant?", [["Unter 1.000 €", "euro"], ["1.000–5.000 €", "euro"], ["Über 5.000 €", "euro"], ["Noch offen", "help"]]];
+  const timeQuestion = ["Wann soll es starten?", [["Sofort", "bolt"], ["In 1–3 Monaten", "clock"], ["Später", "clock"], ["Noch offen", "help"]]];
+  const contactQuestion = ["Wie erreichen wir Sie am besten?", [["E-Mail", "mail"], ["Telefon", "user"], ["WhatsApp", "mobile"], ["Egal", "check"]]];
+  const experienceQuestion = ["Wie zufrieden sind Sie aktuell?", [["Sehr zufrieden", "check"], ["Geht so", "clock"], ["Unzufrieden", "alert"], unsure]];
 
-  const host = document.createElement("div");
-  host.id = "digital-check";
-  host.innerHTML = `
-    <div class="dc-head">
-      <p class="eyebrow">Kostenlos · Ohne Registrierung · Ohne technischen Scan</p>
-      <h3>Kostenloser Digital-Check</h3>
-      <p>Wähle eine Leistung, beantworte ein paar Fragen und erhalte eine individuelle Ersteinschätzung mit konkreten nächsten Schritten.</p>
-    </div>
-    <div id="dc-app" aria-live="polite"></div>`;
-  const app = host.querySelector("#dc-app");
-  const state = { service: null, answers: {}, questionIndex: 0 };
-  const levels = [
-    { minimum: 80, label: "Gute Grundlage", description: "Deine Antworten zeigen in vielen Bereichen eine solide Grundlage. Einzelne Verbesserungen können die Abläufe weiter stärken." },
-    { minimum: 60, label: "Gute Ansätze mit Potenzial", description: "Es gibt bereits gute Ansätze. Einige gezielte Verbesserungen können offene Risiken reduzieren." },
-    { minimum: 35, label: "Mehrere Punkte im Blick behalten", description: "Deine Antworten deuten auf mehrere Bereiche hin, die du strukturiert prüfen und priorisieren solltest." },
-    { minimum: 0, label: "Handlungsbedarf erkennbar", description: "Mehrere Antworten weisen auf mögliche Schwachstellen hin. Beginne mit den dringlichsten und konkretesten Punkten." },
+  const extraQuestions = {
+    "it-support": [
+      industryQuestion,
+      ["Wie viele Geräte nutzen Sie?", [["1–10", "devices"], ["11–30", "devices"], ["Über 30", "building"], unsure]],
+      ["Wo liegen Ihre Daten?", [["Lokal im Büro", "building"], ["In der Cloud", "cloud"], ["Gemischt", "devices"], unsure]],
+      ["Gibt es Regeln für Passwörter & Zugänge?", [["Ja, klar geregelt", "shield"], ["Teilweise", "clock"], ["Nein", "alert"], unsure]],
+      experienceQuestion,
+      budgetQuestion,
+      timeQuestion,
+    ],
+    netzwerk: [
+      industryQuestion,
+      ["Wie groß ist die Fläche?", [["Unter 100 m²", "building"], ["100–500 m²", "building"], ["Über 500 m²", "globe"], unsure]],
+      ["Wie viele Geräte sind verbunden?", [["Unter 10", "devices"], ["10–30", "devices"], ["Über 30", "users"], unsure]],
+      ["Gibt es Netzwerk-Geräte wie Drucker oder Kameras?", [["Drucker", "tools"], ["Kameras", "camera"], ["Beides", "devices"], ["Nein", "check"]]],
+      experienceQuestion,
+      budgetQuestion,
+      timeQuestion,
+    ],
+    website: [
+      industryQuestion,
+      ["Wie viele Seiten brauchen Sie?", [["1–5", "doc"], ["6–15", "doc"], ["Über 15", "doc"], unsure]],
+      ["Welche Funktionen sind wichtig?", [["Kontaktformular", "mail"], ["Terminbuchung", "clock"], ["Online-Shop", "euro"], ["Nur Infos", "doc"]]],
+      ["Gibt es Logo und Texte?", [["Alles vorhanden", "check"], ["Teilweise", "clock"], ["Nichts", "alert"]]],
+      budgetQuestion,
+      timeQuestion,
+      contactQuestion,
+    ],
+    seo: [
+      industryQuestion,
+      ["Wie viele Seiten hat Ihre Website?", [["1–5", "doc"], ["6–20", "doc"], ["Über 20", "doc"], unsure]],
+      ["Gibt es Kundenbewertungen online?", [["Viele", "check"], ["Wenige", "clock"], ["Keine", "alert"], unsure]],
+      ["Messen Sie Besucherzahlen?", [["Ja, regelmäßig", "check"], ["Selten", "clock"], ["Nein", "alert"], unsure]],
+      budgetQuestion,
+      timeQuestion,
+      contactQuestion,
+    ],
+    automation: [
+      industryQuestion,
+      ["Welche Software nutzen Sie?", [["Office / Microsoft", "doc"], ["CRM / ERP", "building"], ["Branchensoftware", "tools"], ["Kaum Software", "alert"]]],
+      ["Wer soll die Lösung nutzen?", [["Nur ich", "user"], ["Kleines Team", "users"], ["Ganzes Unternehmen", "building"]]],
+      ["Wie wichtig ist Datenschutz?", [["Sehr wichtig", "shield"], ["Wichtig", "check"], ["Unsicher", "help"]]],
+      budgetQuestion,
+      timeQuestion,
+      contactQuestion,
+    ],
+    social: [
+      industryQuestion,
+      ["Welche Kanäle nutzen Sie bereits?", [["Instagram", "camera"], ["Facebook", "users"], ["LinkedIn", "building"], ["Keine", "alert"]]],
+      ["Sollen Personen im Video zu sehen sein?", [["Ja", "user"], ["Teilweise", "users"], ["Nein", "video"]]],
+      ["Wo soll gedreht werden?", [["Vor Ort bei mir", "building"], ["Im Freien", "camera"], ["Im Studio", "video"], ["Noch offen", "help"]]],
+      budgetQuestion,
+      timeQuestion,
+      contactQuestion,
+    ],
+    digitalization: [
+      industryQuestion,
+      ["Wie viele Geräte sind es?", [["1", "devices"], ["2–5", "devices"], ["Über 5", "users"]]],
+      ["Welches System nutzen Sie?", [["Windows", "devices"], ["Mac", "devices"], ["Android / iOS", "mobile"], ["Gemischt", "users"]]],
+      ["Brauchen Sie Hilfe bei E-Mail & Konten?", [["Ja", "mail"], ["Etwas", "clock"], ["Nein", "check"]]],
+      budgetQuestion,
+      timeQuestion,
+      contactQuestion,
+    ],
+  };
+  services.forEach((service) => service.questions.push(...(extraQuestions[service.id] || [])));
+
+  const serviceByPath = [
+    [/^\/webdesign(?:\/|$)/, "website"],
+    [/^\/videografie(?:\/|$)/, "social"],
+    [/^\/it\/business(?:\/|$)/, "it-support"],
+    [/^\/it\/privat(?:\/|$)/, "digitalization"],
+    [/^\/it\/ki-beratung(?:\/|$)/, "automation"],
   ];
 
-  function escapeHtml(value) {
-    return value.replace(/[&<>"']/g, (character) => ({
-      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
-    })[character]);
-  }
+  const iconPaths = {
+    tools: '<path d="m14.7 6.3 3 3M4 20l7.5-7.5m-2-8.5a5 5 0 0 0 6.5 6.5L21 16l-5 5-5.5-5.5A5 5 0 0 0 4 9l4 1 1-4-1-1Z"/>',
+    wifi: '<path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/>',
+    globe: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/>',
+    search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
+    sparkles: '<path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2L12 3ZM19 14l1.2 2.8L23 18l-2.8 1.2L19 22l-1.2-2.8L15 18l2.8-1.2L19 14Z"/>',
+    video: '<rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3"/>',
+    devices: '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4m-7-8h14"/>',
+    cookie: '<path d="M12 3a3 3 0 0 0 3 3 3 3 0 0 0 3 3 3 3 0 0 0 3 3 9 9 0 1 1-9-9Z"/><path d="M8 12h.01M12 16h.01M16 12h.01"/>',
+    arrow: '<path d="M5 12h14m-7-7 7 7-7 7"/>',
+    close: '<path d="m18 6-12 12M6 6l12 12"/>',
+    back: '<path d="M19 12H5m7-7-7 7 7 7"/>',
+    check: '<path d="m5 12.5 4.5 4.5L19 7.5"/>',
+    clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+    alert: '<path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4m0 3h.01"/>',
+    help: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7m0 3h.01"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+    users: '<circle cx="9" cy="8" r="3.5"/><path d="M2 21a7 7 0 0 1 14 0M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.5a7 7 0 0 1 4 6.5"/>',
+    building: '<rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2m4 0h-1M9 11h2m4 0h-1M9 15h2m4 0h-1"/>',
+    shield: '<path d="M12 3 4 6v6c0 4.5 3.2 7.8 8 9 4.8-1.2 8-4.5 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/>',
+    bolt: '<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>',
+    cloud: '<path d="M7 18a4 4 0 0 1-.5-7.97A6 6 0 0 1 18 9.5 4.3 4.3 0 0 1 17.5 18H7Z"/>',
+    doc: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6m-6 4h6"/>',
+    mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    mobile: '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
+    target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+    euro: '<path d="M18 6.5A7 7 0 1 0 18 17.5M4 10h9M4 14h9"/>',
+    camera: '<path d="M4 8h3l2-3h6l2 3h3v11H4V8Z"/><circle cx="12" cy="13" r="3.5"/>',
+  };
 
-  function renderServices() {
-    app.innerHTML = `<div class="service-grid">${services.map((service) => `
-      <button class="service-card" type="button" data-service="${service.id}">
-        <span class="service-icon" aria-hidden="true">${service.icon}</span>
-        <strong>${service.title}</strong>
-        <span>${service.description}</span>
-      </button>`).join("")}</div>`;
-    app.querySelectorAll("[data-service]").forEach((button) => {
-      button.addEventListener("click", () => startAnalysis(button.dataset.service));
-    });
-  }
+  const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+  })[character]);
 
-  function startAnalysis(serviceId) {
-    state.service = services.find((service) => service.id === serviceId);
-    state.answers = {};
-    state.questionIndex = 0;
-    renderQuestion();
-    host.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
+  const icon = (name, className = "") => (
+    `<svg class="${className}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconPaths[name] || iconPaths.sparkles}</svg>`
+  );
 
-  function visibleQuestions() {
-    const service = state.service;
-    const questions = [];
-    service.questions.forEach((item, index) => {
-      const question = {
-        id: item[0],
-        prompt: item[1],
-        options: item[2],
-        weakness: service.weaknesses[index],
-        action: service.actions[index],
-      };
-      questions.push(question);
-      if (service.followup.after === question.id && state.answers[question.id] === 2) {
-        questions.push({ ...service.followup, id: `${service.id}-followup`, followup: true });
-      }
-    });
-    return questions;
-  }
+  const findPageService = () => {
+    const entry = serviceByPath.find(([pattern]) => pattern.test(window.location.pathname));
+    return entry ? services.find((service) => service.id === entry[1]) : null;
+  };
 
-  function renderQuestion() {
-    const service = state.service;
-    const questions = visibleQuestions();
-    const question = questions[state.questionIndex];
-    const selected = state.answers[question.id];
-    const total = questions.length;
-    const progress = Math.round(((state.questionIndex + 1) / total) * 100);
-    app.innerHTML = `
-      <section class="quiz" aria-labelledby="question-title">
-        <div class="quiz-top">
-          <span>${service.title}</span>
-          <span>Frage ${state.questionIndex + 1} von ${total}</span>
+  const dialog = document.createElement("dialog");
+  dialog.className = "dc-dialog";
+  dialog.setAttribute("aria-labelledby", "dc-dialog-title");
+  dialog.innerHTML = `
+    <div class="dc-dialog-shell">
+      <div class="dc-dialog-heading">
+        <div class="dc-dialog-brand">
+          <span class="dc-dialog-icon">${icon("sparkles")}</span>
+          <div><p class="dc-eyebrow">EasyTech IT-Solutions</p><h2 id="dc-dialog-title">Kostenloser Digital-Check</h2></div>
         </div>
-        <div class="progress-track" role="progressbar" aria-label="Fortschritt" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progress}">
-          <div class="progress-fill" style="width:${progress}%"></div>
+        <button class="dc-close" type="button" aria-label="Digital-Check schließen" data-dc-close>${icon("close")}</button>
+      </div>
+      <div class="dc-dialog-content" data-dc-content></div>
+    </div>`;
+  document.body.append(dialog);
+
+  const section = document.createElement("section");
+  section.id = "digital-check";
+  section.className = "dc-section";
+  section.setAttribute("aria-labelledby", "dc-section-title");
+
+  let pageService = findPageService();
+  let selectedService = pageService;
+  let routePath = window.location.pathname;
+  let autoOpenTimer;
+  let observerFrame = false;
+  let sending = false;
+  let step = 0;
+  let answers = [];
+
+  function renderSection() {
+    const serviceId = pageService ? pageService.id : "all";
+    if (section.dataset.serviceId === serviceId) return;
+    section.dataset.serviceId = serviceId;
+    const title = pageService ? `Kostenloser Check für ${pageService.title}` : "Kostenloser Digital-Check";
+    const description = "12 kurze Fragen, ein Klick pro Antwort. Ihre Analyse kommt in wenigen Stunden oder Tagen per E-Mail.";
+    section.innerHTML = `
+      <div class="dc-section-card">
+        <div class="dc-section-copy">
+          <p class="dc-eyebrow">Kostenlos · Unverbindlich · ca. 2 Minuten</p>
+          <h2 id="dc-section-title">${escapeHtml(title)}</h2>
+          <p>${escapeHtml(description)}</p>
         </div>
-        <h3 id="question-title">${question.prompt}</h3>
-        <div class="answers" role="group" aria-labelledby="question-title">
-          ${question.options.map((label, index) => `
-            <button class="answer" type="button" data-answer="${index}" aria-pressed="${selected === index}">
-              <span>${label}</span>
-              <span class="answer-check" aria-hidden="true">${selected === index ? "Ausgewählt" : ""}</span>
+        <button class="dc-button dc-button-primary" type="button" data-dc-open>
+          Check starten ${icon("arrow")}
+        </button>
+      </div>`;
+  }
+
+  const progressMarkup = (current, total) => `
+    <div class="dc-progress" role="progressbar" aria-valuemin="1" aria-valuemax="${total}" aria-valuenow="${current}">
+      ${Array.from({ length: total }, (_, index) => `<span class="${index < current ? "is-done" : ""}"></span>`).join("")}
+    </div>
+    <p class="dc-step-label">Schritt ${current} von ${total}</p>`;
+
+  function renderPicker() {
+    return `
+      <div class="dc-step">
+        <h3 class="dc-question-bar">Worum geht es bei Ihnen?</h3>
+        <p class="dc-hint">Wählen Sie ein Thema.</p>
+        <div class="dc-tiles dc-tiles-wide">
+          ${services.map((service) => `
+            <button class="dc-tile" type="button" data-dc-service="${service.id}">
+              <span class="dc-tile-icon">${icon(service.icon)}</span>
+              <span class="dc-tile-label">${escapeHtml(service.title)}</span>
             </button>`).join("")}
         </div>
-        <div class="quiz-actions">
-          <button class="button button-secondary" type="button" data-action="back">
-            ${state.questionIndex === 0 ? "Leistung ändern" : "Zurück"}
-          </button>
-          <button class="button button-primary" type="button" data-action="next" ${selected === undefined ? "disabled" : ""}>
-            ${state.questionIndex === total - 1 ? "Analyse auswerten" : "Weiter"}
-          </button>
-        </div>
-        <p class="quiz-note">Deine Angaben werden nicht übertragen oder gespeichert.</p>
-      </section>`;
+      </div>`;
+  }
 
-    app.querySelectorAll("[data-answer]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const answersBeforeQuestion = visibleQuestions()
-          .slice(0, state.questionIndex)
-          .map((visibleQuestion) => visibleQuestion.id);
-        state.answers = Object.fromEntries(
-          Object.entries(state.answers).filter(([id]) => answersBeforeQuestion.includes(id)),
-        );
-        state.answers[question.id] = Number(button.dataset.answer);
-        renderQuestion();
-        app.querySelector(`[data-answer="${state.answers[question.id]}"]`).focus();
+  function renderQuestion(service, index) {
+    const total = service.questions.length + 1;
+    const [question, options] = service.questions[index];
+    const selected = answers[index];
+    return `
+      <div class="dc-step">
+        ${progressMarkup(index + 1, total)}
+        <h3 class="dc-question-bar">${escapeHtml(question)}</h3>
+        <p class="dc-hint">Bitte eine Antwort wählen.</p>
+        <div class="dc-tiles" role="radiogroup" aria-label="${escapeHtml(question)}">
+          ${options.map(([label, iconName]) => `
+            <button class="dc-tile${selected === label ? " is-selected" : ""}" type="button" role="radio" aria-checked="${selected === label}" data-dc-answer="${escapeHtml(label)}">
+              <span class="dc-tile-icon">${icon(iconName)}</span>
+              <span class="dc-tile-label">${escapeHtml(label)}</span>
+            </button>`).join("")}
+        </div>
+        <div class="dc-nav-row">
+          <button class="dc-back" type="button" data-dc-back aria-label="Zurück">${icon("back")}</button>
+          <button class="dc-button dc-button-primary dc-next" type="button" data-dc-next ${selected ? "" : "disabled"}>Weiter ${icon("arrow")}</button>
+        </div>
+      </div>`;
+  }
+
+  function renderContact(service) {
+    const total = service.questions.length + 1;
+    return `
+      <form class="dc-step dc-form" data-dc-form novalidate>
+        ${progressMarkup(total, total)}
+        <h3 class="dc-question-bar">Wohin dürfen wir Ihre Analyse senden?</h3>
+        <p class="dc-hint">Kostenlos und unverbindlich.</p>
+        <div class="dc-fields-grid">
+          <label class="dc-field"><span>Vorname <b aria-hidden="true">*</b></span><input name="firstName" autocomplete="given-name" maxlength="100" required></label>
+          <label class="dc-field"><span>Nachname <b aria-hidden="true">*</b></span><input name="lastName" autocomplete="family-name" maxlength="100" required></label>
+          <label class="dc-field dc-field-full"><span>E-Mail <b aria-hidden="true">*</b></span><input type="email" name="email" autocomplete="email" maxlength="254" required></label>
+          <label class="dc-field dc-field-full"><span>Telefon <small>optional</small></span><input type="tel" name="phone" autocomplete="tel" maxlength="40"></label>
+        </div>
+        <label class="dc-consent"><input type="checkbox" name="consent" required><span>Ich stimme der Verarbeitung meiner Angaben zu. <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutz</a> <b aria-hidden="true">*</b></span></label>
+        <p class="dc-form-status" role="status" aria-live="polite" hidden></p>
+        <div class="dc-nav-row">
+          <button class="dc-back" type="button" data-dc-back aria-label="Zurück">${icon("back")}</button>
+          <button class="dc-button dc-button-primary dc-submit" type="submit">Jetzt abschicken ${icon("arrow")}</button>
+        </div>
+        <p class="dc-response-note">Ihre Analyse erhalten Sie in wenigen Stunden oder Tagen per E-Mail.</p>
+      </form>`;
+  }
+
+  function showSuccess(container) {
+    container.innerHTML = `
+      <div class="dc-success" role="status">
+        <span class="dc-success-icon">${icon("check")}</span>
+        <h3>Vielen Dank!</h3>
+        <p>Ihre Analyse erhalten Sie in wenigen Stunden oder Tagen per E-Mail.</p>
+        <button class="dc-button dc-button-secondary" type="button" data-dc-close>Schließen</button>
+      </div>`;
+  }
+
+  function updateDialog() {
+    const content = dialog.querySelector("[data-dc-content]");
+    if (!selectedService) {
+      content.innerHTML = renderPicker();
+      content.querySelectorAll("[data-dc-service]").forEach((button) => {
+        button.addEventListener("click", () => {
+          selectedService = services.find((service) => service.id === button.dataset.dcService);
+          step = 0;
+          answers = [];
+          updateDialog();
+        });
+      });
+      return;
+    }
+
+    const lastQuestion = selectedService.questions.length;
+    const goBack = () => {
+      if (step > 0) {
+        step -= 1;
+      } else if (!pageService) {
+        selectedService = null;
+      }
+      updateDialog();
+    };
+
+    if (step >= lastQuestion) {
+      content.innerHTML = renderContact(selectedService);
+      content.querySelector("[data-dc-form]").addEventListener("submit", submitForm);
+      content.querySelector("[data-dc-back]").addEventListener("click", goBack);
+      content.querySelector("input")?.focus({ preventScroll: true });
+      return;
+    }
+
+    content.innerHTML = renderQuestion(selectedService, step);
+    const next = content.querySelector("[data-dc-next]");
+    content.querySelectorAll("[data-dc-answer]").forEach((tile) => {
+      tile.addEventListener("click", () => {
+        answers[step] = tile.dataset.dcAnswer;
+        content.querySelectorAll("[data-dc-answer]").forEach((other) => {
+          const active = other === tile;
+          other.classList.toggle("is-selected", active);
+          other.setAttribute("aria-checked", String(active));
+        });
+        next.disabled = false;
+        next.focus({ preventScroll: true });
       });
     });
-    app.querySelector('[data-action="back"]').addEventListener("click", () => {
-      if (state.questionIndex === 0) {
-        state.service = null;
-        renderServices();
-      } else {
-        state.questionIndex -= 1;
-        renderQuestion();
+    next.addEventListener("click", () => {
+      if (!answers[step]) return;
+      step += 1;
+      updateDialog();
+    });
+    content.querySelector("[data-dc-back]").addEventListener("click", goBack);
+  }
+
+  async function submitForm(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const status = form.querySelector(".dc-form-status");
+    const submit = form.querySelector(".dc-submit");
+    if (sending || !selectedService) return;
+
+    if (!form.reportValidity()) return;
+
+    const formData = new FormData(form);
+    const answerLines = selectedService.questions.map(([question], index) => (
+      `${question}\n${answers[index] || "–"}`
+    ));
+    const message = [
+      `Kostenloser Digital-Check: ${selectedService.title}`,
+      "",
+      "Antworten:",
+      ...answerLines.flatMap((answer) => [answer, ""]),
+    ].join("\n");
+    const payload = {
+      firstName: String(formData.get("firstName") || "").trim(),
+      lastName: String(formData.get("lastName") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      phone: String(formData.get("phone") || "").trim(),
+      service: `Kostenloser Digital-Check – ${selectedService.title}`,
+      message,
+      consent: "true",
+    };
+
+    sending = true;
+    submit.disabled = true;
+    submit.setAttribute("aria-busy", "true");
+    status.hidden = false;
+    status.className = "dc-form-status";
+    status.textContent = "Ihre Anfrage wird sicher übermittelt …";
+
+    try {
+      const response = await fetch("/api/contact.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Ihre Anfrage konnte nicht versendet werden. Bitte versuchen Sie es später erneut.");
       }
-    });
-    app.querySelector('[data-action="next"]').addEventListener("click", () => {
-      if (state.answers[question.id] === undefined) return;
-      const currentQuestions = visibleQuestions();
-      if (state.questionIndex < currentQuestions.length - 1) {
-        state.questionIndex += 1;
-        renderQuestion();
-      } else {
-        renderResult();
-      }
-    });
-  }
-
-  function renderResult() {
-    const service = state.service;
-    const values = visibleQuestions().map((question) => {
-      const answerIndex = state.answers[question.id];
-      return {
-        question: question.prompt,
-        score: [100, 68, 30, 55][answerIndex],
-        unknown: answerIndex === 3,
-        concern: answerIndex === 3
-          ? "Der aktuelle Stand ist anhand deiner Angaben nicht bekannt. Prüfe zunächst, ob hier Verbesserungsbedarf besteht."
-          : question.weakness,
-        action: answerIndex === 3
-          ? `Prüfe und dokumentiere zunächst den aktuellen Stand. Falls dabei Lücken sichtbar werden: ${question.action}`
-          : question.action,
-      };
-    });
-    const score = Math.round(values.reduce((total, answer) => total + answer.score, 0) / values.length);
-    const level = levels.find((entry) => score >= entry.minimum);
-    const concerns = values.filter((answer) => answer.score < 60);
-    const recommendations = values
-      .filter((answer) => answer.score < 75)
-      .sort((first, second) => first.score - second.score)
-      .slice(0, 3);
-    const weaknessesMarkup = concerns.length
-      ? concerns
-        .map((answer) => `<li><strong>${escapeHtml(answer.question)}${answer.unknown ? " · Prüfbedarf" : ""}</strong>${escapeHtml(answer.concern)}</li>`)
-        .join("")
-      : "<li><strong>Keine ausgeprägte Schwachstelle aus deinen Angaben</strong>Deine Antworten zeigen keine deutlich kritische Einzelbewertung. Prüfe die Empfehlungen als Ansatz zur weiteren Verbesserung.</li>";
-    const recommendationsMarkup = recommendations.length
-      ? recommendations.map((answer, index) => `<li><strong>${index + 1}. ${escapeHtml(answer.question)}</strong>${escapeHtml(answer.action)}</li>`).join("")
-      : `<li><strong>Gute Basis erhalten</strong>${escapeHtml(service.actions[0])}</li>`;
-
-    app.innerHTML = `
-      <section class="result" aria-labelledby="result-title">
-        <div class="result-header">
-          <div class="score-circle" style="--score:${score}" role="img" aria-label="Orientierungswert ${score} von 100">
-            <span class="score-number">${score}</span>
-            <span class="score-label">von 100</span>
-          </div>
-          <div>
-            <p class="eyebrow">${service.title}</p>
-            <h2 id="result-title">${level.label}</h2>
-            <p class="result-intro">${level.description}</p>
-          </div>
-        </div>
-        <p class="result-intro">Der Orientierungswert ist der gerundete Durchschnitt deiner Antworten, gegebenenfalls einschließlich Folgefrage. Positive Antworten zählen 100, teilweise erfüllte 68, negative 30 und unbekannte Zustände 55 Punkte. Er ist eine Selbsteinschätzung, kein technischer Prüfwert.</p>
-        <div class="result-section">
-          <h3>Aus deinen Antworten abgeleitete Hinweise</h3>
-          <ul class="result-list">${weaknessesMarkup}</ul>
-        </div>
-        <div class="result-section">
-          <h3>Empfohlene nächste Schritte</h3>
-          <ol class="result-list priority-list">${recommendationsMarkup}</ol>
-        </div>
-        <p class="result-disclaimer">Diese Ersteinschätzung ersetzt keine technische Prüfung. Es wurde kein Live-Scan durchgeführt; alle Hinweise beruhen ausschließlich auf deinen Antworten.</p>
-        <div class="result-actions">
-          <button class="button button-secondary" type="button" data-action="restart">Andere Leistung analysieren</button>
-          <a class="button button-primary" href="/kontakt/">Unverbindliche Beratung anfragen</a>
-        </div>
-      </section>`;
-    app.querySelector('[data-action="restart"]').addEventListener("click", renderServices);
-    host.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  let scheduled = false;
-  function attach() {
-    scheduled = false;
-    const pill = document.querySelector("section.lz-sec .lz-pill");
-    if (pill && host.previousElementSibling !== pill) {
-      pill.after(host);
-    }
-  }
-  function scheduleAttach() {
-    if (!scheduled) {
-      scheduled = true;
-      requestAnimationFrame(attach);
+      showSuccess(dialog.querySelector("[data-dc-content]"));
+    } catch (error) {
+      status.className = "dc-form-status dc-form-status-error";
+      status.textContent = error instanceof Error
+        ? error.message
+        : "Ihre Anfrage konnte nicht versendet werden. Bitte versuchen Sie es später erneut oder schreiben Sie an info@easytechit.de.";
+      submit.disabled = false;
+      submit.removeAttribute("aria-busy");
+    } finally {
+      sending = false;
     }
   }
 
-  renderServices();
-  new MutationObserver(scheduleAttach).observe(document.documentElement, {
+  function openDialog() {
+    if (!dialog.open) {
+      selectedService = findPageService();
+      step = 0;
+      answers = [];
+      updateDialog();
+      dialog.showModal();
+    }
+    dialog.querySelector(".dc-close").focus();
+  }
+
+  function closeDialog() {
+    if (dialog.open) dialog.close();
+  }
+
+  function setupHeader() {
+    const nav = document.querySelector("nav");
+    if (!nav) return;
+
+    const desktopCta = nav.querySelector('a[href="/kontakt"], a[href="/kontakt/"]');
+    if (desktopCta && !nav.querySelector(".dc-inline-cta")) {
+      const button = document.createElement("a");
+      button.className = "dc-inline-cta";
+      button.href = "#digital-check";
+      button.dataset.dcOpen = "";
+      button.innerHTML = `Kostenlose Analyse ${icon("arrow")}`;
+      desktopCta.before(button);
+    }
+
+    const mobileMenuButton = nav.querySelector('button[class*="lg:hidden"]');
+    if (mobileMenuButton && !nav.querySelector(".dc-mobile-nav-cta")) {
+      const button = document.createElement("a");
+      button.className = "dc-mobile-nav-cta";
+      button.href = "#digital-check";
+      button.dataset.dcOpen = "";
+      button.setAttribute("aria-label", "Kostenlose Analyse starten");
+      button.textContent = "Analyse";
+      mobileMenuButton.before(button);
+    }
+  }
+
+  function setupFooter() {
+    const footer = document.querySelector("footer");
+    if (!footer || footer.querySelector(".dc-footer-cta")) return;
+    const contactLink = footer.querySelector('a[href="/kontakt"], a[href="/kontakt/"]');
+    if (!contactLink) return;
+    const button = document.createElement("a");
+    button.className = `${contactLink.className} dc-footer-cta`;
+    button.href = "#digital-check";
+    button.dataset.dcOpen = "";
+    button.textContent = "Kostenlosen Check starten";
+    contactLink.after(button);
+  }
+
+  function setupHero() {
+    const heading = document.querySelector("h1");
+    const hero = heading?.closest("section");
+    if (!hero || hero.querySelector(".dc-hero-cta")) return;
+
+    const phoneLink = hero.querySelector('a[href^="tel:"]');
+    const button = phoneLink || document.createElement("a");
+    button.href = "#digital-check";
+    button.classList.add("dc-hero-cta");
+    button.dataset.dcOpen = "";
+    button.removeAttribute("target");
+    button.removeAttribute("rel");
+    button.setAttribute("aria-label", "Kostenlose Analyse starten");
+    button.innerHTML = `Kostenlose Analyse ${icon("arrow")}`;
+
+    if (!phoneLink) {
+      const actionGroup = [...hero.querySelectorAll("div")]
+        .filter((element) => element.querySelectorAll("a").length >= 2)
+        .sort((first, second) => first.querySelectorAll("a").length - second.querySelectorAll("a").length)[0];
+      if (actionGroup) {
+        actionGroup.append(button);
+      } else {
+        heading.after(button);
+      }
+    }
+  }
+
+  function setupSection() {
+    renderSection();
+    if (document.getElementById("digital-check")) return;
+
+    const hero = document.querySelector("h1")?.closest("section");
+    if (hero?.parentElement) {
+      if (hero.nextElementSibling !== section) hero.insertAdjacentElement("afterend", section);
+    } else {
+      section.remove();
+    }
+  }
+
+  function setupFloatingActions() {
+    if (document.querySelector(".dc-floating-actions")) return;
+    const actions = document.createElement("div");
+    actions.className = "dc-floating-actions";
+    actions.setAttribute("aria-label", "Schnellzugriff");
+    actions.innerHTML = `
+      <button type="button" class="dc-floating-check" data-dc-open aria-label="Kostenlosen Digital-Check starten">
+        ${icon("sparkles")}<span>Kostenloser Check</span>
+      </button>
+      <button type="button" class="dc-floating-cookie" aria-label="Cookie-Einstellungen öffnen" title="Cookie-Einstellungen">
+        ${icon("cookie")}<span class="dc-visually-hidden">Cookie-Einstellungen</span>
+      </button>`;
+    document.body.append(actions);
+    actions.querySelector(".dc-floating-cookie").addEventListener("click", () => {
+      const settingsButton = [...document.querySelectorAll("button")].find((button) => (
+        button !== actions.querySelector(".dc-floating-cookie")
+        && !button.closest(".dc-floating-actions")
+        && button.textContent.replace(/\s+/g, " ").trim() === "Cookie-Einstellungen"
+      ));
+      if (settingsButton) {
+        settingsButton.click();
+      } else {
+        window.dispatchEvent(new CustomEvent("ja-itc-reopen-cookie-banner"));
+      }
+    });
+  }
+
+  function setupPage() {
+    setupHeader();
+    setupFooter();
+    setupHero();
+    setupSection();
+    setupFloatingActions();
+  }
+
+  document.addEventListener("click", (event) => {
+    const openButton = event.target.closest("[data-dc-open]");
+    if (openButton) {
+      event.preventDefault();
+      openDialog();
+      return;
+    }
+    if (event.target.closest("[data-dc-close]")) closeDialog();
+  });
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) closeDialog();
+  });
+
+  function routeChanged() {
+    const nextPath = window.location.pathname;
+    if (nextPath === routePath) {
+      setupPage();
+      return;
+    }
+    routePath = nextPath;
+    pageService = findPageService();
+    selectedService = pageService;
+    closeDialog();
+    setupPage();
+    scheduleAutoOpen();
+  }
+
+  function scheduleAutoOpen(delay = 3000) {
+    window.clearTimeout(autoOpenTimer);
+    autoOpenTimer = window.setTimeout(() => {
+      if (!window.localStorage.getItem("ja-itc-cookie-consent")) {
+        scheduleAutoOpen(800);
+        return;
+      }
+      openDialog();
+    }, delay);
+  }
+
+  function scheduleSetup() {
+    if (observerFrame) return;
+    observerFrame = true;
+    window.requestAnimationFrame(() => {
+      observerFrame = false;
+      routeChanged();
+    });
+  }
+
+  setupPage();
+  scheduleAutoOpen();
+  new MutationObserver(scheduleSetup).observe(document.documentElement, {
     childList: true,
     subtree: true,
   });
-  attach();
+  window.addEventListener("popstate", scheduleSetup);
 })();

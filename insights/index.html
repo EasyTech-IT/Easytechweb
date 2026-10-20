@@ -9,7 +9,7 @@
       content="Praxisnahe IT-Ratgeber zu Backups, Netzwerken und IT-Betreuung für kleine Unternehmen – verständlich erklärt von EasyTech IT-Solutions."
     />
     <link rel="canonical" href="https://easytechit.de/insights/" />
-    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg" />
+    <link rel="icon" type="image/png" href="../assets/EasyTech%20Logo.png" />
     <link rel="stylesheet" href="../css/ratgeber.css" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://easytechit.de/insights/" />
@@ -25,13 +25,29 @@
   <body>
     <header class="site-header">
       <a class="brand" href="/" aria-label="EasyTech IT-Solutions – Startseite">
-        <img src="../assets/logo.svg" alt="" width="38" height="38" />
-        <span>EasyTech IT-Solutions</span>
+        <img src="../assets/EasyTech%20Logo.png" alt="EasyTech IT-Solutions" />
       </a>
       <nav aria-label="Hauptnavigation">
-        <a href="/">Startseite</a>
-        <a href="/it/business/">IT-Betreuung</a>
-        <a href="/kontakt/">Kontakt</a>
+        <details class="nav-group">
+          <summary>Webdesign</summary>
+          <div class="nav-dropdown">
+            <a href="/webdesign/">Webdesign</a>
+            <a href="/projekte/">Projekte</a>
+            <a href="/preise/">Preise</a>
+          </div>
+        </details>
+        <a href="/videografie/">Videografie</a>
+        <details class="nav-group">
+          <summary>IT-Services</summary>
+          <div class="nav-dropdown">
+            <a href="/it/privat/">IT Privat</a>
+            <a href="/it/business/">IT Business</a>
+            <a href="/it/ki-beratung/">KI-Beratung</a>
+          </div>
+        </details>
+        <a href="/ueber-mich/">Über mich</a>
+        <a href="/insights/" aria-current="page">IT-Ratgeber</a>
+        <a class="nav-cta" href="/kontakt/">Projekt anfragen</a>
       </nav>
     </header>
     <main class="container">
@@ -52,6 +68,7 @@
             dazugehören.
           </p>
           <a class="read-more" href="/ratgeber/backup-strategie/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Datensicherung" data-title="Backups für kleine Unternehmen: eine belastbare Strategie" data-description="Welche Daten gesichert werden sollten, wie das 3-2-1-Prinzip einzuordnen ist und warum regelmäßige Wiederherstellungstests dazugehören." data-href="/ratgeber/backup-strategie/">Vorschau anzeigen</button>
         </article>
         <article class="article-card">
           <p class="eyebrow">IT-Betreuung</p>
@@ -61,6 +78,7 @@
             und passenden Fragen vor einer Zusammenarbeit.
           </p>
           <a class="read-more" href="/ratgeber/it-betreuung-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="IT-Betreuung" data-title="Externe IT-Betreuung: worauf KMU achten sollten" data-description="Ein Leitfaden zu Leistungsumfang, Zuständigkeiten, Dokumentation und passenden Fragen vor einer Zusammenarbeit." data-href="/ratgeber/it-betreuung-kmu/">Vorschau anzeigen</button>
         </article>
         <article class="article-card">
           <p class="eyebrow">Netzwerk &amp; WLAN</p>
@@ -70,6 +88,252 @@
             und mögliche Engpässe voneinander zu unterscheiden.
           </p>
           <a class="read-more" href="/ratgeber/wlan-im-buero/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Netzwerk &amp; WLAN" data-title="Büro-WLAN: Störungen systematisch eingrenzen" data-description="Ein nachvollziehbarer Ablauf, um Funklöcher, einzelne Endgeräte und mögliche Engpässe voneinander zu unterscheiden." data-href="/ratgeber/wlan-im-buero/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Cloud &amp; Datensicherung</p>
+          <h2><a href="/ratgeber/microsoft-365-backup-kmu/">Microsoft-365-Daten sichern: Backup-Plan für KMU</a></h2>
+          <p>Welche Cloud-Daten geschützt werden sollten, wie Aufbewahrung und Backup zusammenspielen und wie ein Restore-Test aussieht.</p>
+          <a class="read-more" href="/ratgeber/microsoft-365-backup-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Cloud &amp; Datensicherung" data-title="Microsoft-365-Daten sichern: Backup-Plan für KMU" data-description="Welche Cloud-Daten geschützt werden sollten, wie Aufbewahrung und Backup zusammenspielen und wie ein Restore-Test aussieht." data-href="/ratgeber/microsoft-365-backup-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Identitäten &amp; Zugriff</p>
+          <h2><a href="/ratgeber/mfa-kmu-einfuehren/">Mehr-Faktor-Authentifizierung im Unternehmen einführen</a></h2>
+          <p>Ein gestufter Rollout für Konten, Geräte und Wiederherstellung – mit möglichst wenig Überraschungen im Arbeitsalltag.</p>
+          <a class="read-more" href="/ratgeber/mfa-kmu-einfuehren/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Identitäten &amp; Zugriff" data-title="Mehr-Faktor-Authentifizierung im Unternehmen einführen" data-description="Ein gestufter Rollout für Konten, Geräte und Wiederherstellung – mit möglichst wenig Überraschungen im Arbeitsalltag." data-href="/ratgeber/mfa-kmu-einfuehren/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Netzwerk &amp; WLAN</p>
+          <h2><a href="/ratgeber/gaeste-wlan-trennen/">Gäste-WLAN vom Firmennetz trennen: so planen Sie es</a></h2>
+          <p>Die wichtigsten Anforderungen an Gastzugang, Segmentierung, Freigaben und sichere Tests vor dem produktiven Einsatz.</p>
+          <a class="read-more" href="/ratgeber/gaeste-wlan-trennen/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Netzwerk &amp; WLAN" data-title="Gäste-WLAN vom Firmennetz trennen: so planen Sie es" data-description="Die wichtigsten Anforderungen an Gastzugang, Segmentierung, Freigaben und sichere Tests vor dem produktiven Einsatz." data-href="/ratgeber/gaeste-wlan-trennen/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Notfallvorsorge</p>
+          <h2><a href="/ratgeber/it-notfallplan-kmu/">IT-Notfallplan für KMU: Zuständigkeiten und Wiederanlauf</a></h2>
+          <p>Ein verständlicher Ablauf für erste Meldung, Entscheidungen, Kommunikation und die geordnete Wiederherstellung wichtiger Dienste.</p>
+          <a class="read-more" href="/ratgeber/it-notfallplan-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Notfallvorsorge" data-title="IT-Notfallplan für KMU: Zuständigkeiten und Wiederanlauf" data-description="Ein verständlicher Ablauf für erste Meldung, Entscheidungen, Kommunikation und die geordnete Wiederherstellung wichtiger Dienste." data-href="/ratgeber/it-notfallplan-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">KI &amp; Datenschutz</p>
+          <h2><a href="/ratgeber/ki-tools-kmu-datenschutz/">KI-Tools im Unternehmen sicher auswählen und nutzen</a></h2>
+          <p>Prüffragen zu Daten, Konten, Einstellungen und Freigaben, bevor Mitarbeitende neue KI-Dienste produktiv verwenden.</p>
+          <a class="read-more" href="/ratgeber/ki-tools-kmu-datenschutz/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="KI &amp; Datenschutz" data-title="KI-Tools im Unternehmen sicher auswählen und nutzen" data-description="Prüffragen zu Daten, Konten, Einstellungen und Freigaben, bevor Mitarbeitende neue KI-Dienste produktiv verwenden." data-href="/ratgeber/ki-tools-kmu-datenschutz/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Compliance &amp; Sicherheit</p>
+          <h2><a href="/ratgeber/nis2-vorbereitung-checkliste/">NIS-2-Vorbereitung: IT-Sicherheitsmaßnahmen strukturiert prüfen</a></h2>
+          <p>Eine organisatorische Start-Checkliste für Verantwortlichkeiten, Risiken, Nachweise und die Prüfung der eigenen Betroffenheit.</p>
+          <a class="read-more" href="/ratgeber/nis2-vorbereitung-checkliste/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Compliance &amp; Sicherheit" data-title="NIS-2-Vorbereitung: IT-Sicherheitsmaßnahmen strukturiert prüfen" data-description="Eine organisatorische Start-Checkliste für Verantwortlichkeiten, Risiken, Nachweise und die Prüfung der eigenen Betroffenheit." data-href="/ratgeber/nis2-vorbereitung-checkliste/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Sicherheitsstrategie</p>
+          <h2><a href="/ratgeber/zero-trust-kmu-einstieg/">Zero Trust für KMU: ein pragmatischer Einstieg</a></h2>
+          <p>Wie sich Identitäten, Geräte und Zugriffe schrittweise prüfen lassen, ohne eine Komplettumstellung vorauszusetzen.</p>
+          <a class="read-more" href="/ratgeber/zero-trust-kmu-einstieg/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Sicherheitsstrategie" data-title="Zero Trust für KMU: ein pragmatischer Einstieg" data-description="Wie sich Identitäten, Geräte und Zugriffe schrittweise prüfen lassen, ohne eine Komplettumstellung vorauszusetzen." data-href="/ratgeber/zero-trust-kmu-einstieg/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Cloud &amp; Infrastruktur</p>
+          <h2><a href="/ratgeber/cloud-speicher-oder-nas/">Cloud-Speicher oder NAS: passende Ablage für KMU auswählen</a></h2>
+          <p>Vergleichen Sie Zugriff, Verfügbarkeit, Betrieb, Sicherung und Kosten anhand Ihrer Arbeitsabläufe statt nach einem pauschalen Sieger.</p>
+          <a class="read-more" href="/ratgeber/cloud-speicher-oder-nas/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Cloud &amp; Infrastruktur" data-title="Cloud-Speicher oder NAS: passende Ablage für KMU auswählen" data-description="Vergleichen Sie Zugriff, Verfügbarkeit, Betrieb, Sicherung und Kosten anhand Ihrer Arbeitsabläufe statt nach einem pauschalen Sieger." data-href="/ratgeber/cloud-speicher-oder-nas/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">IT-Betreuung</p>
+          <h2><a href="/ratgeber/it-dienstleister-auswahl-kriterien/">IT-Dienstleister auswählen: Angebote sinnvoll vergleichen</a></h2>
+          <p>Eine Kriterienmatrix für Leistungsumfang, Reaktionswege, Dokumentation, Zugriffe und Übergabe – ohne unprüfbare Werbeversprechen.</p>
+          <a class="read-more" href="/ratgeber/it-dienstleister-auswahl-kriterien/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="IT-Betreuung" data-title="IT-Dienstleister auswählen: Angebote sinnvoll vergleichen" data-description="Eine Kriterienmatrix für Leistungsumfang, Reaktionswege, Dokumentation, Zugriffe und Übergabe – ohne unprüfbare Werbeversprechen." data-href="/ratgeber/it-dienstleister-auswahl-kriterien/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">IT-Betrieb</p>
+          <h2><a href="/ratgeber/patchmanagement-kmu-checkliste/">Patchmanagement im KMU: Updates planbar umsetzen</a></h2>
+          <p>Ordnen Sie Systeme, Verantwortlichkeiten, Tests und Ausnahmen in einen nachvollziehbaren Update-Prozess ein.</p>
+          <a class="read-more" href="/ratgeber/patchmanagement-kmu-checkliste/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="IT-Betrieb" data-title="Patchmanagement im KMU: Updates planbar umsetzen" data-description="Ordnen Sie Systeme, Verantwortlichkeiten, Tests und Ausnahmen in einen nachvollziehbaren Update-Prozess ein." data-href="/ratgeber/patchmanagement-kmu-checkliste/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Mitarbeitende &amp; Konten</p>
+          <h2><a href="/ratgeber/it-onboarding-offboarding/">IT-Onboarding und Offboarding: Konten sicher verwalten</a></h2>
+          <p>Eine praktische Checkliste für neue Rollen, Geräte, Berechtigungen und den geordneten Entzug von Zugängen.</p>
+          <a class="read-more" href="/ratgeber/it-onboarding-offboarding/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Mitarbeitende &amp; Konten" data-title="IT-Onboarding und Offboarding: Konten sicher verwalten" data-description="Eine praktische Checkliste für neue Rollen, Geräte, Berechtigungen und den geordneten Entzug von Zugängen." data-href="/ratgeber/it-onboarding-offboarding/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Webdesign &amp; Betrieb</p>
+          <h2><a href="/ratgeber/website-wartung-kmu/">Website-Wartung für KMU: monatliche Checkliste</a></h2>
+          <p>Prüfen Sie Updates, Sicherungen, Formulare, Ladeverhalten und Zugänge mit einem wiederholbaren Wartungsablauf.</p>
+          <a class="read-more" href="/ratgeber/website-wartung-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Webdesign &amp; Betrieb" data-title="Website-Wartung für KMU: monatliche Checkliste" data-description="Prüfen Sie Updates, Sicherungen, Formulare, Ladeverhalten und Zugänge mit einem wiederholbaren Wartungsablauf." data-href="/ratgeber/website-wartung-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Sicherheitsvorfälle</p>
+          <h2><a href="/ratgeber/phishing-verdacht-erste-schritte/">Phishing-Verdacht im Unternehmen: erste Schritte</a></h2>
+          <p>Wie Mitarbeitende einen Verdacht melden, Konten schützen und Informationen für die sichere Vorfallbearbeitung festhalten.</p>
+          <a class="read-more" href="/ratgeber/phishing-verdacht-erste-schritte/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Sicherheitsvorfälle" data-title="Phishing-Verdacht im Unternehmen: erste Schritte" data-description="Wie Mitarbeitende einen Verdacht melden, Konten schützen und Informationen für die sichere Vorfallbearbeitung festhalten." data-href="/ratgeber/phishing-verdacht-erste-schritte/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Cloud &amp; Modernisierung</p>
+          <h2><a href="/ratgeber/cloud-migration-kmu-planen/">Cloud-Migration im KMU: Arbeitsabläufe sicher vorbereiten</a></h2>
+          <p>Ein schrittweiser Plan für Abhängigkeiten, Daten, Zuständigkeiten, Tests und einen kontrollierten Wechsel.</p>
+          <a class="read-more" href="/ratgeber/cloud-migration-kmu-planen/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Cloud &amp; Modernisierung" data-title="Cloud-Migration im KMU: Arbeitsabläufe sicher vorbereiten" data-description="Ein schrittweiser Plan für Abhängigkeiten, Daten, Zuständigkeiten, Tests und einen kontrollierten Wechsel." data-href="/ratgeber/cloud-migration-kmu-planen/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">IT-Betrieb</p>
+          <h2><a href="/ratgeber/it-asset-inventar-kmu/">IT-Inventar im KMU: Geräte und Zuständigkeiten erfassen</a></h2>
+          <p>Eine praxistaugliche Struktur für Geräte, Software, Eigentümer, Lebenszyklus und die regelmäßige Aktualisierung Ihrer Übersicht.</p>
+          <a class="read-more" href="/ratgeber/it-asset-inventar-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="IT-Betrieb" data-title="IT-Inventar im KMU: Geräte und Zuständigkeiten erfassen" data-description="Eine praxistaugliche Struktur für Geräte, Software, Eigentümer, Lebenszyklus und die regelmäßige Aktualisierung Ihrer Übersicht." data-href="/ratgeber/it-asset-inventar-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Mobiles Arbeiten</p>
+          <h2><a href="/ratgeber/homeoffice-it-sicherheit-kmu/">Homeoffice sicher organisieren: IT-Checkliste für KMU</a></h2>
+          <p>Ordnen Sie Geräte, Zugriffswege, Updates, private Netzwerke und Support für mobiles Arbeiten in klare Regeln ein.</p>
+          <a class="read-more" href="/ratgeber/homeoffice-it-sicherheit-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Mobiles Arbeiten" data-title="Homeoffice sicher organisieren: IT-Checkliste für KMU" data-description="Ordnen Sie Geräte, Zugriffswege, Updates, private Netzwerke und Support für mobiles Arbeiten in klare Regeln ein." data-href="/ratgeber/homeoffice-it-sicherheit-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Identitäten &amp; Zugriff</p>
+          <h2><a href="/ratgeber/passwortmanager-kmu-einfuehren/">Passwortmanager im Unternehmen einführen: sichere Abläufe</a></h2>
+          <p>Worauf es bei Auswahl, Freigaben, Notfallzugriff und der Einführung in Teams ankommt.</p>
+          <a class="read-more" href="/ratgeber/passwortmanager-kmu-einfuehren/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Identitäten &amp; Zugriff" data-title="Passwortmanager im Unternehmen einführen: sichere Abläufe" data-description="Worauf es bei Auswahl, Freigaben, Notfallzugriff und der Einführung in Teams ankommt." data-href="/ratgeber/passwortmanager-kmu-einfuehren/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">E-Mail-Sicherheit</p>
+          <h2><a href="/ratgeber/e-mail-domain-schutz-spf-dkim-dmarc/">SPF, DKIM und DMARC: E-Mail-Domain richtig absichern</a></h2>
+          <p>Wie die drei Mechanismen zusammenspielen und wie Sie Änderungen mit Bestandsaufnahme und Monitoring vorbereiten.</p>
+          <a class="read-more" href="/ratgeber/e-mail-domain-schutz-spf-dkim-dmarc/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="E-Mail-Sicherheit" data-title="SPF, DKIM und DMARC: E-Mail-Domain richtig absichern" data-description="Wie die drei Mechanismen zusammenspielen und wie Sie Änderungen mit Bestandsaufnahme und Monitoring vorbereiten." data-href="/ratgeber/e-mail-domain-schutz-spf-dkim-dmarc/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Webdesign &amp; Barrierefreiheit</p>
+          <h2><a href="/ratgeber/barrierefreie-website-kmu-checkliste/">Barrierefreie Website: praktische Prüfliste für KMU</a></h2>
+          <p>Prüfen Sie Tastaturbedienung, Kontraste, Überschriften, Formulare und Alternativtexte Schritt für Schritt.</p>
+          <a class="read-more" href="/ratgeber/barrierefreie-website-kmu-checkliste/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Webdesign &amp; Barrierefreiheit" data-title="Barrierefreie Website: praktische Prüfliste für KMU" data-description="Prüfen Sie Tastaturbedienung, Kontraste, Überschriften, Formulare und Alternativtexte Schritt für Schritt." data-href="/ratgeber/barrierefreie-website-kmu-checkliste/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Webdesign &amp; Plattformen</p>
+          <h2><a href="/ratgeber/cms-auswahl-kmu/">CMS auswählen: Entscheidungshilfe für Unternehmenswebsites</a></h2>
+          <p>Vergleichen Sie Pflegeaufwand, Erweiterbarkeit, Sicherheit, Redaktion und Gesamtkosten anhand Ihrer Anforderungen.</p>
+          <a class="read-more" href="/ratgeber/cms-auswahl-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Webdesign &amp; Plattformen" data-title="CMS auswählen: Entscheidungshilfe für Unternehmenswebsites" data-description="Vergleichen Sie Pflegeaufwand, Erweiterbarkeit, Sicherheit, Redaktion und Gesamtkosten anhand Ihrer Anforderungen." data-href="/ratgeber/cms-auswahl-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">IT-Strategie</p>
+          <h2><a href="/ratgeber/it-budget-kmu-planen/">IT-Budget im KMU planen: laufende Kosten und Projekte</a></h2>
+          <p>Erstellen Sie einen transparenten Überblick über Betrieb, Erneuerung, Sicherheit, Support und geplante Veränderungen.</p>
+          <a class="read-more" href="/ratgeber/it-budget-kmu-planen/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="IT-Strategie" data-title="IT-Budget im KMU planen: laufende Kosten und Projekte" data-description="Erstellen Sie einen transparenten Überblick über Betrieb, Erneuerung, Sicherheit, Support und geplante Veränderungen." data-href="/ratgeber/it-budget-kmu-planen/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Webdesign &amp; SEO</p>
+          <h2><a href="/ratgeber/website-seo-checkliste-kmu/">SEO-Checkliste für Unternehmenswebsites: Technik und Inhalte</a></h2>
+          <p>Prüfen Sie crawlbare Seiten, eindeutige Inhalte, Seitentitel, interne Links und technische Grundlagen ohne Rankingversprechen.</p>
+          <a class="read-more" href="/ratgeber/website-seo-checkliste-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Webdesign &amp; SEO" data-title="SEO-Checkliste für Unternehmenswebsites: Technik und Inhalte" data-description="Prüfen Sie crawlbare Seiten, eindeutige Inhalte, Seitentitel, interne Links und technische Grundlagen ohne Rankingversprechen." data-href="/ratgeber/website-seo-checkliste-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Identitäten &amp; Zugriff</p>
+          <h2><a href="/ratgeber/passkeys-kmu-einfuehren/">Passkeys im Unternehmen: Einführung sorgfältig planen</a></h2>
+          <p>Bewerten Sie Geräteunterstützung, Wiederherstellung, Nutzerabläufe und schrittweise Einführung für passwortlose Anmeldungen.</p>
+          <a class="read-more" href="/ratgeber/passkeys-kmu-einfuehren/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Identitäten &amp; Zugriff" data-title="Passkeys im Unternehmen: Einführung sorgfältig planen" data-description="Bewerten Sie Geräteunterstützung, Wiederherstellung, Nutzerabläufe und schrittweise Einführung für passwortlose Anmeldungen." data-href="/ratgeber/passkeys-kmu-einfuehren/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Cloud &amp; Berechtigungen</p>
+          <h2><a href="/ratgeber/cloud-berechtigungen-pruefen/">Cloud-Berechtigungen prüfen: Zugriffe übersichtlich halten</a></h2>
+          <p>Erstellen Sie einen Überprüfungsrhythmus für Rollen, Freigaben, externe Nutzer und nicht mehr benötigte Zugänge.</p>
+          <a class="read-more" href="/ratgeber/cloud-berechtigungen-pruefen/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Cloud &amp; Berechtigungen" data-title="Cloud-Berechtigungen prüfen: Zugriffe übersichtlich halten" data-description="Erstellen Sie einen Überprüfungsrhythmus für Rollen, Freigaben, externe Nutzer und nicht mehr benötigte Zugänge." data-href="/ratgeber/cloud-berechtigungen-pruefen/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">IT-Betrieb</p>
+          <h2><a href="/ratgeber/it-monitoring-kmu/">IT-Monitoring im KMU: wichtige Systeme im Blick behalten</a></h2>
+          <p>Wählen Sie sinnvolle Zustandsindikatoren, Alarmwege und Verantwortliche, damit Warnungen bearbeitet statt ignoriert werden.</p>
+          <a class="read-more" href="/ratgeber/it-monitoring-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="IT-Betrieb" data-title="IT-Monitoring im KMU: wichtige Systeme im Blick behalten" data-description="Wählen Sie sinnvolle Zustandsindikatoren, Alarmwege und Verantwortliche, damit Warnungen bearbeitet statt ignoriert werden." data-href="/ratgeber/it-monitoring-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Endgeräte &amp; Sicherheit</p>
+          <h2><a href="/ratgeber/endgeraete-schutz-kmu/">Endgeräteschutz im Unternehmen: Schutzmaßnahmen koordinieren</a></h2>
+          <p>Verbinden Sie Inventar, Gerätekonfiguration, Updates, Verschlüsselung, Schutzsoftware und Reaktionswege zu einem Prozess.</p>
+          <a class="read-more" href="/ratgeber/endgeraete-schutz-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Endgeräte &amp; Sicherheit" data-title="Endgeräteschutz im Unternehmen: Schutzmaßnahmen koordinieren" data-description="Verbinden Sie Inventar, Gerätekonfiguration, Updates, Verschlüsselung, Schutzsoftware und Reaktionswege zu einem Prozess." data-href="/ratgeber/endgeraete-schutz-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Dienstleister &amp; Übergabe</p>
+          <h2><a href="/ratgeber/it-dienstleister-uebergabe/">IT-Dienstleister wechseln: Übergabe ohne Wissenslücken planen</a></h2>
+          <p>Planen Sie Inventar, Dokumentation, Zugänge, laufende Aufgaben und Verantwortlichkeiten für einen kontrollierten Übergang.</p>
+          <a class="read-more" href="/ratgeber/it-dienstleister-uebergabe/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Dienstleister &amp; Übergabe" data-title="IT-Dienstleister wechseln: Übergabe ohne Wissenslücken planen" data-description="Planen Sie Inventar, Dokumentation, Zugänge, laufende Aufgaben und Verantwortlichkeiten für einen kontrollierten Übergang." data-href="/ratgeber/it-dienstleister-uebergabe/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Videokonferenzen</p>
+          <h2><a href="/ratgeber/videokonferenzen-it-kmu/">Videokonferenzen im Unternehmen: Technik und Regeln abstimmen</a></h2>
+          <p>Prüfen Sie Raumtechnik, Einwahl, Rechte, Datenschutz und Support für Besprechungen im Büro und mobil.</p>
+          <a class="read-more" href="/ratgeber/videokonferenzen-it-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Videokonferenzen" data-title="Videokonferenzen im Unternehmen: Technik und Regeln abstimmen" data-description="Prüfen Sie Raumtechnik, Einwahl, Rechte, Datenschutz und Support für Besprechungen im Büro und mobil." data-href="/ratgeber/videokonferenzen-it-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">IT-Dokumentation</p>
+          <h2><a href="/ratgeber/it-dokumentation-kmu/">IT-Dokumentation im KMU: Inhalte und Pflege strukturieren</a></h2>
+          <p>Welche Systeminformationen, Kontakte und Abläufe dokumentiert werden sollten – und wie die Unterlagen aktuell bleiben.</p>
+          <a class="read-more" href="/ratgeber/it-dokumentation-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="IT-Dokumentation" data-title="IT-Dokumentation im KMU: Inhalte und Pflege strukturieren" data-description="Welche Systeminformationen, Kontakte und Abläufe dokumentiert werden sollten – und wie die Unterlagen aktuell bleiben." data-href="/ratgeber/it-dokumentation-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Wiederherstellung</p>
+          <h2><a href="/ratgeber/it-wiederherstellungstest-kmu/">Wiederherstellung testen: IT-Backup-Probe für KMU</a></h2>
+          <p>Planen Sie sichere Restore-Übungen mit klaren Zielen, Verantwortlichen, Testdaten und dokumentierten Ergebnissen.</p>
+          <a class="read-more" href="/ratgeber/it-wiederherstellungstest-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Wiederherstellung" data-title="Wiederherstellung testen: IT-Backup-Probe für KMU" data-description="Planen Sie sichere Restore-Übungen mit klaren Zielen, Verantwortlichen, Testdaten und dokumentierten Ergebnissen." data-href="/ratgeber/it-wiederherstellungstest-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Geräte &amp; Richtlinien</p>
+          <h2><a href="/ratgeber/byod-richtlinie-kmu/">Private Geräte im Betrieb: BYOD-Regeln für KMU planen</a></h2>
+          <p>Prüfen Sie Zugriff, Support, Datentrennung und Austritt, bevor private Geräte für Unternehmensarbeit zugelassen werden.</p>
+          <a class="read-more" href="/ratgeber/byod-richtlinie-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Geräte &amp; Richtlinien" data-title="Private Geräte im Betrieb: BYOD-Regeln für KMU planen" data-description="Prüfen Sie Zugriff, Support, Datentrennung und Austritt, bevor private Geräte für Unternehmensarbeit zugelassen werden." data-href="/ratgeber/byod-richtlinie-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Netzwerk &amp; Dokumentation</p>
+          <h2><a href="/ratgeber/netzwerkplan-dokumentieren-kmu/">Netzwerkplan erstellen: IT-Struktur verständlich dokumentieren</a></h2>
+          <p>Erfassen Sie Geräte, Verbindungen, Zuständigkeiten und Notfallkontakte ohne unnötig sensible Details offenzulegen.</p>
+          <a class="read-more" href="/ratgeber/netzwerkplan-dokumentieren-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Netzwerk &amp; Dokumentation" data-title="Netzwerkplan erstellen: IT-Struktur verständlich dokumentieren" data-description="Erfassen Sie Geräte, Verbindungen, Zuständigkeiten und Notfallkontakte ohne unnötig sensible Details offenzulegen." data-href="/ratgeber/netzwerkplan-dokumentieren-kmu/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Cloud &amp; Kosten</p>
+          <h2><a href="/ratgeber/cloud-kosten-kmu-optimieren/">Cloud-Kosten im KMU prüfen: Nutzung und Verträge verstehen</a></h2>
+          <p>Ordnen Sie Dienste, Lizenzen, Speicherwachstum und Verantwortlichkeiten ein, bevor Sie Kosten reduzieren.</p>
+          <a class="read-more" href="/ratgeber/cloud-kosten-kmu-optimieren/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Cloud &amp; Kosten" data-title="Cloud-Kosten im KMU prüfen: Nutzung und Verträge verstehen" data-description="Ordnen Sie Dienste, Lizenzen, Speicherwachstum und Verantwortlichkeiten ein, bevor Sie Kosten reduzieren." data-href="/ratgeber/cloud-kosten-kmu-optimieren/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Software &amp; Lizenzen</p>
+          <h2><a href="/ratgeber/software-lizenzen-kmu-verwalten/">Softwarelizenzen im Unternehmen: Bestand und Nutzung prüfen</a></h2>
+          <p>Bringen Sie Verträge, Nutzende, Verlängerungen und technische Eigentümer in eine belastbare Übersicht.</p>
+          <a class="read-more" href="/ratgeber/software-lizenzen-kmu-verwalten/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Software &amp; Lizenzen" data-title="Softwarelizenzen im Unternehmen: Bestand und Nutzung prüfen" data-description="Bringen Sie Verträge, Nutzende, Verlängerungen und technische Eigentümer in eine belastbare Übersicht." data-href="/ratgeber/software-lizenzen-kmu-verwalten/">Vorschau anzeigen</button>
+        </article>
+        <article class="article-card">
+          <p class="eyebrow">Notfallkommunikation</p>
+          <h2><a href="/ratgeber/it-vorfall-kommunikation-kmu/">IT-Vorfallkommunikation: Mitarbeitende klar informieren</a></h2>
+          <p>Definieren Sie Meldewege, freigegebene Informationen und alternative Kanäle für Störungen oder Sicherheitsvorfälle.</p>
+          <a class="read-more" href="/ratgeber/it-vorfall-kommunikation-kmu/">Ratgeber lesen <span aria-hidden="true">→</span></a>
+          <button class="preview-button" type="button" data-preview data-category="Notfallkommunikation" data-title="IT-Vorfallkommunikation: Mitarbeitende klar informieren" data-description="Definieren Sie Meldewege, freigegebene Informationen und alternative Kanäle für Störungen oder Sicherheitsvorfälle." data-href="/ratgeber/it-vorfall-kommunikation-kmu/">Vorschau anzeigen</button>
         </article>
       </section>
       <aside class="contact-note">
@@ -80,9 +344,51 @@
       </aside>
     </main>
     <footer class="site-footer">
-      <a href="/">EasyTech IT-Solutions</a>
-      <a href="/impressum/">Impressum</a>
-      <a href="/datenschutz/">Datenschutz</a>
+      <div class="footer-card">
+        <section class="footer-cta">
+          <p class="eyebrow">EasyTech IT-Solutions · Altenstadt &amp; Rhein-Main</p>
+          <h2>Sie möchten Ihre Situation besprechen?</h2>
+          <p>Im persönlichen Gespräch klären wir Ihre Fragen zu IT, Webdesign und digitalen Lösungen.</p>
+          <div class="footer-actions">
+            <a class="button" href="/kontakt/">Projekt anfragen</a>
+            <a class="footer-secondary" href="/preise/">Preise ansehen</a>
+          </div>
+        </section>
+        <div class="footer-links">
+          <a class="footer-brand" href="/" aria-label="EasyTech IT-Solutions – Startseite">
+            <img src="../assets/EasyTech%20Logo.png" alt="EasyTech IT-Solutions" />
+          </a>
+          <div>
+            <h3>Unternehmen</h3>
+            <a href="/ueber-mich/">Über mich</a>
+            <a href="/projekte/">Projekte</a>
+            <a href="/insights/">IT-Ratgeber</a>
+          </div>
+          <div>
+            <h3>Leistungen</h3>
+            <a href="/webdesign/">Webdesign</a>
+            <a href="/videografie/">Videografie</a>
+            <a href="/it/business/">IT-Services</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 EasyTech IT-Solutions</span>
+          <div>
+            <a href="/datenschutz/">Datenschutz</a>
+            <a href="/impressum/">Impressum</a>
+          </div>
+        </div>
+      </div>
     </footer>
+    <dialog class="article-preview" aria-labelledby="preview-title">
+      <form method="dialog" class="preview-close">
+        <button type="submit" aria-label="Vorschau schließen">×</button>
+      </form>
+      <p class="eyebrow" id="preview-category"></p>
+      <h2 id="preview-title"></h2>
+      <p id="preview-description"></p>
+      <a class="button" id="preview-link" href="/">Ganzen Ratgeber öffnen</a>
+    </dialog>
+    <script src="../js/ratgeber-preview.js" defer></script>
   </body>
 </html>

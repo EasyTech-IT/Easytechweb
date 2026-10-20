@@ -312,7 +312,7 @@
         </div>
         <div class="dc-nav-row">
           <button class="dc-back" type="button" data-dc-back aria-label="Zurück">${icon("back")}</button>
-          <button class="dc-button dc-button-primary dc-next" type="button" data-dc-next ${selected ? "" : "disabled"}>Weiter ${icon("arrow")}</button>
+          <span class="dc-auto-hint">Antwort antippen, es geht automatisch weiter</span>
         </div>
       </div>`;
   }
@@ -384,23 +384,22 @@
     }
 
     content.innerHTML = renderQuestion(selectedService, step);
-    const next = content.querySelector("[data-dc-next]");
+    let advancing = false;
     content.querySelectorAll("[data-dc-answer]").forEach((tile) => {
       tile.addEventListener("click", () => {
+        if (advancing) return;
+        advancing = true;
         answers[step] = tile.dataset.dcAnswer;
         content.querySelectorAll("[data-dc-answer]").forEach((other) => {
           const active = other === tile;
           other.classList.toggle("is-selected", active);
           other.setAttribute("aria-checked", String(active));
         });
-        next.disabled = false;
-        next.focus({ preventScroll: true });
+        window.setTimeout(() => {
+          step += 1;
+          updateDialog();
+        }, 220);
       });
-    });
-    next.addEventListener("click", () => {
-      if (!answers[step]) return;
-      step += 1;
-      updateDialog();
     });
     content.querySelector("[data-dc-back]").addEventListener("click", goBack);
   }
@@ -415,15 +414,9 @@
     if (!form.reportValidity()) return;
 
     const formData = new FormData(form);
-    const answerLines = selectedService.questions.map(([question], index) => (
-      `${question}\n${answers[index] || "–"}`
-    ));
-    const message = [
-      `Kostenloser Digital-Check: ${selectedService.title}`,
-      "",
-      "Antworten:",
-      ...answerLines.flatMap((answer) => [answer, ""]),
-    ].join("\n");
+    const message = selectedService.questions
+      .map(([question], index) => `${index + 1}. ${question} -> ${answers[index] || "-"}`)
+      .join("\n");
     const payload = {
       firstName: String(formData.get("firstName") || "").trim(),
       lastName: String(formData.get("lastName") || "").trim(),
@@ -484,6 +477,7 @@
     if (!nav) return;
 
     const desktopCta = nav.querySelector('a[href="/kontakt"], a[href="/kontakt/"]');
+    if (desktopCta) desktopCta.classList.add("dc-hidden-cta");
     if (desktopCta && !nav.querySelector(".dc-inline-cta")) {
       const button = document.createElement("a");
       button.className = "dc-inline-cta";

@@ -167,13 +167,44 @@ $adminHtml = emailLayout(
         . '</table>'
 );
 
-if (!sendHtmlEmail(
-    'info@easytechit.de',
-    'Neue Kontaktanfrage - EasyTech IT-Solutions',
-    implode("\r\n", $adminPlainLines),
-    $adminHtml,
-    $fields['email']
-)) {
+$isCheck = strpos($fields['service'], 'Kostenloser Digital-Check') === 0;
+if ($isCheck) {
+    $checkLines = [
+        strtoupper($fields['service']),
+        '',
+        'Name: ' . $fields['firstName'] . ' ' . $fields['lastName'],
+        'E-Mail: ' . $fields['email'],
+    ];
+    if ($phone !== '') {
+        $checkLines[] = 'Telefon: ' . $phone;
+    }
+    $checkLines[] = '';
+    $checkLines[] = $fields['message'];
+    $headers = [
+        'From: EasyTech IT-Solutions <info@easytechit.de>',
+        'Reply-To: ' . $fields['email'],
+        'MIME-Version: 1.0',
+        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Transfer-Encoding: base64',
+    ];
+    $checkSubject = '=?UTF-8?B?' . base64_encode('Digital-Check: ' . $fields['firstName'] . ' ' . $fields['lastName']) . '?=';
+    $adminSent = mail(
+        'info@easytechit.de',
+        $checkSubject,
+        chunk_split(base64_encode(implode("\r\n", $checkLines))),
+        implode("\r\n", $headers)
+    );
+} else {
+    $adminSent = sendHtmlEmail(
+        'info@easytechit.de',
+        'Neue Kontaktanfrage - EasyTech IT-Solutions',
+        implode("\r\n", $adminPlainLines),
+        $adminHtml,
+        $fields['email']
+    );
+}
+
+if (!$adminSent) {
     error_log('EasyTech contact form: mail() failed.');
     respond(500, [
         'ok' => false,

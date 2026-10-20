@@ -1045,6 +1045,17 @@
   height: 20px;
 }
 
+.dc-hidden-cta {
+  display: none !important;
+}
+
+.dc-auto-hint {
+  flex: 1;
+  color: var(--dc-muted);
+  font-size: 0.82rem;
+  text-align: right;
+}
+
 .dc-next,
 .dc-nav-row .dc-submit {
   flex: 1;

@@ -8,29 +8,29 @@
         "EasyTech IT-Solutions aus Altenstadt: Webdesign, individuelle Webentwicklung und IT-Services für Unternehmen und Privatpersonen.",
     },
     "/webdesign": {
-      title: "Webdesign in Altenstadt | EasyTech IT-Solutions",
+      title: "Webdesign für Unternehmen in Altenstadt | EasyTech",
       description:
-        "Responsive Webdesign aus Altenstadt mit klarer Nutzerführung und SEO-Grundlagen. Die Pakete reichen von Smart für 1.999 EUR bis Enterprise ab 4.500 EUR.",
+        "Webdesign für Unternehmen in Altenstadt: professionelle Firmenwebsite erstellen lassen, responsive gestaltet, mit klarer Nutzerführung und SEO-Grundlagen.",
     },
     "/it/business": {
-      title: "IT-Betreuung für Unternehmen in Altenstadt | EasyTech IT-Solutions",
+      title: "IT-Dienstleister für KMU in Altenstadt | EasyTech",
       description:
-        "IT-Betreuung und IT-Support für kleine und mittlere Unternehmen in Altenstadt: Arbeitsplätze, Netzwerke, IT-Sicherheit und laufende Unterstützung.",
+        "IT-Dienstleister für Unternehmen in Altenstadt: IT-Betreuung für KMU mit IT-Support vor Ort und per Fernwartung sowie Netzwerk-, Server- und Gerätebetreuung.",
     },
     "/it/privat": {
-      title: "IT-Service für Privatkunden | EasyTech IT-Solutions Altenstadt",
+      title: "Computerhilfe für Privatkunden in Altenstadt | EasyTech",
       description:
-        "IT-Service in Altenstadt für private Haushalte: Hilfe bei WLAN, Computer, Smart Home und Datensicherung – verständlich und persönlich.",
+        "Computerhilfe in Altenstadt für Privatkunden: persönliche PC-Hilfe bei Computerproblemen, WLAN, Einrichtung und Datensicherung.",
     },
     "/it/ki-beratung": {
-      title: "KI-Beratung und Automatisierung | EasyTech IT-Solutions Altenstadt",
+      title: "KI-Automatisierung für Unternehmen | EasyTech",
       description:
-        "EasyTech IT-Solutions unterstützt Unternehmen bei der Einordnung von KI-Anwendungsfällen und der Automatisierung wiederkehrender Geschäftsprozesse.",
+        "KI-Beratung für Unternehmen und KMU: Mit KI und n8n wiederkehrende Geschäftsprozesse und Workflows automatisieren – von der Potenzialanalyse bis zur Umsetzung.",
     },
     "/videografie": {
-      title: "Videografie & Social Media Content Altenstadt | EasyTech IT-Solutions",
+      title: "Videografie für Unternehmen | Imagefilm & Reels Altenstadt",
       description:
-        "Videografie und Social-Media-Inhalte für Unternehmen: Reels, Imagefilme und Motion Design von EasyTech IT-Solutions.",
+        "Videoproduktion für Unternehmen in Altenstadt: Imagefilme, Social-Media-Videos, Reels und Motion Design für professionellen Video-Content.",
     },
     "/projekte": {
       title: "Webdesign-Projekte | EasyTech IT-Solutions Altenstadt",

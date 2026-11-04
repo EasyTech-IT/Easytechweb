@@ -5,7 +5,7 @@
     "/": {
       title: "Webdesign & IT-Services Altenstadt | EasyTech IT-Solutions",
       description:
-        "EasyTech IT-Solutions aus Altenstadt: Webdesign, individuelle Webentwicklung und IT-Services für Unternehmen und Privatpersonen.",
+        "EasyTech IT-Solutions aus Altenstadt: Webdesign, IT-Betreuung und IT-Support für Unternehmen sowie Computerhilfe und zuverlässiger IT-Service für Privatkunden.",
     },
     "/webdesign": {
       title: "Webdesign für Unternehmen in Altenstadt | EasyTech",

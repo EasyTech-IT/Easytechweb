@@ -512,6 +512,72 @@
     contactLink.after(button);
   }
 
+  function getConsentPreferences() {
+    try {
+      const saved = window.localStorage.getItem("ja-itc-cookie-consent");
+      return saved ? JSON.parse(saved) : null;
+    } catch (error) {
+      console.error("Could not read cookie preferences.", error);
+      return null;
+    }
+  }
+
+  function setupConsentDescription() {
+    const description = [...document.querySelectorAll("p")].find((paragraph) => (
+      paragraph.textContent.includes("Schriftarten (Google Fonts, Fontshare")
+    ));
+    if (description && !description.textContent.includes("SiteLock-Sicherheitssiegel")) {
+      description.append(
+        document.createTextNode(
+          " Das SiteLock-Sicherheitssiegel wird ebenfalls als externer Inhalt geladen.",
+        ),
+      );
+    }
+  }
+
+  function setupSiteLockSeal() {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+
+    const existingSeal = footer.querySelector("[data-sitelock-seal]");
+    if (getConsentPreferences()?.externalContent !== true) {
+      existingSeal?.closest(".dc-sitelock-seal-row")?.remove();
+      return;
+    }
+    if (existingSeal) return;
+
+    const privacyLink = footer.querySelector('a[href="/datenschutz"], a[href="/datenschutz/"]');
+    const legalLinks = privacyLink?.parentElement;
+    if (!legalLinks?.parentElement) return;
+
+    const row = document.createElement("div");
+    row.className = "dc-sitelock-seal-row";
+
+    const link = document.createElement("a");
+    link.className = "dc-sitelock-seal";
+    link.href = "https://www.sitelock.com/verify.php?site=easytechit.de";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.dataset.sitelockSeal = "";
+    link.setAttribute(
+      "aria-label",
+      "SiteLock-Sicherheitsprüfung für easytechit.de öffnen (neuer Tab)",
+    );
+
+    const image = document.createElement("img");
+    image.src = "https://shield.sitelock.com/shield/easytechit.de";
+    image.alt = "SiteLock Trust Seal für easytechit.de";
+    image.width = 117;
+    image.height = 68;
+    image.loading = "lazy";
+    image.decoding = "async";
+    image.referrerPolicy = "no-referrer";
+
+    link.append(image);
+    row.append(link);
+    legalLinks.parentElement.after(row);
+  }
+
   function setupHero() {
     const heading = document.querySelector("h1");
     const hero = heading?.closest("section");
@@ -581,6 +647,8 @@
   function setupPage() {
     setupHeader();
     setupFooter();
+    setupConsentDescription();
+    setupSiteLockSeal();
     setupHero();
     setupSection();
     setupFloatingActions();

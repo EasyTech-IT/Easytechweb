@@ -1,6 +1,8 @@
 (() => {
   const base = "https://easytechit.de";
   const logo = `${base}/assets/EasyTech%20Logo.png`;
+  const analyticsId = "G-HH7PXTR7V0";
+  const consentKey = "ja-itc-cookie-consent";
   const pageMetadata = {
     "/": {
       title: "Webdesign & IT-Services Altenstadt | EasyTech IT-Solutions",
@@ -20,7 +22,7 @@
     "/it/privat": {
       title: "Computerhilfe für Privatkunden in Altenstadt | EasyTech",
       description:
-        "Computerhilfe in Altenstadt für Privatkunden: persönliche PC-Hilfe bei Computerproblemen, WLAN, Einrichtung und Datensicherung.",
+        "Computerhilfe in Altenstadt für Privatkunden: Unterstützung bei PC-Problemen, WLAN, Geräteeinrichtung und Datensicherung – persönlich und verständlich.",
     },
     "/it/ki-beratung": {
       title: "KI-Automatisierung für Unternehmen | EasyTech",
@@ -30,12 +32,12 @@
     "/videografie": {
       title: "Videografie für Unternehmen | Imagefilm & Reels Altenstadt",
       description:
-        "Videoproduktion für Unternehmen in Altenstadt: Imagefilme, Social-Media-Videos, Reels und Motion Design für professionellen Video-Content.",
+        "Videoproduktion für Unternehmen in Altenstadt: Imagefilme, Social-Media-Videos, Reels und Motion Design für Website, Kampagnen und Mitarbeitergewinnung.",
     },
     "/projekte": {
       title: "Webdesign-Projekte | EasyTech IT-Solutions Altenstadt",
       description:
-        "Ausgewählte Webdesign-Projekte und digitale Lösungen von EasyTech IT-Solutions aus Altenstadt.",
+        "Ausgewählte Webdesign-Projekte und digitale Lösungen von EasyTech IT-Solutions aus Altenstadt. Entdecken Sie Referenzen und Ideen für Ihr Vorhaben.",
     },
     "/preise": {
       title: "Webdesign-Preise und Angebote | EasyTech IT-Solutions",
@@ -45,12 +47,12 @@
     "/ueber-mich": {
       title: "Über EasyTech IT-Solutions | Ahsin Ghumman, Altenstadt",
       description:
-        "Lernen Sie Ahsin Ghumman und EasyTech IT-Solutions in Altenstadt kennen – persönliche Beratung zu Webdesign und IT-Lösungen.",
+        "Lernen Sie Ahsin Ghumman und EasyTech IT-Solutions aus Altenstadt kennen. Persönliche Beratung und Umsetzung für Webdesign, IT-Betreuung und digitale Lösungen.",
     },
     "/kontakt": {
       title: "Kontakt | EasyTech IT-Solutions Altenstadt",
       description:
-        "Kontaktieren Sie EasyTech IT-Solutions in Altenstadt zu Webdesign, IT-Betreuung oder digitalen Lösungen.",
+        "Kontakt zu EasyTech IT-Solutions in Altenstadt: Fragen zu Webdesign, IT-Betreuung, Videografie oder KI-Automatisierung stellen und eine Beratung anfragen.",
     },
     "/impressum": {
       title: "Impressum | EasyTech IT-Solutions Altenstadt",
@@ -73,10 +75,198 @@
       element.setAttribute(attribute, name);
       document.head.appendChild(element);
     }
-
     if (element.content !== content) {
       element.content = content;
     }
+  }
+
+  function getConsentPreferences() {
+      try {
+        const saved = window.localStorage.getItem(consentKey);
+        return saved ? JSON.parse(saved) : null;
+      } catch (error) {
+        console.error("Could not read cookie preferences.", error);
+        return null;
+      }
+    }
+
+    function syncAnalyticsConsent() {
+      const analyticsAllowed = getConsentPreferences()?.analytics === true;
+      window[`ga-disable-${analyticsId}`] = !analyticsAllowed;
+      if (!analyticsAllowed || document.getElementById("easytech-google-analytics")) {
+        return;
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", analyticsId);
+
+      const script = document.createElement("script");
+      script.id = "easytech-google-analytics";
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsId}`;
+      document.head.appendChild(script);
+    }
+
+    function setupAnalyticsConsent() {
+      if (window.__easytechAnalyticsConsentReady) {
+        return;
+      }
+
+      window.__easytechAnalyticsConsentReady = true;
+      syncAnalyticsConsent();
+      window.addEventListener("storage", (event) => {
+        if (event.key === consentKey) {
+          syncAnalyticsConsent();
+        }
+      });
+      window.addEventListener("ja-itc-reopen-cookie-banner", syncAnalyticsConsent);
+      document.addEventListener("click", (event) => {
+        if (event.target instanceof Element && event.target.closest("button")) {
+          window.setTimeout(syncAnalyticsConsent, 0);
+        }
+      });
+    }
+
+    function updatePrivacyNotice() {
+      if ((window.location.pathname.replace(/\/+$/, "") || "/") !== "/datenschutz") {
+        return;
+      }
+
+      const root = document.getElementById("root");
+      if (!root) {
+        return;
+      }
+      if (root.querySelector("[data-privacy-service-notices]")) {
+        return;
+      }
+
+      const divider = [...root.querySelectorAll("div")].find((element) => (
+        element.className === "border-t border-[#ebeced] my-10"
+      ));
+      if (!divider) {
+        return;
+      }
+
+      const accessHeading = [...root.querySelectorAll("h3")].find((heading) => (
+        heading.textContent.includes("Zugriffsdaten und Hosting")
+      ));
+      const accessCopy = accessHeading?.nextElementSibling;
+      const logDescription = [...(accessCopy?.querySelectorAll("p") || [])].find((paragraph) => (
+        paragraph.textContent.includes("Diese Daten dienen dem sicheren Betrieb")
+      ));
+      if (logDescription) {
+        logDescription.textContent =
+          "Die Verarbeitung dieser Zugriffsdaten ist erforderlich, um die Website sicher und zuverlässig bereitzustellen und Angriffe oder technische Störungen zu erkennen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.";
+      }
+
+      const hostingNote = [...(accessCopy?.querySelectorAll("p") || [])].find((paragraph) => (
+        paragraph.textContent.includes("Hosting:")
+      ));
+      if (hostingNote) {
+        hostingNote.replaceChildren();
+        const label = document.createElement("span");
+        label.className = "text-[#2e4a6f]";
+        label.style.fontWeight = "500";
+        label.textContent = "Hosting:";
+        hostingNote.append(
+          label,
+          document.createTextNode(
+            " Diese Website wird bei der IONOS SE gehostet. Dabei verarbeitet IONOS technische Zugriffsdaten, die für die Auslieferung und Sicherheit der Website erforderlich sind. Informationen zum Datenschutz bei IONOS finden Sie unter ",
+          ),
+        );
+        const link = document.createElement("a");
+        link.href = "https://www.ionos.de/terms-gtc/datenschutzerklaerung/";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "text-[#2e4a6f] hover:text-[#000000] transition-colors";
+        link.style.fontWeight = "500";
+        link.textContent = "IONOS Datenschutz";
+        hostingNote.append(link, document.createTextNode("."));
+      }
+
+      const rightsHeading = [...root.querySelectorAll("h3")].find((heading) => (
+        heading.textContent.includes("Ihre Rechte")
+      ));
+      const rightsCopy = rightsHeading?.nextElementSibling;
+      if (rightsCopy && !rightsCopy.querySelector("[data-privacy-rights-addition]")) {
+        const rightsNote = document.createElement("p");
+        rightsNote.dataset.privacyRightsAddition = "";
+        rightsNote.className = "mt-3";
+        rightsNote.append(
+          document.createTextNode(
+            "Sie können eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen. Außerdem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Für Hessen ist dies der ",
+          ),
+        );
+        const authorityLink = document.createElement("a");
+        authorityLink.href = "https://datenschutz.hessen.de/";
+        authorityLink.target = "_blank";
+        authorityLink.rel = "noopener noreferrer";
+        authorityLink.className = "text-[#2e4a6f] hover:text-[#000000] transition-colors";
+        authorityLink.style.fontWeight = "500";
+        authorityLink.textContent = "Hessische Beauftragte für Datenschutz und Informationsfreiheit";
+        rightsNote.append(authorityLink, document.createTextNode("."));
+        rightsCopy.append(rightsNote);
+      }
+
+      const notices = document.createElement("div");
+      notices.dataset.privacyServiceNotices = "";
+      notices.className = "grid sm:grid-cols-2 gap-x-16 gap-y-10 mb-10";
+      notices.innerHTML = `
+        <section class="relative">
+          <div class="flex items-start gap-4 sm:gap-5">
+            <div class="shrink-0 w-[44px] h-[44px] rounded-full bg-[#f0f4f8] flex items-center justify-center">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-[18px] h-[18px] text-[#2e4a6f]"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-[18px] sm:text-[20px] text-[#0a0a0b] mb-3 tracking-[-0.01em]" style="font-family:'Satoshi',sans-serif;font-weight:700;line-height:1.3">Kontaktformular und E-Mail</h3>
+              <div class="text-[17px] text-[#404040] space-y-3" style="font-family:'Inter',sans-serif;line-height:1.7">
+                <p>Wenn Sie das Kontaktformular oder den Digital-Check absenden, verarbeiten wir die von Ihnen eingegebenen Angaben, insbesondere Name, E-Mail-Adresse, gegebenenfalls Telefonnummer und Unternehmen, gewünschte Leistung sowie Ihre Nachricht und Check-Antworten. Die Angaben werden an info@easytechit.de übermittelt und zur Bearbeitung Ihrer Anfrage verwendet.</p>
+                <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit die Anfrage auf einen Vertrag oder vorvertragliche Maßnahmen gerichtet ist. Wir bewahren die Anfrage so lange auf, wie dies für die Bearbeitung erforderlich ist; gesetzliche Aufbewahrungspflichten bleiben unberührt.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="relative">
+          <div class="flex items-start gap-4 sm:gap-5">
+            <div class="shrink-0 w-[44px] h-[44px] rounded-full bg-[#f0f4f8] flex items-center justify-center">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-[18px] h-[18px] text-[#2e4a6f]"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-[18px] sm:text-[20px] text-[#0a0a0b] mb-3 tracking-[-0.01em]" style="font-family:'Satoshi',sans-serif;font-weight:700;line-height:1.3">Google Analytics 4</h3>
+              <div class="text-[17px] text-[#404040] space-y-3" style="font-family:'Inter',sans-serif;line-height:1.7">
+                <p>Mit Ihrer Einwilligung nutzen wir Google Analytics 4, um die Nutzung unserer Website statistisch auszuwerten. Dabei können Nutzungs-, Geräte- und Browserinformationen sowie aufgerufene Seiten und Interaktionen verarbeitet werden. Die Analyse wird erst aktiviert, wenn Sie in den Cookie-Einstellungen der Kategorie „Analyse“ zustimmen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ ändern oder widerrufen. Die Speicherdauer richtet sich nach der in unserem Google-Analytics-Konto gewählten Aufbewahrungseinstellung.</p>
+                <p>Anbieter ist Google Ireland Limited. Eine Verarbeitung durch Google LLC in den USA kann nicht ausgeschlossen werden. Weitere Informationen: <a class="text-[#2e4a6f] hover:text-[#000000] transition-colors" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="relative">
+          <div class="flex items-start gap-4 sm:gap-5">
+            <div class="shrink-0 w-[44px] h-[44px] rounded-full bg-[#f0f4f8] flex items-center justify-center">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-[18px] h-[18px] text-[#2e4a6f]"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-[18px] sm:text-[20px] text-[#0a0a0b] mb-3 tracking-[-0.01em]" style="font-family:'Satoshi',sans-serif;font-weight:700;line-height:1.3">SiteLock Trust Seal</h3>
+              <div class="text-[17px] text-[#404040] space-y-3" style="font-family:'Inter',sans-serif;line-height:1.7">
+                <p>Das SiteLock-Sicherheitssiegel wird nur geladen, wenn Sie externe Inhalte in den Cookie-Einstellungen erlauben. Beim Laden wird eine Verbindung zu SiteLock hergestellt; dabei werden insbesondere Ihre IP-Adresse und technische Browserdaten übermittelt, damit das Siegel angezeigt werden kann. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Sie können diese jederzeit in den Cookie-Einstellungen widerrufen; danach wird das Siegel nicht weiter geladen.</p>
+                <p>SiteLock, LLC ist ein US-amerikanischer Anbieter. Laut dessen Datenschutzhinweisen können Daten in den USA und im Vereinigten Königreich verarbeitet werden. Beim Klick auf das Siegel wird außerdem die SiteLock-Prüfseite geöffnet. <a class="text-[#2e4a6f] hover:text-[#000000] transition-colors" href="https://www.sitelock.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Datenschutzhinweise von SiteLock</a>.</p>
+              </div>
+            </div>
+          </div>
+        </section>`;
+      divider.before(notices);
+
+      const updatedNote = [...root.querySelectorAll("p")].find((paragraph) => (
+        paragraph.textContent.includes("Diese Datenschutzerklärung wurde zuletzt")
+      ));
+      if (updatedNote) {
+        updatedNote.textContent =
+          "Diese Datenschutzerklärung wurde zuletzt am 4. November 2026 aktualisiert und gilt für die Website von EasyTech IT-Solutions.";
+      }
   }
 
   function normalizeStructuredData(value) {
@@ -125,6 +315,77 @@
       } catch (error) {
         console.error("Could not validate page structured data.", error);
       }
+    }
+  }
+
+  function synchronizeBusinessStructuredData(path, metadata, canonical) {
+    const scriptId = "easytech-seo-knowledge-graph";
+    let script = document.getElementById(scriptId);
+
+    if (path === "/") {
+      script?.remove();
+      return;
+    }
+
+    const organizationId = `${base}/#organization`;
+    const websiteId = `${base}/#website`;
+    const graph = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": organizationId,
+          name: "EasyTech IT-Solutions",
+          url: `${base}/`,
+          logo,
+          email: "info@easytechit.de",
+          telephone: "+4960479974441",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Mittelstraße 63",
+            postalCode: "63674",
+            addressLocality: "Altenstadt",
+            addressRegion: "Hessen",
+            addressCountry: "DE",
+          },
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+4960479974441",
+            email: "info@easytechit.de",
+            contactType: "customer service",
+            availableLanguage: "German",
+          },
+        },
+        {
+          "@type": "WebSite",
+          "@id": websiteId,
+          name: "EasyTech IT-Solutions",
+          url: `${base}/`,
+          publisher: { "@id": organizationId },
+          inLanguage: "de-DE",
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${canonical}#webpage`,
+          name: metadata.title,
+          description: metadata.description,
+          url: canonical,
+          isPartOf: { "@id": websiteId },
+          about: { "@id": organizationId },
+          inLanguage: "de-DE",
+        },
+      ],
+    };
+    const content = JSON.stringify(graph);
+
+    if (!script) {
+      script = document.createElement("script");
+      script.id = scriptId;
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
+    if (script.textContent !== content) {
+      script.textContent = content;
     }
   }
 
@@ -259,6 +520,7 @@
       document.title = metadata.title;
     }
 
+    synchronizeBusinessStructuredData(path, metadata, canonical);
     setMeta("description", metadata.description);
     setMeta("og:type", "website", true);
     setMeta("og:url", canonical, true);
@@ -291,6 +553,8 @@
   }
 
   synchronizePageMetadata();
+  setupAnalyticsConsent();
+  updatePrivacyNotice();
   removeUnverifiedHomeClaims();
   addRatgeberNavigationLink();
   loadSiteEnhancements();
@@ -300,4 +564,11 @@
     characterData: true,
     subtree: true,
   });
+  const root = document.getElementById("root");
+  if (root) {
+    new MutationObserver(updatePrivacyNotice).observe(root, {
+      childList: true,
+      subtree: true,
+    });
+  }
 })();

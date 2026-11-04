@@ -653,6 +653,32 @@
   background: #2e4a6f !important;
 }
 
+.dc-sitelock-seal-row {
+  display: flex;
+  justify-content: center;
+  padding: 18px 0 0;
+}
+
+.dc-sitelock-seal {
+  display: inline-flex;
+  width: 117px;
+  height: 68px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.dc-sitelock-seal:focus-visible {
+  outline: 3px solid #2e4a6f;
+  outline-offset: 3px;
+}
+
+.dc-sitelock-seal img {
+  display: block;
+  width: 117px;
+  height: 68px;
+}
+
 .dc-floating-actions {
   position: fixed;
   z-index: 998;

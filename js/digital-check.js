@@ -248,7 +248,6 @@
   let pageService = findPageService();
   let selectedService = pageService;
   let routePath = window.location.pathname;
-  let autoOpenTimer;
   let observerFrame = false;
   let sending = false;
   let step = 0;
@@ -679,18 +678,6 @@
     selectedService = pageService;
     closeDialog();
     setupPage();
-    scheduleAutoOpen();
-  }
-
-  function scheduleAutoOpen(delay = 3000) {
-    window.clearTimeout(autoOpenTimer);
-    autoOpenTimer = window.setTimeout(() => {
-      if (!window.localStorage.getItem("ja-itc-cookie-consent")) {
-        scheduleAutoOpen(800);
-        return;
-      }
-      openDialog();
-    }, delay);
   }
 
   function scheduleSetup() {
@@ -703,7 +690,6 @@
   }
 
   setupPage();
-  scheduleAutoOpen();
   new MutationObserver(scheduleSetup).observe(document.documentElement, {
     childList: true,
     subtree: true,

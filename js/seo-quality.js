@@ -190,7 +190,7 @@
         hostingNote.append(
           label,
           document.createTextNode(
-            " Diese Website wird bei der IONOS SE gehostet. Dabei verarbeitet IONOS technische Zugriffsdaten, die für die Auslieferung und Sicherheit der Website erforderlich sind. Informationen zum Datenschutz bei IONOS finden Sie unter ",
+            " Diese Website wird bei der IONOS SE gehostet. Dabei verarbeitet IONOS technische Zugriffsdaten, die für die Auslieferung und Sicherheit der Website erforderlich sind. Mit IONOS besteht ein Vertrag zur Auftragsverarbeitung nach Art. 28 DSGVO. Informationen zum Datenschutz bei IONOS finden Sie unter ",
           ),
         );
         const link = document.createElement("a");

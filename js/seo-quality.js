@@ -240,7 +240,7 @@
               <h3 class="text-[18px] sm:text-[20px] text-[#0a0a0b] mb-3 tracking-[-0.01em]" style="font-family:'Satoshi',sans-serif;font-weight:700;line-height:1.3">Kontaktformular und E-Mail</h3>
               <div class="text-[17px] text-[#404040] space-y-3" style="font-family:'Inter',sans-serif;line-height:1.7">
                 <p>Wenn Sie das Kontaktformular oder den Digital-Check absenden, verarbeiten wir die von Ihnen eingegebenen Angaben, insbesondere Name, E-Mail-Adresse, gegebenenfalls Telefonnummer und Unternehmen, gewünschte Leistung sowie Ihre Nachricht und Check-Antworten. Die Angaben werden an info@easytechit.de übermittelt und zur Bearbeitung Ihrer Anfrage verwendet.</p>
-                <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit die Anfrage auf einen Vertrag oder vorvertragliche Maßnahmen gerichtet ist. Wir bewahren die Anfrage so lange auf, wie dies für die Bearbeitung erforderlich ist; gesetzliche Aufbewahrungspflichten bleiben unberührt.</p>
+                <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit die Anfrage auf einen Vertrag oder vorvertragliche Maßnahmen gerichtet ist. Wir bewahren die Anfrage so lange auf, wie dies für die Bearbeitung erforderlich ist, und löschen sie spätestens 6 Monate nach Abschluss der Bearbeitung, sofern kein Vertrag zustande kommt. Kommt ein Vertrag zustande, gelten die gesetzlichen Aufbewahrungsfristen.</p>
               </div>
             </div>
           </div>

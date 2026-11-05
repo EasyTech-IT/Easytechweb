@@ -1,7 +1,7 @@
 (() => {
   const base = "https://easytechit.de";
   const logo = `${base}/assets/EasyTech%20Logo.png`;
-  const analyticsId = "G-HH7PXTR7V0";
+  const analyticsId = "G-NZ8HRV390B";
   const consentKey = "ja-itc-cookie-consent";
   const pageMetadata = {
     "/": {

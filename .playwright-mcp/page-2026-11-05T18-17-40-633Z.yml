@@ -1,0 +1,851 @@
+- generic [active] [ref=f8e1]:
+  - generic [ref=f8e320]:
+    - generic [ref=f8e321] [cursor=pointer]: ×
+    - link [ref=f8e322] [cursor=pointer]:
+      - /url: https://www.seobility.net/de/
+      - generic [ref=f8e328]:
+        - paragraph [ref=f8e329]: Aktiviere regelmäßige Checks und Benachrichtigungen
+        - paragraph [ref=f8e330]: Lass Deine Website automatisch von Seobility analysieren und erhalte eine E-Mail, sobald neue Probleme auftreten. Jetzt 14 Tage kostenlos testen!
+  - generic [ref=f8e2]:
+    - link "Skip to content" [ref=f8e3] [cursor=pointer]:
+      - /url: "#primary"
+    - banner [ref=f8e4]:
+      - generic [ref=f8e5]:
+        - link [ref=f8e7] [cursor=pointer]:
+          - /url: https://www.seobility.net/de/
+          - img "Seobility logo" [ref=f8e9]
+        - navigation [ref=f8e10]:
+          - list [ref=f8e12]:
+            - listitem [ref=f8e13]:
+              - link "Features & Use Cases" [ref=f8e14] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f8e15]:
+              - link "Preise" [ref=f8e16] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/preise/
+            - listitem [ref=f8e17]:
+              - link "Ressourcen" [ref=f8e18] [cursor=pointer]:
+                - /url: "#"
+            - listitem [ref=f8e19]:
+              - link "DE" [ref=f8e20] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/seocheck/check/?url=https%3A%2F%2Feasytechit.de%2F&mode=standard
+        - generic [ref=f8e26]:
+          - link "Login" [ref=f8e27] [cursor=pointer]:
+            - /url: https://app.seobility.net/user/login?locale=de
+          - link "Jetzt testen" [ref=f8e28] [cursor=pointer]:
+            - /url: https://app.seobility.net/user/register?locale=de
+    - paragraph [ref=f8e31]:
+      - generic [ref=f8e32]:
+        - link "Home" [ref=f8e34] [cursor=pointer]:
+          - /url: https://www.seobility.net/de/
+        - generic [aria-hidden] [ref=f8e35]: 
+        - text: SEO Check (results)
+    - generic [ref=f8e36]:
+      - generic [ref=f8e37]:
+        - generic [ref=f8e39]:
+          - text: 
+          - list [ref=f8e40]:
+            - listitem [ref=f8e41]:
+              - link "SEO Check" [ref=f8e42] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/seocheck/
+            - listitem [ref=f8e43]:
+              - link "Ranking Check" [ref=f8e44] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/rankingcheck/
+            - listitem [ref=f8e45]:
+              - link "Backlink Check" [ref=f8e46] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/backlinkcheck/
+            - listitem [ref=f8e47]:
+              - link "Keyword Recherche Tool" [ref=f8e48] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/keyword-recherche-tool/
+            - listitem [ref=f8e49]:
+              - link "SERP Snippet Generator" [ref=f8e50] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/serp-snippet-generator/
+            - listitem [ref=f8e51]:
+              - link "WDF*IDF Tool" [ref=f8e52] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/wdf-idf-tool/
+            - listitem [ref=f8e53]:
+              - link "Redirect Check" [ref=f8e54] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/redirectcheck/
+            - listitem [ref=f8e55]:
+              - link "SEO Compare" [ref=f8e56] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/seocompare/
+            - listitem [ref=f8e57]:
+              - link "Keyword Check" [ref=f8e58] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/keywordcheck/
+          - generic [ref=f8e60] [cursor=pointer]:
+            - generic [ref=f8e61]: More
+            - generic [aria-hidden] [ref=f8e62]: 
+        - generic [ref=f8e65]:
+          - generic [ref=f8e66]:
+            - heading "SEO Check" [level=1] [ref=f8e67]
+            - generic [ref=f8e69]:
+              - button [ref=f8e71] [cursor=pointer]:
+                - generic [ref=f8e72]:
+                  - text: Teilen
+                  - img "Share Icon" [ref=f8e73]
+              - button [ref=f8e74] [cursor=pointer]:
+                - link [ref=f8e75]:
+                  - /url: https://www.seobility.net/de/preise/
+                  - text: PDF
+                  - img "Download Icon" [ref=f8e76]
+          - paragraph [ref=f8e77]: Analysiere jede beliebige Webseite auf technische Fehler und Onpage-SEO-Probleme und erhalte Tipps zur Optimierung der Seite.
+          - text:         
+          - generic [ref=f8e78]:
+            - generic [ref=f8e79]:
+              - strong [ref=f8e84]: Brauchst Du mehr Abfragen pro Tag?
+              - generic [ref=f8e85]: (Schalte 50 tägliche Abfragen mit Seobility Premium frei!)
+            - button "Mehr erfahren" [ref=f8e86] [cursor=pointer]
+          - generic [ref=f8e87]:
+            - generic [ref=f8e88]:
+              - generic [ref=f8e89]:
+                - generic [ref=f8e90]: Paket
+                - generic [ref=f8e91]: Checks pro Tag
+                - generic [ref=f8e92]: Kosten
+                - generic [ref=f8e93]: Freischalten
+              - generic [ref=f8e94]:
+                - generic [ref=f8e95]: Basis
+                - generic [ref=f8e96]: "5"
+                - generic [ref=f8e97]: Dauerhaft kostenlos
+                - link "Kostenlos registrieren" [ref=f8e99] [cursor=pointer]:
+                  - /url: https://app.seobility.net/user/register?productid=0
+              - generic [ref=f8e100]:
+                - generic [ref=f8e101]: Premium
+                - generic [ref=f8e102]: "50"
+                - generic [ref=f8e103]: 59,90 EUR / Monat
+                - link "14 Tage kostenlos testen" [ref=f8e105] [cursor=pointer]:
+                  - /url: https://app.seobility.net/user/register
+              - generic [ref=f8e106]:
+                - generic [ref=f8e107]: Professional
+                - generic [ref=f8e108]: "100"
+                - generic [ref=f8e109]: 99,90 EUR / Monat
+                - link "14 Tage kostenlos testen" [ref=f8e111] [cursor=pointer]:
+                  - /url: https://app.seobility.net/user/register?productid=4&payinterval=1&vouchercode=freetrialprofessional
+              - generic [ref=f8e112]:
+                - generic [ref=f8e113]: Agentur
+                - generic [ref=f8e114]: "200"
+                - generic [ref=f8e115]: 209,90 EUR / Monat
+                - link "14 Tage kostenlos testen" [ref=f8e117] [cursor=pointer]:
+                  - /url: https://app.seobility.net/user/register?productid=2&payinterval=1&vouchercode=freetrialagency
+            - paragraph
+            - paragraph [ref=f8e118]:
+              - text: Bei Fragen kannst Du uns gerne per E-Mail unter
+              - link "support@seobility.net" [ref=f8e119] [cursor=pointer]:
+                - /url: mailto:support@seobility.net
+              - text: erreichen.
+            - paragraph [ref=f8e120]
+            - paragraph [ref=f8e121]: Alle Preise zzgl. der gesetzlichen Umsatzsteuer.
+            - paragraph
+      - main [ref=f8e122]:
+        - generic [ref=f8e126]:
+          - generic [ref=f8e128]:
+            - generic [ref=f8e131]:
+              - heading "Seite prüfen" [level=3] [ref=f8e133]
+              - generic [ref=f8e135]:
+                - paragraph [ref=f8e137]: Noch 1 von 3 Checks heute möglich
+                - button [ref=f8e140] [cursor=pointer]
+            - generic [ref=f8e145]:
+              - generic [ref=f8e147]:
+                - generic [ref=f8e149]:
+                  - generic [ref=f8e150]: Seiten-URL
+                  - button [ref=f8e154] [cursor=pointer]
+                - textbox "https://example.de" [ref=f8e160]: https://easytechit.de/
+              - generic [ref=f8e161]:
+                - button "Webseite analysieren" [ref=f8e162] [cursor=pointer]
+                - button [ref=f8e164] [cursor=pointer]
+          - generic [ref=f8e331]:
+            - generic [ref=f8e333]:
+              - generic [ref=f8e337]:
+                - button "Checks" [ref=f8e338] [cursor=pointer]
+                - button "Elemente" [ref=f8e341] [cursor=pointer]
+                - button "Verschiedenes" [ref=f8e344] [cursor=pointer]
+              - separator [ref=f8e347]
+            - generic [ref=f8e349]:
+              - generic [ref=f8e352]:
+                - heading "Onpage Score" [level=3] [ref=f8e355]
+                - generic [ref=f8e358]:
+                  - generic [ref=f8e359]:
+                    - heading "Probleme:" [level=5] [ref=f8e360]
+                    - generic [ref=f8e361]: "4"
+                    - generic [ref=f8e362]: Kritisch
+                  - button [ref=f8e364] [cursor=pointer]
+              - generic [ref=f8e368]:
+                - generic [ref=f8e375]:
+                  - generic [ref=f8e376]: 54 %
+                  - generic [ref=f8e377]: Onpage Score
+                  - button "Widget einbinden" [ref=f8e379] [cursor=pointer]
+                - generic [ref=f8e381]:
+                  - generic [ref=f8e383]:
+                    - heading "Meta-Angaben" [level=3] [ref=f8e385]
+                    - generic [ref=f8e386]: 93 %
+                  - generic [ref=f8e391]:
+                    - heading "Seitenqualität" [level=3] [ref=f8e393]
+                    - generic [ref=f8e394]: 52 %
+                  - generic [ref=f8e399]:
+                    - heading "Seitenstruktur" [level=3] [ref=f8e401]
+                    - generic [ref=f8e402]: 58 %
+                  - generic [ref=f8e407]:
+                    - heading "Links" [level=3] [ref=f8e409]
+                    - generic [ref=f8e410]: 0 %
+                  - generic [ref=f8e414]:
+                    - heading "Server" [level=3] [ref=f8e416]
+                    - generic [ref=f8e417]: 0 %
+                  - generic [ref=f8e421]:
+                    - heading "Externe Faktoren" [level=3] [ref=f8e423]
+                    - generic [ref=f8e424]: 0 %
+            - generic [ref=f8e428]:
+              - generic [ref=f8e431]:
+                - generic [ref=f8e432]:
+                  - heading "HTML Seite" [level=3] [ref=f8e439]
+                  - button [ref=f8e441] [cursor=pointer]
+                - link "Seite anzeigen" [ref=f8e447] [cursor=pointer]:
+                  - /url: https://easytechit.de/
+              - generic [ref=f8e449]:
+                - img "Himmelimherzen" [ref=f8e452]
+                - generic [ref=f8e454]:
+                  - generic [ref=f8e455]:
+                    - heading "Meta Title" [level=3] [ref=f8e456]
+                    - paragraph [ref=f8e457]: Webdesign & IT-Services Altenstadt | EasyTech IT-Solutions
+                  - generic [ref=f8e458]:
+                    - heading "Meta-Description" [level=3] [ref=f8e459]
+                    - paragraph [ref=f8e460]: "EasyTech IT-Solutions aus Altenstadt: Webdesign, IT-Betreuung und IT-Support für Unternehmen sowie Computerhilfe und zuverlässiger IT-Service für Privatkunden."
+                  - generic [ref=f8e462]:
+                    - heading "URL" [level=3] [ref=f8e463]
+                    - generic [ref=f8e464]:
+                      - link "https://easytechit.de/" [ref=f8e465] [cursor=pointer]:
+                        - /url: https://easytechit.de/
+                      - link "https://easytechit.de/" [ref=f8e468] [cursor=pointer]:
+                        - /url: https://easytechit.de/
+                - generic [ref=f8e472]:
+                  - table [ref=f8e473]:
+                    - rowgroup [ref=f8e474]:
+                      - row [ref=f8e475]:
+                        - cell "Statuscode" [ref=f8e476]
+                        - cell "200" [ref=f8e482]
+                      - row [ref=f8e485]:
+                        - cell "Seitenstatus" [ref=f8e486]
+                        - cell "Follow Index" [ref=f8e491]:
+                          - generic [ref=f8e492]:
+                            - generic [ref=f8e493]: Follow
+                            - generic [ref=f8e494]: Index
+                      - row [ref=f8e495]:
+                        - cell "Sprache" [ref=f8e496]
+                        - cell "-" [ref=f8e502]
+                  - table [ref=f8e505]:
+                    - rowgroup [ref=f8e506]:
+                      - row [ref=f8e507]:
+                        - cell "Antwortzeit" [ref=f8e508]
+                        - cell "0,06 Sek." [ref=f8e514]
+                      - row [ref=f8e515]:
+                        - cell "Dateigröße" [ref=f8e516]
+                        - cell "3,20 kB" [ref=f8e522]
+                      - row [ref=f8e523]:
+                        - cell "Wortanzahl" [ref=f8e524]
+                        - cell "0" [ref=f8e531]
+            - generic [ref=f8e533]:
+              - heading "To-Do-Liste zur SEO-Optimierung" [level=3] [ref=f8e534]
+              - button [ref=f8e536] [cursor=pointer]
+            - generic [ref=f8e541]:
+              - heading "Aufgaben nach Wichtigkeit sortiert" [level=3] [ref=f8e548]
+              - table [ref=f8e556]:
+                - rowgroup [ref=f8e557]:
+                  - row [ref=f8e558]:
+                    - columnheader [ref=f8e559]:
+                      - button "To-Do" [ref=f8e561] [cursor=pointer]
+                    - columnheader [ref=f8e567]:
+                      - button "Wichtigkeit" [ref=f8e569] [cursor=pointer]
+                    - columnheader [ref=f8e575]:
+                      - button "Aktion" [ref=f8e577] [cursor=pointer]
+                - rowgroup [ref=f8e583]:
+                  - row [ref=f8e584]:
+                    - cell "Füge eine H1 Überschrift hinzu." [ref=f8e585]
+                    - cell "Fehler" [ref=f8e588]
+                    - cell [ref=f8e592]:
+                      - button [ref=f8e595] [cursor=pointer]:
+                        - strong [ref=f8e597]: Mehr Details
+                  - row [ref=f8e598]:
+                    - cell "Nutze Überschriften auf der Seite." [ref=f8e599]
+                    - cell "Fehler" [ref=f8e602]
+                    - cell [ref=f8e606]:
+                      - button [ref=f8e609] [cursor=pointer]:
+                        - strong [ref=f8e611]: Mehr Details
+                  - row [ref=f8e612]:
+                    - cell "Die Seite hat fast keine internen Links. Wenn es sich um eine Eingangs-Seite handelt, entferne diese." [ref=f8e613]
+                    - cell "Fehler" [ref=f8e616]
+                    - cell [ref=f8e620]:
+                      - button [ref=f8e623] [cursor=pointer]:
+                        - strong [ref=f8e625]: Mehr Details
+                  - row [ref=f8e626]:
+                    - cell "Leite Anfragen mit und ohne www. auf die gleiche Seite per HTTP 301 Redirect weiter." [ref=f8e627]
+                    - cell "Fehler" [ref=f8e630]
+                    - cell [ref=f8e634]:
+                      - button [ref=f8e637] [cursor=pointer]:
+                        - strong [ref=f8e639]: Mehr Details
+                  - row [ref=f8e640]:
+                    - cell "Verbessere den Text der Meta-Description." [ref=f8e641]
+                    - cell "Warnung" [ref=f8e644]
+                    - cell [ref=f8e648]:
+                      - button [ref=f8e651] [cursor=pointer]:
+                        - strong [ref=f8e653]: Mehr Details
+                  - row [ref=f8e654]:
+                    - cell "Passe den Seitentitel besser an den Inhalt an. (Nicht alle Worte werden im Text wieder verwendet)" [ref=f8e655]
+                    - cell "Warnung" [ref=f8e658]
+                    - cell [ref=f8e662]:
+                      - button [ref=f8e665] [cursor=pointer]:
+                        - strong [ref=f8e667]: Mehr Details
+                  - row [ref=f8e668]:
+                    - cell "Mach ein komplettes Website Audit, um auch SEO-Probleme auf anderen Unterseiten zu finden." [ref=f8e669]
+                    - cell "Tipp" [ref=f8e672]
+                    - cell [ref=f8e676]:
+                      - link [ref=f8e679] [cursor=pointer]:
+                        - /url: https://www.seobility.net
+                        - strong [ref=f8e681]: Mehr erfahren
+            - generic [ref=f8e684]:
+              - generic [ref=f8e685]:
+                - img "light bulb icon" [ref=f8e686]
+                - generic [ref=f8e687]:
+                  - heading "Du weißt nicht, wie Du diese Aufgaben angehen sollst?" [level=3] [ref=f8e688]
+                  - paragraph [ref=f8e689]:
+                    - text: Unsere SEO-Software Seobility hilft Dir dabei, diese Probleme zu beheben – mit
+                    - strong [ref=f8e690]: übersichtlichen, leicht verständlichen Reports für Deine gesamte Website
+                    - text: . Jeder Report erklärt Dir, was ein Problem bedeutet, warum es für SEO wichtig ist und wie Du es beheben kannst.
+              - link "Mehr erfahren" [ref=f8e692] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/
+            - heading "Checks" [level=3] [ref=f8e695]
+            - generic [ref=f8e696]:
+              - generic [ref=f8e703]:
+                - button "Meta-Angaben" [ref=f8e704] [cursor=pointer]
+                - button "Seitenqualität" [ref=f8e706] [cursor=pointer]
+                - button "Sonstiges" [ref=f8e708] [cursor=pointer]
+                - button "Links auf der Seite" [ref=f8e710] [cursor=pointer]
+                - button "Serverkonfiguration" [ref=f8e712] [cursor=pointer]
+                - button "Externe Faktoren" [ref=f8e714] [cursor=pointer]
+              - generic [ref=f8e716]:
+                - generic [ref=f8e717]:
+                  - generic [ref=f8e718]:
+                    - heading "Meta-Angaben" [level=3] [ref=f8e720]
+                    - generic [ref=f8e721]: 93%
+                  - separator [ref=f8e728]
+                - generic [ref=f8e729]:
+                  - generic [ref=f8e730]:
+                    - generic [ref=f8e732]:
+                      - generic [ref=f8e733]:
+                        - generic [ref=f8e734]: Titel
+                        - button "Mehr erfahren" [ref=f8e736] [cursor=pointer]
+                      - generic [ref=f8e741]:
+                        - generic [ref=f8e742]: 3/3
+                        - generic [ref=f8e743]: Sehr wichtig
+                    - generic [ref=f8e751]:
+                      - generic [ref=f8e752]: Webdesign & IT-Services Altenstadt | EasyTech IT-Solutions
+                      - generic [ref=f8e755]: Die Länge des Seitentitels ist optimal. (536 Pixel von maximal 580 Pixeln Länge)
+                      - generic [ref=f8e761]: Es gibt keine doppelten Wörter im Titel.
+                  - generic [ref=f8e770]:
+                    - generic [ref=f8e772]:
+                      - 'heading "Tipp: Jede Seite Deiner Website sollte einen einzigartigen Meta Title haben" [level=3] [ref=f8e773]'
+                      - paragraph [ref=f8e774]: Diese Analyse bezieht sich nur auf den Title der geprüften URL. Wenn jedoch mehrere Seiten Deiner Website denselben Title haben, kann sich das auch negativ auf Deine Rankings auswirken. Um doppelte Meta Titles auf Deiner Website zu finden, kannst Du das Website Audit von Seobility nutzen.
+                    - link "Mehr erfahren" [ref=f8e776] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/website-audit/
+                - generic [ref=f8e778]:
+                  - generic [ref=f8e780]:
+                    - generic [ref=f8e781]:
+                      - generic [ref=f8e782]: Meta-Description
+                      - button "Mehr erfahren" [ref=f8e784] [cursor=pointer]
+                    - generic [ref=f8e789]:
+                      - generic [ref=f8e790]: Warnung
+                      - generic [ref=f8e792]: 1/2
+                      - generic [ref=f8e793]: Sehr wichtig
+                  - generic [ref=f8e801]:
+                    - generic [ref=f8e802]: "EasyTech IT-Solutions aus Altenstadt: Webdesign, IT-Betreuung und IT-Support für Unternehmen sowie Computerhilfe und zuverlässiger IT-Service für Privatkunden."
+                    - generic [ref=f8e805]: Die Meta-Description ist zu lang. (1017 Pixel von maximal 1000 Pixel)
+                - generic [ref=f8e813]:
+                  - generic [ref=f8e815]:
+                    - generic [ref=f8e816]:
+                      - generic [ref=f8e817]: Crawlbarkeit
+                      - button "Mehr erfahren" [ref=f8e819] [cursor=pointer]
+                    - generic [ref=f8e824]:
+                      - generic [ref=f8e825]: 1/1
+                      - generic [ref=f8e826]: Sehr wichtig
+                  - generic [ref=f8e833]: Es gibt keine Probleme beim Zugriff auf die Webseite.
+                - generic [ref=f8e843]:
+                  - generic [ref=f8e845]:
+                    - generic [ref=f8e846]:
+                      - generic [ref=f8e847]: Canonical Link
+                      - button "Mehr erfahren" [ref=f8e849] [cursor=pointer]
+                    - generic [ref=f8e854]:
+                      - generic [ref=f8e855]: 2/2
+                      - generic [ref=f8e856]: Wichtig
+                  - generic [ref=f8e864]:
+                    - generic [ref=f8e865]: https://easytechit.de/
+                    - generic [ref=f8e868]: Die Seite hat einen korrekten Canonical Link.
+                - generic [ref=f8e876]:
+                  - generic [ref=f8e878]:
+                    - generic [ref=f8e879]:
+                      - generic [ref=f8e880]: Sprache
+                      - button "Mehr erfahren" [ref=f8e882] [cursor=pointer]
+                    - generic [ref=f8e887]:
+                      - generic [ref=f8e888]: 3/3
+                      - generic [ref=f8e889]: Wenig wichtig
+                  - generic [ref=f8e897]:
+                    - generic [ref=f8e898]: "Im HTML angegebene Sprache: de"
+                    - generic [ref=f8e901]: "Serverstandort: Deutschland"
+                    - generic [ref=f8e904]: "Die Sprache wird im HTML-Code wie folgt angegeben: de"
+                - generic [ref=f8e912]:
+                  - generic [ref=f8e914]:
+                    - generic [ref=f8e915]:
+                      - generic [ref=f8e916]: Alternate/Hreflang Links
+                      - button "Mehr erfahren" [ref=f8e918] [cursor=pointer]
+                    - generic [ref=f8e923]:
+                      - generic [ref=f8e924]: 1/1
+                      - generic [ref=f8e925]: Wenig wichtig
+                  - generic [ref=f8e932]: Es sind keine alternativen Links auf dieser Seite angegeben.
+                - generic [ref=f8e942]:
+                  - generic [ref=f8e944]:
+                    - generic [ref=f8e945]:
+                      - generic [ref=f8e946]: Weitere Metatags
+                      - button "Mehr erfahren" [ref=f8e948] [cursor=pointer]
+                    - generic [ref=f8e953]:
+                      - generic [ref=f8e954]: 2/2
+                      - generic [ref=f8e955]: Wenig wichtig
+                  - generic [ref=f8e963]:
+                    - generic [ref=f8e964]: Es gibt keinen rel=next Meta Tag auf der Seite.
+                    - generic [ref=f8e970]: Es gibt keinen rel=prev Meta Tag auf der Seite.
+                - generic [ref=f8e978]:
+                  - generic [ref=f8e980]:
+                    - generic [ref=f8e981]:
+                      - generic [ref=f8e982]: Domain
+                      - button "Mehr erfahren" [ref=f8e984] [cursor=pointer]
+                    - generic [ref=f8e989]:
+                      - generic [ref=f8e990]: 3/3
+                      - generic [ref=f8e991]: Wenig wichtig
+                  - generic [ref=f8e999]:
+                    - generic [ref=f8e1000]: Die Domain ist keine Subdomain.
+                    - generic [ref=f8e1006]: Die Länge der Domain ist gut.
+                    - generic [ref=f8e1012]: Die Domain enthält keine nicht-lateinischen Zeichen wie Umlaute.
+                - generic [ref=f8e1020]:
+                  - generic [ref=f8e1022]:
+                    - generic [ref=f8e1023]:
+                      - generic [ref=f8e1024]: Seiten-URL
+                      - button "Mehr erfahren" [ref=f8e1026] [cursor=pointer]
+                    - generic [ref=f8e1031]:
+                      - generic [ref=f8e1032]: 3/3
+                      - generic [ref=f8e1033]: Wenig wichtig
+                  - generic [ref=f8e1041]:
+                    - generic [ref=f8e1042]: Keine Parameter in der URL gefunden.
+                    - generic [ref=f8e1048]: Es wurde keine Session-ID in der URL gefunden.
+                    - generic [ref=f8e1054]: Die URL hat nicht zu viele Unterverzeichnisse.
+                - generic [ref=f8e1062]:
+                  - generic [ref=f8e1064]:
+                    - generic [ref=f8e1065]:
+                      - generic [ref=f8e1066]: Zeichensatzkodierung
+                      - button "Mehr erfahren" [ref=f8e1068] [cursor=pointer]
+                    - generic [ref=f8e1073]:
+                      - generic [ref=f8e1074]: Warnung
+                      - generic [ref=f8e1076]: 1/2
+                      - generic [ref=f8e1077]: Wenig wichtig
+                  - generic [ref=f8e1085]:
+                    - generic [ref=f8e1086]: Es fehlen Zeichensatzangaben im HTTP Header.
+                    - generic [ref=f8e1092]: Die Angaben zur Zeichensatzkodierung (UTF-8) sind fehlerfrei.
+                - generic [ref=f8e1100]:
+                  - generic [ref=f8e1102]:
+                    - generic [ref=f8e1103]:
+                      - generic [ref=f8e1104]: Doctype
+                      - button "Mehr erfahren" [ref=f8e1106] [cursor=pointer]
+                    - generic [ref=f8e1111]:
+                      - generic [ref=f8e1112]: 2/2
+                      - generic [ref=f8e1113]: Nice to have
+                  - generic [ref=f8e1121]:
+                    - generic [ref=f8e1122]: Der Doctype HTML 5 ist korrekt angegeben.
+                    - generic [ref=f8e1128]: Die Doctype Angabe befindet sich an erster Stelle im HTML-Code.
+                - generic [ref=f8e1136]:
+                  - generic [ref=f8e1138]:
+                    - generic [ref=f8e1139]:
+                      - generic [ref=f8e1140]: Favicon
+                      - button "Mehr erfahren" [ref=f8e1142] [cursor=pointer]
+                    - generic [ref=f8e1147]:
+                      - generic [ref=f8e1148]: 1/1
+                      - generic [ref=f8e1149]: Nice to have
+                  - generic [ref=f8e1156]: Das Favoriten Icon (Favicon) ist korrekt verlinkt.
+                - generic [ref=f8e1165]:
+                  - generic [ref=f8e1166]:
+                    - heading "Seitenqualität" [level=3] [ref=f8e1168]
+                    - generic [ref=f8e1169]: 52%
+                  - separator [ref=f8e1176]
+                - generic [ref=f8e1178]:
+                  - generic [ref=f8e1180]:
+                    - generic [ref=f8e1181]:
+                      - generic [ref=f8e1182]: Inhalt
+                      - button "Mehr erfahren" [ref=f8e1184] [cursor=pointer]
+                    - generic [ref=f8e1189]:
+                      - generic [ref=f8e1190]: Fehler
+                      - generic [ref=f8e1192]: 1/4
+                      - generic [ref=f8e1193]: Sehr wichtig
+                  - generic [ref=f8e1201]:
+                    - generic [ref=f8e1202]: Auf dieser Seite gibt es nur 0 Wörter. Verwenden Sie mindestens 250 Wörter, um nützliche Informationen zu liefern
+                    - generic [ref=f8e1209]: Einige Wörter aus dem Seitentitel werden nicht im Inhalt der Seite verwendet
+                    - generic [ref=f8e1215]: Keine Textblöcke erkannt.
+                    - generic [ref=f8e1221]: Keine Platzhaltertexte oder -bilder gefunden.
+                - generic [ref=f8e1229]:
+                  - generic [ref=f8e1231]:
+                    - generic [ref=f8e1232]:
+                      - generic [ref=f8e1233]: Frames
+                      - button "Mehr erfahren" [ref=f8e1235] [cursor=pointer]
+                    - generic [ref=f8e1240]:
+                      - generic [ref=f8e1241]: 1/1
+                      - generic [ref=f8e1242]: Sehr wichtig
+                  - generic [ref=f8e1249]: Diese Seite verwendet kein Frameset.
+                - generic [ref=f8e1259]:
+                  - generic [ref=f8e1261]:
+                    - generic [ref=f8e1262]:
+                      - generic [ref=f8e1263]: Mobile Optimierung
+                      - button "Mehr erfahren" [ref=f8e1265] [cursor=pointer]
+                    - generic [ref=f8e1270]:
+                      - generic [ref=f8e1271]: 2/2
+                      - generic [ref=f8e1272]: Wenig wichtig
+                  - generic [ref=f8e1280]:
+                    - generic [ref=f8e1281]: Es ist ein Viewport (width=device-width, initial-scale=1.0) angegeben.
+                    - generic [ref=f8e1287]: Mindestens ein Apple-Touch Icon ist definiert.
+                - generic [ref=f8e1295]:
+                  - generic [ref=f8e1297]:
+                    - generic [ref=f8e1298]:
+                      - generic [ref=f8e1299]: Strong- und Bold-Tags
+                      - button "Mehr erfahren" [ref=f8e1301] [cursor=pointer]
+                    - generic [ref=f8e1306]:
+                      - generic [ref=f8e1307]: 1/1
+                      - generic [ref=f8e1308]: Wenig wichtig
+                  - generic [ref=f8e1315]: Die Nutzung von Strong- und Bold-Tags ist optimal. Wir empfehlen für diese Seite bis zu 6 Tags zu verwenden.
+                - generic [ref=f8e1325]:
+                  - generic [ref=f8e1327]:
+                    - generic [ref=f8e1328]:
+                      - generic [ref=f8e1329]: Bilder-Optimierung
+                      - button "Mehr erfahren" [ref=f8e1331] [cursor=pointer]
+                    - generic [ref=f8e1336]:
+                      - generic [ref=f8e1337]: 1/1
+                      - generic [ref=f8e1338]: Wenig wichtig
+                  - generic [ref=f8e1345]: Alle gefundenen Bilder haben ALT-Attribute (alternativer Bildtext).
+                - generic [ref=f8e1355]:
+                  - generic [ref=f8e1357]:
+                    - generic [ref=f8e1358]:
+                      - generic [ref=f8e1359]: Soziale Vernetzung
+                      - button "Mehr erfahren" [ref=f8e1361] [cursor=pointer]
+                    - generic [ref=f8e1366]:
+                      - generic [ref=f8e1367]: Warnung
+                      - generic [ref=f8e1369]: 0/1
+                      - generic [ref=f8e1370]: Nice to have
+                  - generic [ref=f8e1377]: Es befinden sich wenige Social-Sharing Möglichkeiten auf der Seite. Mit Plugins zum Teilen kann die Reichweite der Seite in sozialen Netzwerken erhöht werden.
+                - generic [ref=f8e1387]:
+                  - generic [ref=f8e1389]:
+                    - generic [ref=f8e1390]:
+                      - generic [ref=f8e1391]: Zusätzliches Markup
+                      - button "Mehr erfahren" [ref=f8e1393] [cursor=pointer]
+                    - generic [ref=f8e1398]:
+                      - generic [ref=f8e1399]: 1/1
+                      - generic [ref=f8e1400]: Nice to have
+                  - generic [ref=f8e1407]: Es wurde kein zusätzliches Markup gefunden.
+                - generic [ref=f8e1417]:
+                  - generic [ref=f8e1419]:
+                    - generic [ref=f8e1420]:
+                      - generic [ref=f8e1421]: HTTPS
+                      - button "Mehr erfahren" [ref=f8e1423] [cursor=pointer]
+                    - generic [ref=f8e1428]:
+                      - generic [ref=f8e1429]: 2/2
+                      - generic [ref=f8e1430]: Wenig wichtig
+                  - generic [ref=f8e1438]:
+                    - generic [ref=f8e1439]: Die Seite verwendet HTTPS, um Daten sicher zu übertragen.
+                    - generic [ref=f8e1445]: Alle eingebundenen Dateien werden ebenfalls über HTTPS ausgeliefert.
+                - generic [ref=f8e1452]:
+                  - generic [ref=f8e1453]:
+                    - heading "Sonstiges" [level=3] [ref=f8e1455]
+                    - generic [ref=f8e1456]: 58%
+                  - separator [ref=f8e1463]
+                - generic [ref=f8e1465]:
+                  - generic [ref=f8e1467]:
+                    - generic [ref=f8e1468]:
+                      - generic [ref=f8e1469]: H1 Überschrift
+                      - button "Mehr erfahren" [ref=f8e1471] [cursor=pointer]
+                    - generic [ref=f8e1476]:
+                      - generic [ref=f8e1477]: Fehler
+                      - generic [ref=f8e1479]: 0/1
+                      - generic [ref=f8e1480]: Sehr wichtig
+                  - generic [ref=f8e1487]: Es ist keine H1-Überschrift definiert.
+                - generic [ref=f8e1498]:
+                  - generic [ref=f8e1500]:
+                    - generic [ref=f8e1501]:
+                      - generic [ref=f8e1502]: Überschriften
+                      - button "Mehr erfahren" [ref=f8e1504] [cursor=pointer]
+                    - generic [ref=f8e1509]:
+                      - generic [ref=f8e1510]: Fehler
+                      - generic [ref=f8e1512]: 0/1
+                      - generic [ref=f8e1513]: Wichtig
+                  - generic [ref=f8e1520]: Es befinden sich keine Überschriften auf der Seite. Überschriften sind jedoch ein extrem wichtiger Faktor für gutes Ranking.
+                - generic [ref=f8e1530]:
+                  - generic [ref=f8e1531]:
+                    - heading "Links auf der Seite" [level=3] [ref=f8e1533]
+                    - generic [ref=f8e1534]: 0%
+                  - separator [ref=f8e1540]
+                - generic [ref=f8e1542]:
+                  - generic [ref=f8e1544]:
+                    - generic [ref=f8e1545]:
+                      - generic [ref=f8e1546]: Interne Links
+                      - button "Mehr erfahren" [ref=f8e1548] [cursor=pointer]
+                    - generic [ref=f8e1553]:
+                      - generic [ref=f8e1554]: Fehler
+                      - generic [ref=f8e1556]: 0/1
+                      - generic [ref=f8e1557]: Wichtig
+                  - generic [ref=f8e1564]: Diese Seite scheint eine Einstiegsseite zu sein, denn es wurden nur sehr wenige Links gefunden
+                - generic [ref=f8e1575]:
+                  - generic [ref=f8e1577]:
+                    - generic [ref=f8e1578]:
+                      - generic [ref=f8e1579]: Externe Links
+                      - button "Mehr erfahren" [ref=f8e1581] [cursor=pointer]
+                    - generic [ref=f8e1586]:
+                      - generic [ref=f8e1587]: Warnung
+                      - generic [ref=f8e1589]: 0/1
+                      - generic [ref=f8e1590]: Nice to have
+                  - generic [ref=f8e1597]: Es befinden sich keine externen Links auf der Seite.
+                - generic [ref=f8e1606]:
+                  - generic [ref=f8e1607]:
+                    - heading "Serverkonfiguration" [level=3] [ref=f8e1609]
+                    - generic [ref=f8e1610]: 0%
+                  - separator [ref=f8e1616]
+                - generic [ref=f8e1618]:
+                  - generic [ref=f8e1620]:
+                    - generic [ref=f8e1621]:
+                      - generic [ref=f8e1622]: HTTP-Weiterleitungen
+                      - button "Mehr erfahren" [ref=f8e1624] [cursor=pointer]
+                    - generic [ref=f8e1629]:
+                      - generic [ref=f8e1630]: Fehler
+                      - generic [ref=f8e1632]: 1/3
+                      - generic [ref=f8e1633]: Sehr wichtig
+                  - generic [ref=f8e1641]:
+                    - generic [ref=f8e1642]: Die geprüfte Seite leitet nicht auf eine andere URL weiter.
+                    - generic [ref=f8e1645]: Die Umleitung auf HTTPS für diese Website ist nicht korrekt konfiguriert.
+                    - generic [ref=f8e1658]:
+                      - text: Die Seite leitet URLs mit und ohne "www." nicht einheitlich weiter. Dies kann zu "Duplicate Content" und falsch gesetzten Links führen.
+                      - link "Zum Redirect Check" [ref=f8e1659] [cursor=pointer]:
+                        - /url: redirect-check
+                - generic [ref=f8e1663]:
+                  - generic [ref=f8e1665]:
+                    - generic [ref=f8e1666]:
+                      - generic [ref=f8e1667]: HTTP-Header
+                      - button "Mehr erfahren" [ref=f8e1669] [cursor=pointer]
+                    - generic [ref=f8e1674]:
+                      - generic [ref=f8e1675]: 2/2
+                      - generic [ref=f8e1676]: Wichtig
+                  - generic [ref=f8e1684]:
+                    - generic [ref=f8e1685]: Es wird kein X-Powered HTTP-Header gesendet.
+                    - generic [ref=f8e1691]: Diese Seite verwendet Komprimierung für die Datenübertragung.
+                - generic [ref=f8e1699]:
+                  - generic [ref=f8e1701]:
+                    - generic [ref=f8e1702]:
+                      - generic [ref=f8e1703]: Performance
+                      - button "Mehr erfahren" [ref=f8e1705] [cursor=pointer]
+                    - generic [ref=f8e1710]:
+                      - generic [ref=f8e1711]: 2/2
+                      - generic [ref=f8e1712]: Wenig wichtig
+                  - generic [ref=f8e1720]:
+                    - generic [ref=f8e1721]: Die Antwortzeit der Seite ist mit 0,06 Sekunden unter der Zielmarke von 0,40 Sekunden.
+                    - generic [ref=f8e1727]: Die Dateigröße des HTML-Dokuments ist in Ordnung. (3 kB)
+                - generic [ref=f8e1734]:
+                  - generic [ref=f8e1735]:
+                    - heading "Externe Faktoren" [level=3] [ref=f8e1737]
+                    - generic [ref=f8e1738]: 0%
+                  - separator [ref=f8e1744]
+                - generic [ref=f8e1746]:
+                  - generic [ref=f8e1748]:
+                    - generic [ref=f8e1749]:
+                      - generic [ref=f8e1750]: Backlinks
+                      - button "Mehr erfahren" [ref=f8e1752] [cursor=pointer]
+                    - generic [ref=f8e1757]:
+                      - generic [ref=f8e1758]: Fehler
+                      - generic [ref=f8e1760]: 0/1
+                      - generic [ref=f8e1761]: Sehr wichtig
+                  - generic [ref=f8e1768]: Diese Seite hat fast keine Links von anderen Webseiten.
+            - generic [ref=f8e1780]:
+              - generic [ref=f8e1781]:
+                - img "light bulb icon" [ref=f8e1782]
+                - generic [ref=f8e1783]:
+                  - 'heading "Tipp: Überprüfe den Rest Deiner Website auf ähnliche SEO-Probleme" [level=3] [ref=f8e1784]'
+                  - paragraph [ref=f8e1785]: Der SEO Check analysiert nur die von Dir eingegebene URL. Mit dem vollständigen Website Audit von Seobility kannst Du Deine gesamte Website automatisch crawlen, erhältst eine priorisierte To-do-Liste und kannst Deinen Fortschritt langfristig verfolgen.
+              - link "Mehr erfahren" [ref=f8e1787] [cursor=pointer]:
+                - /url: https://www.seobility.net/de/
+      - generic [ref=f8e169]:
+        - generic [ref=f8e170]:
+          - text: Jetzt 14 Tage kostenlos testen!
+          - heading "Seobility Premium" [level=2] [ref=f8e172]
+          - paragraph [ref=f8e173]: "Analysiere mehr als nur eine URL und schalte alle Features unserer SEO Software frei:"
+          - list [ref=f8e174]:
+            - listitem [ref=f8e175]:
+              - generic [aria-hidden] [ref=f8e176]: 
+              - text: Umfangreiches SEO-Audit Deiner kompletten Website
+            - listitem [ref=f8e177]:
+              - generic [aria-hidden] [ref=f8e178]: 
+              - text: Ranking Monitoring
+            - listitem [ref=f8e179]:
+              - generic [aria-hidden] [ref=f8e180]: 
+              - text: Backlink Monitoring & Analyse
+            - listitem [ref=f8e181]:
+              - generic [aria-hidden] [ref=f8e182]: 
+              - text: Wettbewerber Analyse
+            - listitem [ref=f8e183]:
+              - generic [aria-hidden] [ref=f8e184]: 
+              - text: Und mehr!
+          - generic [ref=f8e185]:
+            - generic [ref=f8e186]:
+              - generic [ref=f8e187]: 14 Tage Testphase
+              - generic [ref=f8e189]:
+                - checkbox [checked]
+                - generic [ref=f8e190] [cursor=pointer]
+            - generic [ref=f8e191]: KOSTENLOS
+          - generic [ref=f8e192]:
+            - text: Preis pro Monat
+            - generic [ref=f8e193]: €59,90
+            - paragraph [ref=f8e194]: Jederzeit kündbar! Verlängert sich ansonsten automatisch zum Premium-Paket für 59,90€/Monat.
+          - link "Kostenlos testen" [ref=f8e195] [cursor=pointer]:
+            - /url: https://app.seobility.net/user/register?productid=1&payinterval=1
+        - generic [ref=f8e196]:
+          - img "Seobility Website Audit" [ref=f8e198]
+          - img "OMR Reviews Leader SEO Suites Q2 2026" [ref=f8e199]
+      - contentinfo [ref=f8e200]:
+        - generic [ref=f8e201]:
+          - img "Seobility Logo" [ref=f8e202]
+          - generic [ref=f8e203]:
+            - link [ref=f8e204] [cursor=pointer]:
+              - /url: /de/kontakt/
+              - button "Kontakt" [ref=f8e205]
+            - generic [ref=f8e206]: Seobility GmbH, Willy-Brandt-Platz 16, 90402 Nürnberg, Deutschland
+          - generic [ref=f8e208]:
+            - generic [ref=f8e209]:
+              - generic [ref=f8e210]:
+                - text: Features
+                - navigation "Footer Menu 3" [ref=f8e212]:
+                  - list [ref=f8e214]:
+                    - listitem [ref=f8e215]:
+                      - link "Website Audit" [ref=f8e216] [cursor=pointer]:
+                        - /url: /de/website-audit/
+                    - listitem [ref=f8e217]:
+                      - link "Ranking Monitoring" [ref=f8e218] [cursor=pointer]:
+                        - /url: /de/ranking-monitoring/
+                    - listitem [ref=f8e219]:
+                      - link "AI Visibility Tracking (Beta)" [ref=f8e220] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/ai-visibility-tracking/
+                    - listitem [ref=f8e221]:
+                      - link "Backlink Monitoring" [ref=f8e222] [cursor=pointer]:
+                        - /url: /de/backlink-monitoring/
+                    - listitem [ref=f8e223]:
+                      - link "SEO-Konkurrenzanalyse" [ref=f8e224] [cursor=pointer]:
+                        - /url: /de/seo-konkurrenzanalyse/
+                    - listitem [ref=f8e225]:
+                      - link "SEO Content Tools" [ref=f8e226] [cursor=pointer]:
+                        - /url: /de/seo-content-tools/
+                    - listitem [ref=f8e227]:
+                      - link "Uptime Monitoring" [ref=f8e228] [cursor=pointer]:
+                        - /url: /de/uptime-monitoring/
+                    - listitem [ref=f8e229]:
+                      - link "Seobility MCP (Beta)" [ref=f8e230] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/seobility-mcp/
+              - generic [ref=f8e231]:
+                - text: Use Cases
+                - navigation "Footer Menu 2" [ref=f8e233]:
+                  - list [ref=f8e235]:
+                    - listitem [ref=f8e236]:
+                      - link "Seobility für Unternehmen" [ref=f8e237] [cursor=pointer]:
+                        - /url: /de/seobility-fuer-unternehmen/
+                    - listitem [ref=f8e238]:
+                      - link "Seobility für Agenturen und Freelancer" [ref=f8e239] [cursor=pointer]:
+                        - /url: /de/seo-software-fuer-agenturen-und-freelancer/
+                    - listitem [ref=f8e240]:
+                      - link "Seobility für lokale Unternehmen" [ref=f8e241] [cursor=pointer]:
+                        - /url: /de/local-seo-tool/
+                    - listitem [ref=f8e242]:
+                      - link "Generative Engine Optimization (GEO) mit Seobility" [ref=f8e243] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/generative-engine-optimization-tool/
+            - generic [ref=f8e245]:
+              - text: Kostenlose SEO Tools
+              - navigation "Footer Menu 3" [ref=f8e247]:
+                - list [ref=f8e249]:
+                  - listitem [ref=f8e250]:
+                    - link "SEO Check" [ref=f8e251] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/seocheck/
+                  - listitem [ref=f8e252]:
+                    - link "Ranking Check" [ref=f8e253] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/rankingcheck/
+                  - listitem [ref=f8e254]:
+                    - link "Backlink Check" [ref=f8e255] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/backlinkcheck/
+                  - listitem [ref=f8e256]:
+                    - link "Keyword Recherche Tool" [ref=f8e257] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/keyword-recherche-tool/
+                  - listitem [ref=f8e258]:
+                    - link "WDF*IDF Tool" [ref=f8e259] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/wdf-idf-tool/
+                  - listitem [ref=f8e260]:
+                    - link "Redirect Check" [ref=f8e261] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/redirectcheck/
+                  - listitem [ref=f8e262]:
+                    - link "SERP Snippet Generator" [ref=f8e263] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/serp-snippet-generator/
+                  - listitem [ref=f8e264]:
+                    - link "Keyword Check" [ref=f8e265] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/keywordcheck/
+                  - listitem [ref=f8e266]:
+                    - link "SEO Compare" [ref=f8e267] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/seocompare/
+            - generic [ref=f8e268]:
+              - generic [ref=f8e269]:
+                - text: Seobility
+                - navigation "Footer Menu 1" [ref=f8e271]:
+                  - list [ref=f8e273]:
+                    - listitem [ref=f8e274]:
+                      - link "Preise und Pakete" [ref=f8e275] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/preise/
+                    - listitem [ref=f8e276]:
+                      - link "Seobility Team" [ref=f8e277] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/team/
+                    - listitem [ref=f8e278]:
+                      - link "Affiliate Programm" [ref=f8e279] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/affiliates/
+                    - listitem [ref=f8e280]:
+                      - link "Kontakt" [ref=f8e281] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/kontakt/
+                    - listitem [ref=f8e282]:
+                      - link "SEO Contest 2026" [ref=f8e283] [cursor=pointer]:
+                        - /url: https://contest.seobility.net/
+              - generic [ref=f8e284]:
+                - text: Ressourcen
+                - navigation "Footer Menu Resources" [ref=f8e286]:
+                  - list [ref=f8e288]:
+                    - listitem [ref=f8e289]:
+                      - link "Blog" [ref=f8e290] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/blog/
+                    - listitem [ref=f8e291]:
+                      - link "Wiki" [ref=f8e292] [cursor=pointer]:
+                        - /url: /de/wiki
+                    - listitem [ref=f8e293]:
+                      - link "FAQ" [ref=f8e294] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/faq/
+                    - listitem [ref=f8e295]:
+                      - link "Seobility Einsteiger-Guide" [ref=f8e296] [cursor=pointer]:
+                        - /url: https://www.seobility.net/de/blog/seobility-erste-schritte-guide/
+            - generic [ref=f8e298]:
+              - text: Rechtliches
+              - navigation "Footer Menu Legal" [ref=f8e300]:
+                - list [ref=f8e302]:
+                  - listitem [ref=f8e303]:
+                    - link "Allgemeine Geschäftsbedingungen" [ref=f8e304] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/agb/
+                  - listitem [ref=f8e305]:
+                    - link "Datenschutz" [ref=f8e306] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/datenschutz/
+                  - listitem [ref=f8e307]:
+                    - link "Impressum" [ref=f8e308] [cursor=pointer]:
+                      - /url: https://www.seobility.net/de/impressum/
+        - generic [ref=f8e310]:
+          - generic [ref=f8e311]: © 2026 - Seobility.net
+          - generic [ref=f8e312]:
+            - link "Linkedin" [ref=f8e313] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/seobility-seo-tool/
+              - generic [aria-hidden] [ref=f8e314]: 
+            - link "Facebook" [ref=f8e315] [cursor=pointer]:
+              - /url: https://www.facebook.com/seobility.net/
+              - generic [aria-hidden] [ref=f8e316]: 
+            - link "Instagram" [ref=f8e317] [cursor=pointer]:
+              - /url: https://www.instagram.com/seobility/
+              - generic [aria-hidden] [ref=f8e318]: 

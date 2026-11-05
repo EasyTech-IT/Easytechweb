@@ -1,0 +1,10 @@
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Alle Varianten (http, www) per 301 auf https://easytechit.de
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://easytechit.de%{REQUEST_URI} [L,R=301]
+</IfModule>

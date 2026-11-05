@@ -1,0 +1,13 @@
+[    1822ms] [LOG] JQMIGRATE: Migrate is installed with logging active, version 3.4.1 @ https://www.seobility.net/wp-includes/js/jquery/jquery-migrate.js?ver=3.4.1:103
+[    1822ms] [WARNING] JQMIGRATE: jQuery is not compatible with Quirks Mode @ https://www.seobility.net/wp-includes/js/jquery/jquery-migrate.js?ver=3.4.1:135
+[    2135ms] [LOG] API wrapper override URL: https://app.seobility.net @ https://app.seobility.net/widget_build/app-widgets.js:1
+[    2150ms] [LOG] Seobility Widget Initialization... @ https://app.seobility.net/widget_build/app-widgets.js:1
+[    2150ms] [LOG] Initializing Sentry (Widget)... @ https://app.seobility.net/widget_build/app-widgets.js:1
+[    2258ms] [LOG] AppSeoCheckWidget mounted @ https://app.seobility.net/widget_build/app-widgets.js:1
+[    2261ms] [LOG] normalizeBoolean true @ https://app.seobility.net/widget_build/app-widgets.js:1
+[    2262ms] [LOG] normalizeBoolean false @ https://app.seobility.net/widget_build/app-widgets.js:1
+[    2297ms] [LOG] Override App URL by build process: https://app.seobility.net/ @ https://app.seobility.net/widget_build/app-widgets.js:1
+[    2336ms] [LOG] Setting seobility_locale cookie for domain: .seobility.net @ https://app.seobility.net/widget_build/app-widgets.js:1
+[    3422ms] [LOG] Authentication status added to window object: {authenticated: false, user: null, email: null} @ https://app.seobility.net/widget_build/app-widgets.js:1
+[   82420ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://p.clarity.ms/collect:0
+[   86927ms] [ERROR] Failed to load resource: net::ERR_NETWORK_CHANGED @ https://p.clarity.ms/collect:0

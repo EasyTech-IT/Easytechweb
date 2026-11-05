@@ -90,25 +90,40 @@
       }
     }
 
+    // Google Consent Mode v2 (advanced): Standard "denied", Update nach Auswahl im Cookie-Banner.
     function syncAnalyticsConsent() {
-      const analyticsAllowed = getConsentPreferences()?.analytics === true;
-      window[`ga-disable-${analyticsId}`] = !analyticsAllowed;
-      if (!analyticsAllowed || document.getElementById("easytech-google-analytics")) {
-        return;
-      }
-
       window.dataLayer = window.dataLayer || [];
       window.gtag = window.gtag || function gtag() {
         window.dataLayer.push(arguments);
       };
-      window.gtag("js", new Date());
-      window.gtag("config", analyticsId);
 
-      const script = document.createElement("script");
-      script.id = "easytech-google-analytics";
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsId}`;
-      document.head.appendChild(script);
+      if (!document.getElementById("easytech-google-analytics")) {
+        window.gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "denied",
+          wait_for_update: 500,
+        });
+        window.gtag("set", "ads_data_redaction", true);
+        window.gtag("js", new Date());
+        window.gtag("config", analyticsId, {
+          allow_google_signals: false,
+          allow_ad_personalization_signals: false,
+        });
+
+        const script = document.createElement("script");
+        script.id = "easytech-google-analytics";
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsId}`;
+        document.head.appendChild(script);
+      }
+
+      const analyticsState = getConsentPreferences()?.analytics === true ? "granted" : "denied";
+      if (window.__easytechAnalyticsState !== analyticsState) {
+        window.__easytechAnalyticsState = analyticsState;
+        window.gtag("consent", "update", { analytics_storage: analyticsState });
+      }
     }
 
     function setupAnalyticsConsent() {
@@ -238,7 +253,7 @@
             <div class="flex-1 min-w-0">
               <h3 class="text-[18px] sm:text-[20px] text-[#0a0a0b] mb-3 tracking-[-0.01em]" style="font-family:'Satoshi',sans-serif;font-weight:700;line-height:1.3">Google Analytics 4</h3>
               <div class="text-[17px] text-[#404040] space-y-3" style="font-family:'Inter',sans-serif;line-height:1.7">
-                <p>Mit Ihrer Einwilligung nutzen wir Google Analytics 4, um die Nutzung unserer Website statistisch auszuwerten. Dabei können Nutzungs-, Geräte- und Browserinformationen sowie aufgerufene Seiten und Interaktionen verarbeitet werden. Die Analyse wird erst aktiviert, wenn Sie in den Cookie-Einstellungen der Kategorie „Analyse“ zustimmen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ ändern oder widerrufen. Die Speicherdauer richtet sich nach der in unserem Google-Analytics-Konto gewählten Aufbewahrungseinstellung.</p>
+                <p>Wir nutzen Google Analytics 4 mit dem Google-Einwilligungsmodus (Consent Mode v2), um die Nutzung unserer Website statistisch auszuwerten. Ohne Ihre Einwilligung ist die Speicherung von Analyse-Cookies deaktiviert; das Google-Tag wird jedoch geladen und kann dabei technisch bedingt Verbindungsdaten wie Ihre IP-Adresse sowie einfache Seitenaufruf-Signale ohne Cookies und ohne Kennungen an Google übermitteln. Zudem sind Werbefunktionen und Personalisierung deaktiviert. Erst wenn Sie in den Cookie-Einstellungen der Kategorie „Analyse“ zustimmen, werden Analyse-Cookies gesetzt und Nutzungs-, Geräte- und Browserinformationen sowie aufgerufene Seiten und Interaktionen vollständig verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO bzw. § 25 Abs. 1 TDDDG. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ ändern oder widerrufen. Die Speicherdauer richtet sich nach der in unserem Google-Analytics-Konto gewählten Aufbewahrungseinstellung.</p>
                 <p>Anbieter ist Google Ireland Limited. Eine Verarbeitung durch Google LLC in den USA kann nicht ausgeschlossen werden. Weitere Informationen: <a class="text-[#2e4a6f] hover:text-[#000000] transition-colors" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
               </div>
             </div>

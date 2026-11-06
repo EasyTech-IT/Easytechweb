@@ -474,15 +474,6 @@
     }
 
     const addLink = () => {
-      for (const link of root.querySelectorAll('a[href^="/"]:not([href$="/"])')) {
-        const destination = new URL(link.getAttribute("href"), base);
-        const path = destination.pathname.replace(/\/+$/, "") || "/";
-
-        if (destination.origin === base && pageMetadata[path]) {
-          link.setAttribute("href", `${path}/${destination.search}${destination.hash}`);
-        }
-      }
-
       const navigation = root.querySelector("nav");
 
       if (!navigation || navigation.querySelector('a[href="/insights/"]')) {
@@ -512,12 +503,7 @@
     };
     const observer = new MutationObserver(addLink);
 
-    observer.observe(root, {
-      attributes: true,
-      attributeFilter: ["href"],
-      childList: true,
-      subtree: true,
-    });
+    observer.observe(root, { childList: true, subtree: true });
     addLink();
   }
 

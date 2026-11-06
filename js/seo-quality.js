@@ -17,7 +17,7 @@
     "/it/business": {
       title: "IT-Dienstleister für KMU in Altenstadt | EasyTech",
       description:
-        "IT-Dienstleister für Unternehmen in Altenstadt: IT-Betreuung für KMU mit IT-Support vor Ort und per Fernwartung sowie Netzwerk-, Server- und Gerätebetreuung.",
+        "IT-Dienstleister in Altenstadt: IT-Betreuung f?r KMU mit Support vor Ort und per Fernwartung f?r Netzwerk, Server und Ger?te.",
     },
     "/it/privat": {
       title: "Computerhilfe für Privatkunden in Altenstadt | EasyTech",
@@ -27,12 +27,12 @@
     "/it/ki-beratung": {
       title: "KI-Automatisierung für Unternehmen | EasyTech",
       description:
-        "KI-Beratung für Unternehmen und KMU: Mit KI und n8n wiederkehrende Geschäftsprozesse und Workflows automatisieren – von der Potenzialanalyse bis zur Umsetzung.",
+        "KI-Beratung f?r KMU: Mit KI und n8n Gesch?ftsprozesse automatisieren ? von der Potenzialanalyse bis zur Umsetzung.",
     },
     "/videografie": {
       title: "Videografie für Unternehmen | Imagefilm & Reels Altenstadt",
       description:
-        "Videoproduktion für Unternehmen in Altenstadt: Imagefilme, Social-Media-Videos, Reels und Motion Design für Website, Kampagnen und Mitarbeitergewinnung.",
+        "Videoproduktion in Altenstadt: Imagefilme, Social-Media-Videos, Reels und Motion Design f?r Website und Kampagnen.",
     },
     "/projekte": {
       title: "Webdesign-Projekte | EasyTech IT-Solutions Altenstadt",
@@ -47,7 +47,7 @@
     "/ueber-mich": {
       title: "Über EasyTech IT-Solutions | Ahsin Ghumman, Altenstadt",
       description:
-        "Lernen Sie Ahsin Ghumman und EasyTech IT-Solutions aus Altenstadt kennen. Persönliche Beratung und Umsetzung für Webdesign, IT-Betreuung und digitale Lösungen.",
+        "Lernen Sie Ahsin Ghumman und EasyTech IT-Solutions aus Altenstadt kennen: pers?nliche Beratung f?r Webdesign und IT-Betreuung.",
     },
     "/kontakt": {
       title: "Kontakt | EasyTech IT-Solutions Altenstadt",

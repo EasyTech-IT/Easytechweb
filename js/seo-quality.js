@@ -511,6 +511,48 @@
     }
   }
 
+  function deferOffscreenImages() {
+    const createElement = document.createElement;
+    document.createElement = function createLazyImage(tagName, options) {
+      const element = createElement.call(document, tagName, options);
+      if (String(tagName).toLowerCase() === "img") {
+        element.loading = "lazy";
+      }
+      return element;
+    };
+
+    const markAsLazy = (node) => {
+      if (!(node instanceof HTMLImageElement)) {
+        return;
+      }
+
+      if (
+        node.fetchPriority === "high" ||
+        node.getBoundingClientRect().top <= window.innerHeight
+      ) {
+        node.loading = "eager";
+        return;
+      }
+
+      node.loading = "lazy";
+      node.decoding = "async";
+    };
+
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          markAsLazy(node);
+          if (node instanceof Element) {
+            node.querySelectorAll("img").forEach(markAsLazy);
+          }
+        }
+      }
+    });
+
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+    document.querySelectorAll("img").forEach(markAsLazy);
+  }
+
   function synchronizePageMetadata() {
     const path = window.location.pathname.replace(/\/+$/, "") || "/";
     const metadata = pageMetadata[path];
@@ -567,6 +609,7 @@
     cleanStructuredData();
   }
 
+  deferOffscreenImages();
   synchronizePageMetadata();
   setupAnalyticsConsent();
   updatePrivacyNotice();

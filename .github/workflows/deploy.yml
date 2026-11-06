@@ -40,4 +40,6 @@ jobs:
             mirror -R --parallel=4 --verbose \
               --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .gitignore \
               ./ /;
+            rm -f /js/loader.js;
+            rm -f /assets/loading.mp4;
             bye"

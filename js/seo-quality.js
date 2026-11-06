@@ -2,6 +2,10 @@
   const base = "https://easytechit.de";
   const logo = `${base}/assets/EasyTech%20Logo.png`;
   const analyticsId = "G-NZ8HRV390B";
+  const verifiedProfileUrls = [
+    "https://maps.app.goo.gl/JpRggCaiTpdMQ6ST8",
+    "https://github.com/EasyTech-IT",
+  ];
   const consentKey = "ja-itc-cookie-consent";
   const pageMetadata = {
     "/": {
@@ -309,6 +313,11 @@
       value.addressRegion = "Hessen";
     }
 
+    const types = Array.isArray(value["@type"]) ? value["@type"] : [value["@type"]];
+    if (types.includes("Organization") || types.includes("LocalBusiness")) {
+      value.sameAs = verifiedProfileUrls;
+    }
+
     for (const child of Object.values(value)) {
       normalizeStructuredData(child);
     }
@@ -465,6 +474,15 @@
     }
 
     const addLink = () => {
+      for (const link of root.querySelectorAll('a[href^="/"]:not([href$="/"])')) {
+        const destination = new URL(link.getAttribute("href"), base);
+        const path = destination.pathname.replace(/\/+$/, "") || "/";
+
+        if (destination.origin === base && pageMetadata[path]) {
+          link.setAttribute("href", `${path}/${destination.search}${destination.hash}`);
+        }
+      }
+
       const navigation = root.querySelector("nav");
 
       if (!navigation || navigation.querySelector('a[href="/insights/"]')) {
@@ -494,7 +512,12 @@
     };
     const observer = new MutationObserver(addLink);
 
-    observer.observe(root, { childList: true, subtree: true });
+    observer.observe(root, {
+      attributes: true,
+      attributeFilter: ["href"],
+      childList: true,
+      subtree: true,
+    });
     addLink();
   }
 

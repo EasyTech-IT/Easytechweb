@@ -500,15 +500,37 @@
 
   function setupFooter() {
     const footer = document.querySelector("footer");
-    if (!footer || footer.querySelector(".dc-footer-cta")) return;
+    if (!footer) return;
     const contactLink = footer.querySelector('a[href="/kontakt"], a[href="/kontakt/"]');
-    if (!contactLink) return;
-    const button = document.createElement("a");
-    button.className = `${contactLink.className} dc-footer-cta`;
-    button.href = "#digital-check";
-    button.dataset.dcOpen = "";
-    button.textContent = "Kostenlosen Check starten";
-    contactLink.after(button);
+    if (contactLink && !footer.querySelector(".dc-footer-cta")) {
+      const button = document.createElement("a");
+      button.className = `${contactLink.className} dc-footer-cta`;
+      button.href = "#digital-check";
+      button.dataset.dcOpen = "";
+      button.textContent = "Kostenlosen Check starten";
+      contactLink.after(button);
+    }
+
+    const legalLinks = footer.querySelector('a[href="/datenschutz"], a[href="/datenschutz/"]')?.parentElement;
+    if (!legalLinks || legalLinks.querySelector(".dc-profile-links")) return;
+
+    const profileLinks = document.createElement("span");
+    profileLinks.className = "dc-profile-links";
+    profileLinks.setAttribute("aria-label", "Externe Profile");
+
+    [
+      ["Google Maps", "https://maps.app.goo.gl/JpRggCaiTpdMQ6ST8"],
+      ["GitHub", "https://github.com/EasyTech-IT"],
+    ].forEach(([label, href]) => {
+      const link = document.createElement("a");
+      link.href = href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = label;
+      profileLinks.append(link);
+    });
+
+    legalLinks.append(profileLinks);
   }
 
   function getConsentPreferences() {

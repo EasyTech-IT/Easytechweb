@@ -512,10 +512,10 @@
   function loadSiteEnhancements() {
     const stylesheet = document.createElement("link");
     stylesheet.rel = "stylesheet";
-    stylesheet.href = "/css/digital-check.css";
+    stylesheet.href = "/css/digital-check.css?v=2";
     document.head.appendChild(stylesheet);
 
-    for (const source of ["/js/digital-check.js"]) {
+    for (const source of ["/js/digital-check.js?v=2"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

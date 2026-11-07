@@ -711,6 +711,34 @@
   gap: 9px;
 }
 
+.dc-trust-seal {
+  position: fixed;
+  z-index: 997;
+  left: 20px;
+  bottom: 96px;
+  width: 104px;
+  height: 104px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgb(17 24 39 / 0.22);
+  pointer-events: none;
+}
+
+.dc-trust-seal img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}
+
+@media (max-width: 680px) {
+  .dc-trust-seal {
+    left: 12px;
+    bottom: 84px;
+    width: 76px;
+    height: 76px;
+  }
+}
+
 .dc-floating-actions button {
   display: inline-flex;
   min-height: 48px;

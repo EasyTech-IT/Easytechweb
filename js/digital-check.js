@@ -652,6 +652,12 @@
         ${icon("cookie")}<span class="dc-visually-hidden">Cookie-Einstellungen</span>
       </button>`;
     document.body.append(actions);
+    if (!document.querySelector(".dc-trust-seal")) {
+      const seal = document.createElement("div");
+      seal.className = "dc-trust-seal";
+      seal.innerHTML = `<img src="/assets/wkdb-rating-seal.png" width="125" height="125" alt="Bewertung Sehr gut, 5 Sterne, wer kennt den BESTEN, 11/2026" decoding="async">`;
+      document.body.append(seal);
+    }
     actions.querySelector(".dc-floating-cookie").addEventListener("click", () => {
       const settingsButton = [...document.querySelectorAll("button")].find((button) => (
         button !== actions.querySelector(".dc-floating-cookie")

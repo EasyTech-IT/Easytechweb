@@ -379,6 +379,7 @@
             contactType: "customer service",
             availableLanguage: "German",
           },
+          sameAs: verifiedProfileUrls,
         },
         {
           "@type": "WebSite",

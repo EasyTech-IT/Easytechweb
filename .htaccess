@@ -28,3 +28,9 @@ AddDefaultCharset UTF-8
   ExpiresByType application/javascript "access plus 1 day"
   ExpiresByType text/javascript "access plus 1 day"
 </IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "^index-.*\.(js|css)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

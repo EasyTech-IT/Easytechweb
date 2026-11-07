@@ -605,7 +605,10 @@
     const hero = heading?.closest("section");
     if (!hero || hero.querySelector(".dc-hero-cta")) return;
 
-    const phoneLink = hero.querySelector('a[href^="tel:"]');
+    // Nur Anruf-Buttons ersetzen; Links mit sichtbarer Nummer (Kontaktkarte) bleiben erhalten.
+    const phoneLink = [...hero.querySelectorAll('a[href^="tel:"]')].find(
+      (link) => !/\d{4}/.test(link.textContent),
+    );
     const button = phoneLink || document.createElement("a");
     button.href = "#digital-check";
     button.classList.add("dc-hero-cta");

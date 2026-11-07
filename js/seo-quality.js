@@ -515,7 +515,7 @@
     stylesheet.href = "/css/digital-check.css?v=2";
     document.head.appendChild(stylesheet);
 
-    for (const source of ["/js/digital-check.js?v=2"]) {
+    for (const source of ["/js/digital-check.js?v=3"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

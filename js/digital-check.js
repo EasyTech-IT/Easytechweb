@@ -521,6 +521,7 @@
     [
       ["Google Maps", "https://maps.app.goo.gl/JpRggCaiTpdMQ6ST8"],
       ["GitHub", "https://github.com/EasyTech-IT"],
+      ["11880", "https://www.11880.com/branchenbuch/buedingen-hessen/061752713B114234499/easytech-it-solutions.html"],
     ].forEach(([label, href]) => {
       const link = document.createElement("a");
       link.href = href;

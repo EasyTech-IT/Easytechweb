@@ -5,6 +5,7 @@
   const verifiedProfileUrls = [
     "https://maps.app.goo.gl/JpRggCaiTpdMQ6ST8",
     "https://github.com/EasyTech-IT",
+    "https://www.11880.com/branchenbuch/buedingen-hessen/061752713B114234499/easytech-it-solutions.html",
   ];
   const consentKey = "ja-itc-cookie-consent";
   const pageMetadata = {

@@ -31,6 +31,122 @@
   scroll-margin-top: 96px;
 }
 
+.dc-regional-section {
+  max-width: 1200px;
+  margin: clamp(28px, 5vw, 64px) auto clamp(48px, 8vw, 96px);
+  padding: clamp(28px, 5vw, 60px);
+  border-radius: 30px;
+  color: #171717;
+  background: #fff6e8;
+}
+
+.dc-regional-section h2 {
+  max-width: 24ch;
+  margin: 0 0 16px;
+  color: #203957;
+  font-family: Satoshi, Inter, "Segoe UI", Arial, sans-serif;
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+}
+
+.dc-regional-section > p {
+  max-width: 70ch;
+  margin: 0;
+  color: #343a43;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.dc-regional-areas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+  max-width: 960px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #e6d9c6;
+}
+
+.dc-regional-areas p {
+  margin: 0;
+  color: #343a43;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.dc-regional-areas strong {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: #203957;
+  font-size: 13px;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.dc-regional-related {
+  max-width: 960px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid #e6d9c6;
+}
+
+.dc-regional-related h3 {
+  margin: 0 0 12px;
+  color: #203957;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.dc-regional-related ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dc-regional-related a {
+  color: #203957;
+  font-size: 15px;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.dc-regional-related a:hover {
+  color: #111827;
+}
+
+.dc-regional-related a:focus-visible {
+  outline: 3px solid #85a8db;
+  outline-offset: 4px;
+}
+
+.dc-regional-contact {
+  display: inline-block;
+  margin-top: 24px;
+  color: #203957;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.dc-regional-contact:hover {
+  color: #111827;
+}
+
+.dc-regional-contact:focus-visible {
+  outline: 3px solid #85a8db;
+  outline-offset: 4px;
+}
+
 .dc-section-card {
   display: flex;
   align-items: center;
@@ -731,6 +847,19 @@
 }
 
 @media (max-width: 680px) {
+  .dc-regional-section {
+    margin: 28px 16px 56px;
+    padding: 28px 22px 160px;
+    border-radius: 24px;
+  }
+
+  .dc-regional-areas {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 22px;
+    padding-top: 18px;
+  }
+
   .dc-trust-seal {
     left: 12px;
     bottom: 84px;

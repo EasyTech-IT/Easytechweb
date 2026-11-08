@@ -10,19 +10,19 @@
   const consentKey = "ja-itc-cookie-consent";
   const pageMetadata = {
     "/": {
-      title: "Webdesign & IT-Services Altenstadt | EasyTech IT-Solutions",
+      title: "IT, Webdesign & digitale Lösungen Altenstadt | EasyTech",
       description:
-        "EasyTech IT-Solutions aus Altenstadt: Webdesign, IT-Betreuung und IT-Support für Unternehmen sowie Computerhilfe für Privatkunden.",
+        "IT-Service, Webdesign und digitale Lösungen für Unternehmen in Altenstadt, der Wetterau und Umgebung. EasyTech unterstützt regional und persönlich.",
     },
     "/webdesign": {
-      title: "Webdesign für Unternehmen in Altenstadt | EasyTech",
+      title: "Webdesign für Unternehmen in Altenstadt & Wetterau | EasyTech",
       description:
-        "Webdesign für Unternehmen in Altenstadt: professionelle Firmenwebsite erstellen lassen, responsive gestaltet, mit klarer Nutzerführung und SEO-Grundlagen.",
+        "Webdesign für Unternehmen in Altenstadt und der Wetterau: responsive Firmenwebsites mit klarer Struktur, Nutzerführung und technischer SEO-Grundlage.",
     },
     "/it/business": {
-      title: "IT-Dienstleister für KMU in Altenstadt | EasyTech",
+      title: "IT-Service Altenstadt: IT-Betreuung für Unternehmen | EasyTech",
       description:
-        "IT-Dienstleister in Altenstadt: IT-Betreuung f?r KMU mit Support vor Ort und per Fernwartung f?r Netzwerk, Server und Ger?te.",
+        "IT-Betreuung für Unternehmen in Altenstadt und der Wetterau: Support für Arbeitsplätze, Geräte, Netzwerke und Server im regionalen Kerngebiet.",
     },
     "/it/privat": {
       title: "Computerhilfe für Privatkunden in Altenstadt | EasyTech",
@@ -30,9 +30,9 @@
         "Computerhilfe in Altenstadt für Privatkunden: Unterstützung bei PC-Problemen, WLAN, Geräteeinrichtung und Datensicherung – persönlich und verständlich.",
     },
     "/it/ki-beratung": {
-      title: "KI-Automatisierung für Unternehmen | EasyTech",
+      title: "Digitalisierung & KI-Automatisierung für KMU | EasyTech",
       description:
-        "KI-Beratung f?r KMU: Mit KI und n8n Gesch?ftsprozesse automatisieren ? von der Potenzialanalyse bis zur Umsetzung.",
+        "Digitalisierung und KI-Automatisierung für Unternehmen in Altenstadt und der Wetterau. Wiederkehrende Abläufe prüfen und passende Workflows planen.",
     },
     "/videografie": {
       title: "Videografie für Unternehmen | Imagefilm & Reels Altenstadt",
@@ -512,10 +512,10 @@
   function loadSiteEnhancements() {
     const stylesheet = document.createElement("link");
     stylesheet.rel = "stylesheet";
-    stylesheet.href = "/css/digital-check.css?v=2";
+    stylesheet.href = "/css/digital-check.css?v=4";
     document.head.appendChild(stylesheet);
 
-    for (const source of ["/js/digital-check.js?v=3"]) {
+    for (const source of ["/js/digital-check.js?v=5"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

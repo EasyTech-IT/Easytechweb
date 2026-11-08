@@ -642,6 +642,116 @@
     }
   }
 
+  function setupRegionalServiceSection() {
+    const path = window.location.pathname.replace(/\/+$/, "") || "/";
+    const serviceAreas = {
+      "/": {
+        heading: "Unternehmen in Altenstadt und der Wetterau",
+        description:
+          "Der regionale Schwerpunkt liegt zunächst auf dem Kerngebiet und den angrenzenden Orten. So bleiben IT-Betreuung, Webdesign und digitale Projekte auf die Region ausgerichtet.",
+        relatedLinks: [
+          ["IT-Betreuung für Unternehmen", "/it/business/"],
+          ["Webdesign für Unternehmen", "/webdesign/"],
+          ["Digitalisierung und KI", "/it/ki-beratung/"],
+          ["IT-Ratgeber", "/insights/"],
+        ],
+      },
+      "/it/business": {
+        heading: "IT-Betreuung in Altenstadt und der Wetterau",
+        description:
+          "EasyTech richtet die IT-Unterstützung an Unternehmen in der nahen Wetterau und den angrenzenden Orten. Der konkrete Bedarf und die passende Form der Betreuung werden individuell besprochen.",
+        relatedLinks: [
+          ["Webdesign für Unternehmen", "/webdesign/"],
+          ["Digitalisierung und KI", "/it/ki-beratung/"],
+          ["IT-Betreuung für KMU", "/ratgeber/it-betreuung-kmu/"],
+          ["WLAN im Büro", "/ratgeber/wlan-im-buero/"],
+        ],
+      },
+      "/webdesign": {
+        heading: "Webdesign für Unternehmen in der Wetterau",
+        description:
+          "Unternehmen aus Altenstadt und den umliegenden Städten können ihr Website-Vorhaben mit EasyTech besprechen. Seitenstruktur, Inhalte und Umsetzung richten sich nach dem jeweiligen Angebot.",
+        relatedLinks: [
+          ["IT-Betreuung für Unternehmen", "/it/business/"],
+          ["Digitalisierung und KI", "/it/ki-beratung/"],
+          ["Projekte ansehen", "/projekte/"],
+          ["SEO-Checkliste für Websites", "/ratgeber/website-seo-checkliste-kmu/"],
+        ],
+      },
+      "/it/ki-beratung": {
+        heading: "Digitalisierung und KI für Unternehmen in der Wetterau",
+        description:
+          "Unternehmen aus der Region können wiederkehrende Abläufe und mögliche digitale Verbesserungen gemeinsam mit EasyTech einordnen. Welche Lösung passt, hängt vom konkreten Prozess ab.",
+        relatedLinks: [
+          ["IT-Betreuung für Unternehmen", "/it/business/"],
+          ["Webdesign für Unternehmen", "/webdesign/"],
+          ["KI-Tools und Datenschutz", "/ratgeber/ki-tools-kmu-datenschutz/"],
+        ],
+      },
+    };
+    const main = document.querySelector("#root main");
+    const currentSection = document.querySelector("#root .dc-regional-section");
+    const serviceArea = serviceAreas[path];
+
+    if (!main || !serviceArea) {
+      currentSection?.remove();
+      return;
+    }
+
+    if (currentSection?.dataset.route === path) return;
+    currentSection?.remove();
+
+    const section = document.createElement("section");
+    section.className = "dc-regional-section";
+    section.dataset.route = path;
+    section.setAttribute("aria-labelledby", "dc-regional-title");
+
+    const heading = document.createElement("h2");
+    heading.id = "dc-regional-title";
+    heading.textContent = serviceArea.heading;
+
+    const description = document.createElement("p");
+    description.textContent = serviceArea.description;
+
+    const areas = document.createElement("div");
+    areas.className = "dc-regional-areas";
+    [
+      ["Kerngebiet", "Altenstadt · Büdingen · Nidderau · Limeshain · Glauburg · Florstadt"],
+      ["Erweiterungsgebiet", "Friedberg · Bad Nauheim · Karben · Niddatal · Ortenberg · Gedern"],
+    ].forEach(([label, places]) => {
+      const item = document.createElement("p");
+      const name = document.createElement("strong");
+      name.textContent = label;
+      item.append(name, document.createElement("br"), document.createTextNode(places));
+      areas.append(item);
+    });
+
+    const related = document.createElement("nav");
+    related.className = "dc-regional-related";
+    related.setAttribute("aria-label", "Passende Seiten und Ratgeber");
+
+    const relatedHeading = document.createElement("h3");
+    relatedHeading.textContent = "Weiterführende Seiten";
+    const relatedList = document.createElement("ul");
+    serviceArea.relatedLinks.forEach(([label, href]) => {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = label;
+      item.append(link);
+      relatedList.append(item);
+    });
+    related.append(relatedHeading, relatedList);
+
+    const contact = document.createElement("a");
+    contact.className = "dc-regional-contact";
+    contact.href = "/kontakt/";
+    contact.textContent = "Vorhaben besprechen";
+
+    section.append(heading, description, contact, areas, related);
+    main.append(section);
+  }
+
   function setupFloatingActions() {
     if (document.querySelector(".dc-floating-actions")) return;
     const actions = document.createElement("div");
@@ -682,6 +792,7 @@
     setupSiteLockSeal();
     setupHero();
     setupSection();
+    setupRegionalServiceSection();
     setupFloatingActions();
   }
 

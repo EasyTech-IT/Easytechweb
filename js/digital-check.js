@@ -71,11 +71,11 @@
     },
     {
       id: "social",
-      title: "Social Media & Videografie",
-      description: "Content, Videos, Reichweite",
+      title: "Werbevideos & Motion Design",
+      description: "Schnitt, Animation und Werbevideos",
       icon: "video",
       questions: [
-        ["Was brauchen Sie?", [["Imagevideo", "video"], ["Social-Media-Content", "camera"], ["Drohnenaufnahmen", "camera"], ["Weiß ich noch nicht", "help"]]],
+        ["Was brauchen Sie?", [["Werbevideo", "video"], ["Social-Media-Content", "camera"], ["Animation", "sparkles"], ["Weiß ich noch nicht", "help"]]],
         ["Wo soll der Inhalt laufen?", [["Instagram / TikTok", "mobile"], ["Website", "globe"], ["YouTube", "video"], ["Überall", "users"]]],
         ["Wie oft wollen Sie posten?", [["Täglich", "bolt"], ["Wöchentlich", "clock"], ["Monatlich", "clock"], unsure]],
         ["Haben Sie schon Material?", [["Ja, viel", "check"], ["Etwas", "camera"], ["Nein", "alert"]]],
@@ -152,7 +152,7 @@
       industryQuestion,
       ["Welche Kanäle nutzen Sie bereits?", [["Instagram", "camera"], ["Facebook", "users"], ["LinkedIn", "building"], ["Keine", "alert"]]],
       ["Sollen Personen im Video zu sehen sein?", [["Ja", "user"], ["Teilweise", "users"], ["Nein", "video"]]],
-      ["Wo soll gedreht werden?", [["Vor Ort bei mir", "building"], ["Im Freien", "camera"], ["Im Studio", "video"], ["Noch offen", "help"]]],
+      ["Welches Material soll verwendet werden?", [["Eigene Aufnahmen", "video"], ["Stockmaterial", "globe"], ["Animation", "sparkles"], ["Noch offen", "help"]]],
       budgetQuestion,
       timeQuestion,
       contactQuestion,

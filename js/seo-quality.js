@@ -349,20 +349,7 @@
             </div>
           </div>
         </section>
-        <section class="relative">
-          <div class="flex items-start gap-4 sm:gap-5">
-            <div class="shrink-0 w-[44px] h-[44px] rounded-full bg-[#f0f4f8] flex items-center justify-center">
-              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-[18px] h-[18px] text-[#2e4a6f]"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
-            <div class="flex-1 min-w-0">
-              <h3 class="text-[18px] sm:text-[20px] text-[#0a0a0b] mb-3 tracking-[-0.01em]" style="font-family:'Satoshi',sans-serif;font-weight:700;line-height:1.3">SiteLock Trust Seal</h3>
-              <div class="text-[17px] text-[#404040] space-y-3" style="font-family:'Inter',sans-serif;line-height:1.7">
-                <p>Das SiteLock-Sicherheitssiegel wird nur geladen, wenn Sie externe Inhalte in den Cookie-Einstellungen erlauben. Beim Laden wird eine Verbindung zu SiteLock hergestellt; dabei werden insbesondere Ihre IP-Adresse und technische Browserdaten übermittelt, damit das Siegel angezeigt werden kann. Rechtsgrundlage ist Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO. Sie können diese jederzeit in den Cookie-Einstellungen widerrufen; danach wird das Siegel nicht weiter geladen.</p>
-                <p>SiteLock, LLC ist ein US-amerikanischer Anbieter. Laut dessen Datenschutzhinweisen können Daten in den USA und im Vereinigten Königreich verarbeitet werden. Beim Klick auf das Siegel wird außerdem die SiteLock-Prüfseite geöffnet. <a class="text-[#2e4a6f] hover:text-[#000000] transition-colors" href="https://www.sitelock.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Datenschutzhinweise von SiteLock</a>.</p>
-              </div>
-            </div>
-          </div>
-        </section>`;
+        `;
       divider.before(notices);
 
       const updatedNote = [...root.querySelectorAll("p")].find((paragraph) => (
@@ -370,7 +357,7 @@
       ));
       if (updatedNote) {
         updatedNote.textContent =
-          "Diese Datenschutzerklärung wurde zuletzt am 9. November 2026 aktualisiert und gilt für die Website von EasyTech IT-Solutions.";
+          "Diese Datenschutzerklärung wurde zuletzt am 10. November 2026 aktualisiert und gilt für die Website von EasyTech IT-Solutions.";
       }
   }
 
@@ -602,7 +589,7 @@
       document.head.appendChild(stylesheet);
     }
 
-    for (const source of ["/js/digital-check.js?v=7"]) {
+    for (const source of ["/js/digital-check.js?v=8"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

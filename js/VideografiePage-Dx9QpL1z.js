@@ -28,6 +28,7 @@ function Section({ id, title, children }) {
     style: { background: "#2e4a6f" },
     children: jsx.jsxs("div", {
       className: "max-w-[1500px] mx-auto bg-white rounded-[32px] p-6 sm:p-10 lg:p-16",
+      style: { color: "#172033" },
       children: [
         jsx.jsx("h2", { className: "text-3xl sm:text-4xl font-bold text-slate-950 mb-8", children: title }),
         children,
@@ -60,7 +61,7 @@ function VideografiePage() {
                 jsx.jsx("h1", { className: "text-4xl sm:text-6xl font-bold max-w-3xl", children: "Werbevideos und Motion Design für Unternehmen" }),
                 jsx.jsx("p", { className: "text-lg leading-relaxed text-white/80 max-w-2xl mt-6", children: "Wir gestalten Werbevideos und Reels aus vorhandenem Material, Stockmaterial und Animation. Ein eigener Kameradreh vor Ort gehört nicht zu diesem Angebot." }),
                 jsx.jsxs("div", { className: "flex flex-wrap gap-4 mt-8", children: [
-                  jsx.jsx(Link, { to: "/kontakt", className: "inline-flex bg-white text-slate-950 font-semibold rounded-full px-6 py-3", children: "Werbevideo anfragen" }),
+                  jsx.jsx(Link, { to: "/kontakt", className: "inline-flex bg-white text-slate-950 font-semibold rounded-full px-6 py-3", style: { color: "#172033" }, children: "Werbevideo anfragen" }),
                   jsx.jsx("a", { href: "#leistungen", className: "inline-flex border border-white/50 text-white rounded-full px-6 py-3", children: "Leistungen ansehen" }),
                 ] }),
               ],

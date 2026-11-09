@@ -11,9 +11,9 @@
   const formInitialValues = new WeakMap();
   const pageMetadata = {
     "/": {
-      title: "IT, Webdesign & digitale Lösungen Altenstadt | EasyTech",
+      title: "IT-Betreuung für Unternehmen in Altenstadt | EasyTech",
       description:
-        "IT-Service, Webdesign und digitale Lösungen für Unternehmen in Altenstadt, der Wetterau und Umgebung. EasyTech unterstützt regional und persönlich.",
+        "IT-Betreuung und IT-Support für Unternehmen in Altenstadt und der Wetterau: Netzwerke, Geräte, Wartung und Datensicherung.",
     },
     "/webdesign": {
       title: "Webdesign für Unternehmen in Altenstadt & Wetterau | EasyTech",
@@ -36,9 +36,9 @@
         "Digitalisierung und KI-Automatisierung für Unternehmen in Altenstadt und der Wetterau. Wiederkehrende Abläufe prüfen und passende Workflows planen.",
     },
     "/videografie": {
-      title: "Videografie für Unternehmen | Imagefilm & Reels Altenstadt",
+      title: "Werbevideos und Motion Design | EasyTech Altenstadt",
       description:
-        "Videoproduktion in Altenstadt: Imagefilme, Social-Media-Videos, Reels und Motion Design f?r Website und Kampagnen.",
+        "Werbevideos und Reels aus vorhandenem Material, Stockmaterial und Animation – ohne eigenen Kameradreh vor Ort.",
     },
     "/projekte": {
       title: "Webdesign-Projekte | EasyTech IT-Solutions Altenstadt",
@@ -58,7 +58,7 @@
     "/kontakt": {
       title: "Kontakt | EasyTech IT-Solutions Altenstadt",
       description:
-        "Kontakt zu EasyTech IT-Solutions in Altenstadt: Fragen zu Webdesign, IT-Betreuung, Videografie oder KI-Automatisierung stellen und eine Beratung anfragen.",
+        "Kontakt zu EasyTech IT-Solutions in Altenstadt: Fragen zu IT-Betreuung, Webdesign, Werbevideos oder KI-Automatisierung stellen.",
     },
     "/impressum": {
       title: "Impressum | EasyTech IT-Solutions Altenstadt",
@@ -602,7 +602,7 @@
       document.head.appendChild(stylesheet);
     }
 
-    for (const source of ["/js/digital-check.js?v=6"]) {
+    for (const source of ["/js/digital-check.js?v=7"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

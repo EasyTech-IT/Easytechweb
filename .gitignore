@@ -9,3 +9,6 @@ node_modules/
 qa/
 skills-lock.json
 PRODUCT.md
+assets/fonts/satoshi-400.woff2
+assets/fonts/satoshi-500.woff2
+assets/fonts/satoshi-700.woff2

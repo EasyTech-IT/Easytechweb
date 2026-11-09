@@ -1,0 +1,11 @@
+node_modules/
+.claude/
+.agents/
+.impeccable/
+.taste-skill/
+.playwright-mcp/
+.github/skills/
+.github/agents/
+qa/
+skills-lock.json
+PRODUCT.md

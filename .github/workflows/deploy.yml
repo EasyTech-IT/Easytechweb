@@ -39,6 +39,9 @@ jobs:
             rm -r -f /public;
             mirror -R --parallel=4 --verbose \
               --exclude-glob .git/ --exclude-glob .github/ --exclude-glob .gitignore \
+              --exclude-glob .claude/ --exclude-glob .agents/ --exclude-glob .impeccable/ \
+              --exclude-glob qa/ --exclude-glob node_modules/ --exclude-glob skills-lock.json \
+              --exclude-glob PRODUCT.md --exclude-glob package.json --exclude-glob package-lock.json \
               ./ /;
             rm -f /js/loader.js;
             rm -f /assets/loading.mp4;

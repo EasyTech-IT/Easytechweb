@@ -3,6 +3,9 @@ AddDefaultCharset UTF-8
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Alte Landingpage-URL direkt auf das passende Website-Angebot weiterleiten
+  RewriteRule ^landingpage/?$ https://easytechit.de/webdesign/ [R=301,L]
+
   # Alle Varianten (http, www) per 301 auf https://easytechit.de
   RewriteCond %{HTTPS} !=on [OR]
   RewriteCond %{HTTP_HOST} ^www\. [NC]

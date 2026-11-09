@@ -95,10 +95,27 @@
       }
     }
 
+    function clearAnalyticsCookies() {
+      const names = ["_ga", `_ga_${analyticsId.slice(2)}`];
+      const domains = [""];
+      if (window.location.hostname === "easytechit.de" || window.location.hostname.endsWith(".easytechit.de")) {
+        domains.push("; domain=easytechit.de");
+      }
+
+      names.forEach((name) => {
+        domains.forEach((domain) => {
+          document.cookie = `${name}=; max-age=0; path=/${domain}; SameSite=Lax`;
+        });
+      });
+    }
+
     function syncAnalyticsConsent() {
       const analyticsState = getConsentPreferences()?.analytics === true ? "granted" : "denied";
       if (analyticsState === "denied") {
         window[`ga-disable-${analyticsId}`] = true;
+        if (window.__easytechAnalyticsState !== "denied") {
+          clearAnalyticsCookies();
+        }
         if (window.__easytechAnalyticsState === "granted") {
           window.location.reload();
         }

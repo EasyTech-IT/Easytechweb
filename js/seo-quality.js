@@ -293,7 +293,7 @@
       ));
       if (updatedNote) {
         updatedNote.textContent =
-          "Diese Datenschutzerklärung wurde zuletzt am 4. November 2026 aktualisiert und gilt für die Website von EasyTech IT-Solutions.";
+          "Diese Datenschutzerklärung wurde zuletzt am 9. November 2026 aktualisiert und gilt für die Website von EasyTech IT-Solutions.";
       }
   }
 

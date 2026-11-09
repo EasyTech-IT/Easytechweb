@@ -8,6 +8,7 @@
     "https://www.11880.com/branchenbuch/buedingen-hessen/061752713B114234499/easytech-it-solutions.html",
   ];
   const consentKey = "ja-itc-cookie-consent";
+  const formInitialValues = new WeakMap();
   const pageMetadata = {
     "/": {
       title: "IT, Webdesign & digitale Lösungen Altenstadt | EasyTech",
@@ -94,6 +95,65 @@
         return null;
       }
     }
+
+    function formControlValue(control) {
+      if (control instanceof HTMLInputElement && /^(checkbox|radio)$/.test(control.type)) {
+        return control.checked;
+      }
+      if (control instanceof HTMLSelectElement && control.multiple) {
+        return JSON.stringify([...control.selectedOptions].map((option) => option.value));
+      }
+      return control.value;
+    }
+
+    function rememberFormControl(event) {
+      const control = event.target;
+      if (!(control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement || control instanceof HTMLSelectElement) ||
+          !control.form || /^(hidden|submit|reset|button)$/.test(control.type)) {
+        return;
+      }
+      let values = formInitialValues.get(control.form);
+      if (!values) {
+        values = new Map();
+        formInitialValues.set(control.form, values);
+      }
+      if (!values.has(control)) {
+        if (event.type === "focusin") {
+          values.set(control, formControlValue(control));
+        } else if (control instanceof HTMLInputElement && /^(checkbox|radio)$/.test(control.type)) {
+          values.set(control, control.defaultChecked);
+        } else if (control instanceof HTMLSelectElement) {
+          const defaults = [...control.options].filter((option) => option.defaultSelected);
+          values.set(control, control.multiple ? JSON.stringify(defaults.map((option) => option.value)) : (defaults[0] || control.options[0])?.value);
+        } else {
+          values.set(control, control.defaultValue);
+        }
+      }
+    }
+
+    document.addEventListener("focusin", rememberFormControl, true);
+    document.addEventListener("input", rememberFormControl, true);
+    document.addEventListener("change", rememberFormControl, true);
+    document.addEventListener("reset", (event) => {
+      window.setTimeout(() => {
+        if (!event.defaultPrevented && event.target instanceof HTMLFormElement) {
+          formInitialValues.delete(event.target);
+        }
+      }, 0);
+    }, true);
+    window.__easytechHasUnsavedFormChanges = () => [...document.forms].some((form) => {
+      const values = formInitialValues.get(form);
+      return values && [...values].some(([control, initial]) => control.isConnected && formControlValue(control) !== initial);
+    });
+    window.addEventListener("beforeunload", (event) => {
+      if (window.__easytechAnalyticsState === "granted" &&
+          getConsentPreferences()?.analytics !== true &&
+          !window.__easytechFormReloadApproved &&
+          window.__easytechHasUnsavedFormChanges()) {
+        event.preventDefault();
+        event.returnValue = "";
+      }
+    });
 
     function clearAnalyticsCookies() {
       const names = ["_ga", `_ga_${analyticsId.slice(2)}`];

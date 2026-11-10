@@ -1,4 +1,5 @@
 import { ServiceDetails, VideoPrices } from "./ServiceCatalog.js?v=3";
+import { ReferenceVideos } from "./ReferenceVideos.js?v=1";
 import { j as jsx } from "./react-vendor-DAatkCok.js";
 import { L as Link } from "./react-router-D9cGlsqA.js";
 import { S as SEO } from "./SEO-CjiI-g6D.js";
@@ -75,6 +76,7 @@ function VideografiePage() {
                 jsx.jsx("p", { className: "text-slate-600 leading-relaxed", children: text }),
               ] }, title)) }),
           }),
+          jsx.jsx(ReferenceVideos, { dark: true }),
           jsx.jsx(Section, { id: "workflow", title: "So entsteht Ihr Video", children:
             jsx.jsx("ol", { className: "grid md:grid-cols-2 lg:grid-cols-4 gap-6", children: steps.map(([title, text], index) =>
               jsx.jsxs("li", { className: "rounded-2xl bg-slate-50 p-6", children: [

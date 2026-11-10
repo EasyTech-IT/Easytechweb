@@ -48,7 +48,7 @@
     "/preise": {
       title: "Webdesign-Preise und Angebote | EasyTech IT-Solutions",
       description:
-        "Webdesign-Pakete: Smart 1.999 EUR, Business 2.799 EUR und Enterprise ab 4.500 EUR. Umfang und Zeiten ansehen und ein passendes Angebot anfragen.",
+        "Webdesign ab 595 Euro inklusive Umsatzsteuer. Individuelle Angebote für Ihren Bedarf in Altenstadt und Umgebung.",
     },
     "/ueber-mich": {
       title: "Über EasyTech IT-Solutions | Ahsin Ghumman, Altenstadt",

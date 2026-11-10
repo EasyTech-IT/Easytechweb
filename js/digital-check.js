@@ -201,6 +201,7 @@
     cloud: '<path d="M7 18a4 4 0 0 1-.5-7.97A6 6 0 0 1 18 9.5 4.3 4.3 0 0 1 17.5 18H7Z"/>',
     doc: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6m-6 4h6"/>',
     mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+    phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 11.2 18a19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.9-8.6A2 2 0 0 1 3.3 1h3a2 2 0 0 1 2 1.7l.5 2.8a2 2 0 0 1-.6 1.8L7 8.5a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 1.8-.6l2.8.5a2 2 0 0 1 1.7 2Z" transform="translate(1 1) scale(.9)"/>',
     mobile: '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>',
     target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
     euro: '<path d="M18 6.5A7 7 0 1 0 18 17.5M4 10h9M4 14h9"/>',
@@ -701,6 +702,9 @@
     actions.className = "dc-floating-actions";
     actions.setAttribute("aria-label", "Schnellzugriff");
     actions.innerHTML = `
+      <a class="dc-mobile-call" href="tel:+4960479974441" aria-label="EasyTech telefonisch kontaktieren">
+        ${icon("phone")}<span>Anrufen</span>
+      </a>
       <button type="button" class="dc-floating-check" data-dc-open aria-label="Kostenlosen Digital-Check starten">
         ${icon("sparkles")}<span>Kostenloser Check</span>
       </button>

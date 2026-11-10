@@ -827,6 +827,34 @@
   gap: 9px;
 }
 
+.dc-mobile-call {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .dc-mobile-call {
+    position: fixed;
+    left: 16px;
+    bottom: calc(20px + env(safe-area-inset-bottom));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 18px;
+    border: 1px solid #fff;
+    border-radius: 999px;
+    color: #fff;
+    background: #2e4a6f;
+    box-shadow: 0 5px 20px rgb(15 23 42 / 24%);
+    font: 700 14px Inter, Arial, sans-serif;
+    text-decoration: none;
+  }
+  .dc-mobile-call svg { width: 18px; height: 18px; }
+  .dc-mobile-call:hover { background: #203957; }
+  .dc-mobile-call:focus-visible { outline: 3px solid #85a8db; outline-offset: 3px; }
+}
+
 .dc-trust-seal {
   position: fixed;
   z-index: 997;

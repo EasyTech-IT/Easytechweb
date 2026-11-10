@@ -8,6 +8,16 @@
 .home-service-links a:hover { background: #e7f2f5; border-color: #9dc5d0; transform: translateY(-2px); }
 .home-service-links a:focus-visible { outline: 3px solid #1295ae; outline-offset: 3px; }
 #leistungen, #ablauf { scroll-margin-top: 110px; }
+.ehx-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 14px; color: #3b5573; font-size: 13px; }
+.ehx-badges img { width: auto; height: 40px; border-radius: 8px; border: 1px solid rgb(214 223 231); background: #fff; }
+.ehx-badges span { color: #3b5573; font-size: 13px; line-height: 1.4; }
+.et-customer-more { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #2e4a6f; color: #2e4a6f; font-weight: 700; text-decoration: none; background: #f7fafb; }
+.et-customer-more:hover { background: #e7f2f5; }
+.et-known-brands { margin-top: 24px; text-align: center; }
+.et-known-brands h3 { margin: 0 0 10px; color: #17243a; font: 700 18px/1.3 Satoshi, Inter, Arial, sans-serif; }
+.et-known-brand-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.et-known-brand-list span { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid #d5e0e6; background: #fff; color: #173c59; font-weight: 600; font-size: 13px; }
+.et-known-brand-note { margin: 10px auto 0; max-width: 560px; color: #5d6b7b; font-size: 13px; }
 @media (min-width: 1024px) {
   .lz-sec .lz-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .lz-sec h3 + .lz-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -19,4 +29,10 @@
 }
 @media (max-width: 768px) { .home-service-links ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 480px) { .home-service-links { margin-bottom: 28px; } .home-service-links ul { gap: 8px; } .home-service-links a { min-height: 144px; padding: 14px 12px; } }
+@media (max-width: 900px) {
+  .et-customer-slider { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px !important; padding-bottom: 4px; }
+  .et-customer-card { min-width: 170px; scroll-snap-align: start; }
+  .et-known-brand-list { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scroll-snap-type: x mandatory; padding-bottom: 4px; }
+  .et-known-brand-list span { white-space: nowrap; scroll-snap-align: start; }
+}
 @media (prefers-reduced-motion: reduce) { .home-service-links a { transition: none; } .home-service-links a:hover { transform: none; } }

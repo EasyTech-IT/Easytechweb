@@ -37,7 +37,7 @@ export function ITLeistung() {
 
   React.useEffect(() => {
     const controller = new AbortController();
-    fetch("/assets/it-leistungen.json", { signal: controller.signal })
+    fetch("/assets/it-leistungen.json?v=2", { signal: controller.signal })
       .then(response => {
         if (!response.ok) throw new Error(`Leistungsdaten: HTTP ${response.status}`);
         return response.json();

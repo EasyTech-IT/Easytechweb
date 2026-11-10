@@ -1,10 +1,10 @@
 import { j as jsx, r as React } from "./react-vendor-DAatkCok.js";
 import { L as Link } from "./react-router-D9cGlsqA.js";
 
-if (!document.querySelector('link[href="/css/premium-it.css?v=1"]')) {
+if (!document.querySelector('link[href="/css/premium-it.css?v=2"]')) {
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = "/css/premium-it.css?v=1";
+  stylesheet.href = "/css/premium-it.css?v=2";
   document.head.append(stylesheet);
 }
 
@@ -31,6 +31,43 @@ const advantages = [
   ["Verständlich", "Technik ohne Fachchinesisch", "Wir erklären die nächsten Schritte und nehmen uns Zeit für Ihre Fragen."],
   ["Transparent", "Angebot nach Bedarf", "Umfang und Kosten besprechen wir vor der Umsetzung. Sie entscheiden, wie es weitergeht."],
 ];
+
+const comparison = [
+  ["Persönlicher Ansprechpartner"],
+  ["Individuelle Beratung"],
+  ["Unterstützung vor Ort", "Je nach Leistung"],
+  ["Fernwartung", "Je nach Leistung"],
+  ["Transparente Preisgestaltung"],
+  ["Individuelle Lösungen"],
+  ["Mehrere IT-Leistungen aus einer Hand"],
+  ["Unterstützung für Privat- und Geschäftskunden"],
+  ["Flexible Betreuung", "Nach Vereinbarung"],
+  ["Individuelle Angebote"],
+];
+
+export function ITComparison() {
+  return jsx.jsxs("div", { className: "et-comparison", children: [
+    jsx.jsx("h3", { children: "Leistungen fair vergleichen" }),
+    jsx.jsx("p", { children: "Welche Leistungen zu Ihrem Anliegen passen, klären wir gemeinsam. Prüfen Sie den Umfang anderer Angebote direkt beim jeweiligen Anbieter." }),
+    jsx.jsxs("table", { className: "et-comparison-list", children: [
+      jsx.jsx("thead", { children: jsx.jsxs("tr", { children: [
+        jsx.jsx("th", { scope: "col", children: "Kriterium" }),
+        jsx.jsx("th", { scope: "col", children: "EasyTech" }),
+        jsx.jsx("th", { scope: "col", children: "Andere Angebote" }),
+      ] }) }),
+      jsx.jsx("tbody", { children: comparison.map(([label, note]) => jsx.jsxs("tr", { children: [
+        jsx.jsx("th", { scope: "row", children: label }),
+        jsx.jsxs("td", { children: [
+          jsx.jsx("span", { className: "et-comparison-check", "aria-label": "Enthalten", children: "✓" }),
+          note && jsx.jsx("small", { children: note }),
+        ] }),
+        jsx.jsx("td", { children: jsx.jsx("span", { className: "et-comparison-unknown", "aria-label": "Beim Anbieter prüfen", children: "?" }) }),
+      ] }, label)) }),
+    ] }),
+    jsx.jsx("p", { className: "et-comparison-note", children: "Nicht jedes IT-Angebot ist gleich. Bei EasyTech erhalten Sie persönliche Beratung, verständliche Lösungen und Unterstützung aus einer Hand. Gemeinsam stimmen wir den Leistungsumfang auf Ihre Anforderungen ab." }),
+    jsx.jsx(Link, { to: "/kontakt", className: "et-price-button", children: "Jetzt unverbindlich beraten lassen" }),
+  ] });
+}
 
 export function ITPriceLink() {
   return jsx.jsxs("section", { className: "et-it-price-link", children: [
@@ -90,38 +127,7 @@ export function ITAdvantages() {
             ],
           }, label)),
         }),
-        jsx.jsxs("div", { className: "et-comparison", children: [
-          jsx.jsxs("div", { children: [
-            jsx.jsx("h3", { children: "IT-Betreuung vergleichen – worauf es ankommt." }),
-            jsx.jsx("p", { children: "Angebote unterscheiden sich. Diese Fragen helfen Ihnen, Leistungen und Bedingungen fair zu vergleichen." }),
-            jsx.jsx("p", { className: "et-comparison-hint", children: "Tabelle seitlich scrollen, um alle Angebote zu sehen." }),
-          ] }),
-          jsx.jsx("div", { className: "et-comparison-scroll", tabIndex: 0, "aria-label": "Vergleichstabelle", children:
-            jsx.jsxs("table", { className: "et-comparison-list", children: [
-              jsx.jsx("thead", { children: jsx.jsxs("tr", { children: [
-                jsx.jsx("th", { scope: "col", children: "Kriterium" }),
-                jsx.jsx("th", { scope: "col", children: "EasyTech" }),
-                jsx.jsx("th", { scope: "col", children: "Andere Angebote" }),
-              ] }) }),
-              jsx.jsx("tbody", { children: [
-                ["Ansprechpartner", "Persönliche Begleitung Ihres Anliegens", "Zuständigkeit im Angebot prüfen"],
-                ["Unterstützung", "Vor Ort oder per Fernhilfe – je nach Anliegen", "Umfang und Einsatzort prüfen"],
-                ["Kosten", "Preisrahmen und Bedingungen einsehbar", "Stundensatz, Anfahrt und Lizenzen prüfen"],
-              ].map(([label, easytech, other]) => jsx.jsxs("tr", { children: [
-                jsx.jsx("th", { scope: "row", children: label }),
-                jsx.jsx("td", { children: easytech }),
-                jsx.jsx("td", { children: other }),
-              ] }, label)) }),
-            ] }),
-          }),
-          jsx.jsx("p", { className: "et-comparison-note", children: "Wir besprechen Ihr Anliegen persönlich und stimmen den Umfang mit Ihnen ab." }),
-        ] }),
-        jsx.jsx(Link, {
-          to: "/kontakt",
-          className: "inline-flex items-center justify-center",
-          style: { marginTop: "24px", minHeight: "48px", padding: "12px 22px", background: "#162a42", borderRadius: "99px", color: "#fff", fontWeight: 600, textDecoration: "none" },
-          children: "IT-Beratung anfragen",
-        }),
+        jsx.jsx(ITComparison, {}),
       ],
     }),
   });

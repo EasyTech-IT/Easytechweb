@@ -58,7 +58,7 @@ function VideografiePage() {
               className: "max-w-[1380px] mx-auto",
               children: [
                 jsx.jsx("p", { className: "text-sky-300 uppercase tracking-widest text-sm font-semibold mb-4", children: "Weitere Leistungen · Altenstadt & Wetterau" }),
-                jsx.jsx("h1", { className: "text-4xl sm:text-6xl font-bold max-w-3xl", children: "Werbevideos und Motion Design für Unternehmen" }),
+                jsx.jsx("h1", { className: "text-4xl sm:text-6xl font-bold max-w-3xl", children: "EasyVisual – Werbevideos und Motion Design für Unternehmen" }),
                 jsx.jsx("p", { className: "text-lg leading-relaxed text-white/80 max-w-2xl mt-6", children: "Wir gestalten Werbevideos und Reels aus vorhandenem Material, Stockmaterial und Animation. Ein eigener Kameradreh vor Ort gehört nicht zu diesem Angebot." }),
                 jsx.jsxs("div", { className: "flex flex-wrap gap-4 mt-8", children: [
                   jsx.jsx(Link, { to: "/kontakt", className: "inline-flex bg-white text-slate-950 font-semibold rounded-full px-6 py-3", style: { color: "#172033" }, children: "Werbevideo anfragen" }),

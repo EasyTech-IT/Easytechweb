@@ -196,6 +196,7 @@ $limits = [
     'service' => 100,
     'webdesignPackage' => 100,
     'itCategory' => 100,
+    'urgency' => 30,
     'message' => 5000,
 ];
 $fields = [];
@@ -220,6 +221,10 @@ foreach (['firstName', 'lastName', 'email', 'service'] as $requiredField) {
 
 if (!filter_var($fields['email'], FILTER_VALIDATE_EMAIL)) {
     respond(400, ['ok' => false, 'error' => 'Bitte geben Sie eine gültige E-Mail-Adresse ein.']);
+}
+
+if (!in_array($fields['urgency'], ['', 'Dringend', 'Zeitnah', 'Flexibel'], true)) {
+    respond(400, ['ok' => false, 'error' => 'Bitte wählen Sie eine gültige Dringlichkeit.']);
 }
 
 if (($data['consent'] ?? '') !== 'true') {
@@ -255,6 +260,7 @@ $requestItems = [
     ['&#9733;', $isCheck ? 'Analyse-Thema' : 'Gewünschte Leistung', $fields['service'], ''],
     ['&#9776;', 'Webdesign-Paket', $fields['webdesignPackage'], ''],
     ['&#9881;', 'IT-Kategorie', $fields['itCategory'], ''],
+    ['&#9201;', 'Dringlichkeit', $fields['urgency'], ''],
     ['&#9201;', 'Eingegangen', $receivedAt, ''],
 ];
 
@@ -276,7 +282,7 @@ if ($phone !== '') {
 $adminContent .= buttonRow($adminButtons);
 
 $adminPlainLines = [$isCheck ? 'Neue Analyse-Anfrage (Digital-Check)' : 'Neue Kontaktanfrage', 'Eingegangen: ' . $receivedAt, ''];
-foreach (['Name' => $fullName, 'E-Mail' => $fields['email'], 'Telefon' => $phone, 'Unternehmen' => $fields['company'], 'Land' => $fields['country'], 'Leistung' => $fields['service'], 'Webdesign-Paket' => $fields['webdesignPackage'], 'IT-Kategorie' => $fields['itCategory']] as $label => $value) {
+foreach (['Name' => $fullName, 'E-Mail' => $fields['email'], 'Telefon' => $phone, 'Unternehmen' => $fields['company'], 'Land' => $fields['country'], 'Leistung' => $fields['service'], 'Webdesign-Paket' => $fields['webdesignPackage'], 'IT-Kategorie' => $fields['itCategory'], 'Dringlichkeit' => $fields['urgency']] as $label => $value) {
     if ($value !== '') {
         $adminPlainLines[] = $label . ': ' . $value;
     }
@@ -315,6 +321,7 @@ $summaryItems = [
     ['&#9733;', $isCheck ? 'Analyse-Thema' : 'Gewünschte Leistung', $fields['service'], ''],
     ['&#9776;', 'Webdesign-Paket', $fields['webdesignPackage'], ''],
     ['&#9881;', 'IT-Kategorie', $fields['itCategory'], ''],
+    ['&#9201;', 'Dringlichkeit', $fields['urgency'], ''],
     ['&#9201;', 'Eingegangen', $receivedAt, ''],
 ];
 $confirmationContent = stepsRow($isCheck
@@ -349,7 +356,8 @@ $confirmationPlain = "Hallo {$fields['firstName']},\r\n\r\n"
     . ($fields['company'] !== '' ? "Unternehmen: {$fields['company']}\r\n" : '')
     . "Leistung: {$fields['service']}\r\n"
     . ($fields['webdesignPackage'] !== '' ? "Webdesign-Paket: {$fields['webdesignPackage']}\r\n" : '')
-    . ($fields['itCategory'] !== '' ? "IT-Kategorie: {$fields['itCategory']}\r\n" : '');
+    . ($fields['itCategory'] !== '' ? "IT-Kategorie: {$fields['itCategory']}\r\n" : '')
+    . ($fields['urgency'] !== '' ? "Dringlichkeit: {$fields['urgency']}\r\n" : '');
 foreach ($qaPairs as $index => [$question, $answer]) {
     $confirmationPlain .= ($index === 0 ? "\r\nIhre Antworten:\r\n" : '') . ($index + 1) . '. ' . $question . ' -> ' . $answer . "\r\n";
 }

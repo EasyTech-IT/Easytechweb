@@ -38,7 +38,7 @@
     "/videografie": {
       title: "Werbevideos und Motion Design | EasyTech Altenstadt",
       description:
-        "Werbevideos und Reels aus vorhandenem Material, Stockmaterial und Animation – ohne eigenen Kameradreh vor Ort.",
+        "Werbevideos, Reels und Motion Design für Unternehmen – mit Schnitt, Animation und optionalem Dreh vor Ort.",
     },
     "/projekte": {
       title: "Webdesign-Projekte | EasyTech IT-Solutions Altenstadt",
@@ -591,7 +591,7 @@
       document.head.appendChild(stylesheet);
     }
 
-    for (const source of ["/js/digital-check.js?v=15"]) {
+    for (const source of ["/js/digital-check.js?v=16"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

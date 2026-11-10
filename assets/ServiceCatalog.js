@@ -2,10 +2,10 @@ import { j as h, r as React } from "./react-vendor-DAatkCok.js";
 import { u as useLocation } from "./react-router-D9cGlsqA.js";
 import { whatsappUrl } from "./whatsapp-contact.js?v=2";
 
-if (!document.querySelector('link[href="/css/service-catalog.css?v=2"]')) {
+if (!document.querySelector('link[href="/css/service-catalog.css?v=3"]')) {
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = "/css/service-catalog.css?v=2";
+  stylesheet.href = "/css/service-catalog.css?v=3";
   document.head.append(stylesheet);
 }
 
@@ -21,7 +21,7 @@ export const services = [
   { name: "EasyHome", label: "Privat IT", description: "Persönliche IT-Hilfe für Zuhause.", href: "/it/privat/", badge: "Beliebt", icon: "M3 11 12 4l9 7M5 10v10h14V10M10 20v-6h4v6" },
   { name: "EasyLearn", label: "LMS-Schulungen", description: "Lernplattformen und Schulungssysteme für Teams.", href: "/it/business/#lms", badge: "Empfehlung", icon: "M2 8l10-5 10 5-10 5zM6 10v6c3 3 9 3 12 0v-6M22 8v7" },
   { name: "EasyWeb", label: "Webdesign", description: "Individuelle Websites für Ihren professionellen Auftritt.", href: "/webdesign/", badge: "Meistgebucht", icon: "M3 4h18v16H3zM3 8h18M7 6h.01M10 6h.01M7 12h10M7 16h6", price: "Ab 500 € netto pro Projekt", priceNote: "595 € inkl. 19 % MwSt." },
-  { name: "EasyVisual", label: "Videografie", description: "Werbevideos und Motion Design aus vorhandenem Material.", href: "/videografie/", badge: "Beliebt", icon: "M3 6h13v12H3zM16 10l5-3v10l-5-3z" },
+  { name: "EasyVisual", label: "Videografie", description: "Werbevideos, Schnitt und Motion Design.", href: "/videografie/", badge: "Beliebt", icon: "M3 6h13v12H3zM16 10l5-3v10l-5-3z", price: "Ab 350 € netto pro Video", priceNote: "416,50 € inkl. 19 % MwSt." },
 ];
 
 export function ServiceIcon({ path }) {
@@ -43,13 +43,13 @@ const priceDetails = {
   EasyHome: ["Hilfe bei Geräten, WLAN und Datensicherung", "Anfahrt und Ersatzteile nach Vereinbarung"],
   EasyLearn: ["Lernplattform und Schulungssystem besprechen", "Lizenzen und Integrationen nach Vereinbarung"],
   EasyWeb: ["Individuelle Website und mobiloptimierter Auftritt", "Zusätzliche Funktionen und laufende Dienste nach Vereinbarung"],
-  EasyVisual: ["Schnitt und Motion Design aus vorhandenem oder Stockmaterial", "Stocklizenzen und weitere Formate nach Vereinbarung"],
+  EasyVisual: ["Konzeption, Schnitt, Farbkorrektur, Sound und zwei Korrekturschleifen", "Dreh, Express und zusätzliche Varianten nach Vereinbarung"],
 };
 
 const homePrices = [
-  { title: "IT-Betreuung & IT-Dienstleistungen", description: "Zuverlässige IT-Unterstützung für Privatpersonen und Unternehmen.", price: "Auf Anfrage", detail: "Preisrahmen und Beispiele auf der Preisseite", href: "/preise/#it-preise", action: "IT-Leistungen & Preise entdecken" },
+  { title: "IT-Betreuung & IT-Dienstleistungen", description: "Zuverlässige IT-Unterstützung für Privatpersonen und Unternehmen.", price: "Ab 37,50 €", detail: "je 15 Min. Fernwartung inkl. MwSt.; mindestens 30 Min. (75 €)", href: "/preise/#it-preise", action: "IT-Leistungen & Preise entdecken" },
   { title: "Webdesign", description: "Moderne Websites, individuelle Gestaltung und professionelle Online-Auftritte.", price: "Ab 595 €", detail: "pro Projekt inkl. 19 % MwSt. · 500 € netto", href: "/preise/#preis-easyweb", action: "Webdesign-Preise entdecken" },
-  { title: "Videografie", description: "Werbevideos und visuelle Inhalte aus vorhandenem Material und Animation.", price: "Auf Anfrage", detail: "Preis nach vereinbartem Projektumfang", href: "/preise/#preis-easyvisual", action: "Videografie-Preise entdecken" },
+  { title: "Videografie", description: "Werbevideos und visuelle Inhalte für Unternehmen.", price: "Ab 416,50 €", detail: "pro Video inkl. 19 % MwSt. · 350 € netto", href: "/preise/#preis-easyvisual", action: "Videografie-Preise entdecken" },
   { title: "Individuelles Angebot", description: "Sie haben ein besonderes Projekt oder benötigen mehrere Leistungen? Wir erstellen ein passendes Angebot.", price: "Auf Anfrage", detail: "Persönlich auf Ihren Bedarf abgestimmt", href: "https://wa.me/4960479974441?text=Hallo%20EasyTech%2C%20ich%20m%C3%B6chte%20ein%20individuelles%20Angebot%20anfragen.", action: "Angebot anfragen" },
 ];
 
@@ -95,7 +95,29 @@ export function ServicePrices() {
       h.jsx("a", { href: service.href, children: "Leistung entdecken" }),
     ] }, service.name)) }),
     h.jsxs("p", { className: "et-service-prices-footnote", children: ["Bei IT-Einsätzen können Mindestbuchungszeiten, Anfahrt und Lizenzen zusätzlich relevant sein. Details und bestätigte IT-Preisbeispiele finden Sie in der ", h.jsx("a", { href: "/preise/", children: "Preisübersicht" }), "."] }),
+    h.jsx(VideoPrices, {}),
   ] }) });
+}
+
+export function VideoPrices() {
+  const packages = [
+    ["Starter Ad", "30 Sekunden · Hochformat", "350 €", "416,50 €", "Kundenmaterial oder einfaches Stockmaterial, Schnitt, Text-Overlays und Musiklizenz."],
+    ["Standard Commercial", "Bis 60 Sekunden · Hoch- oder Querformat", "650 €", "773,50 €", "Schnitt mit Storyline, lizenzierte KI- oder professionelle Sprecheraufnahme und animiertes Logo."],
+    ["Premium Brand Video", "90–120 Sekunden", "Ab 1.200 €", "Ab 1.428 €", "Ein Drehtag vor Ort oder komplexe Animation, individueller Soundmix und erweiterte Rechte."],
+  ];
+  return h.jsxs("section", { className: "et-video-prices", "aria-labelledby": "video-prices-title", children: [
+    h.jsx("h2", { id: "video-prices-title", children: "Videopakete und Leistungen" }),
+    h.jsx("p", { children: "Pro Einzelvideo oder Projekt. Alle Pakete enthalten Konzeption und Skriptabstimmung, Schnitt, Farbkorrektur, Sound-Design, zwei Korrekturschleifen und Nutzungsrechte für Web und Social Media." }),
+    h.jsx("div", { className: "et-video-price-grid", children: packages.map(([name, format, net, gross, detail]) => h.jsxs("article", { children: [
+      h.jsx("h3", { children: name }), h.jsx("p", { children: format }),
+      h.jsxs("p", { className: "et-video-price", children: [gross, " inkl. MwSt."] }),
+      h.jsxs("p", { children: [net, " netto zzgl. 19 % MwSt."] }),
+      h.jsx("p", { children: detail }),
+      h.jsx("a", { href: whatsappUrl("/videografie/"), target: "_blank", rel: "noopener noreferrer", children: "Video über WhatsApp anfragen" }),
+    ] }, name)) }),
+    h.jsx("h3", { children: "Optionale Zusatzleistungen" }),
+    h.jsx("p", { children: "Dreh vor Ort ab 300 € netto pro Halbtag; Expresslieferung innerhalb von 48 Stunden +30 %; zusätzliche Video-Variante 75 € netto; weitere Korrekturschleife 50 € netto. Zusatzpreise zzgl. 19 % MwSt. Umfang und Verfügbarkeit werden vorab vereinbart." }),
+  ] });
 }
 
 const extraDetails = {
@@ -103,7 +125,7 @@ const extraDetails = {
   privat: { title: "IT-Hilfe für Ihren Alltag", example: "Zum Beispiel: einen neuen Computer einrichten, ein WLAN-Problem eingrenzen oder die Datensicherung auf einem vorhandenen Gerät besprechen.", pricing: "Für Privatkunden sind die Preise inklusive Umsatzsteuer ausgewiesen. Für Vor-Ort-Termine und Fernwartung gelten Mindestbuchungszeiten; Anfahrt kann zusätzlich anfallen.", question: "Ist Fernwartung für jedes Anliegen geeignet?", answer: "Nein. Wir klären vorab, ob sich Ihr Anliegen aus der Ferne bearbeiten lässt oder ein Termin vor Ort sinnvoll ist.", path: "/it/privat/" },
   ai: { title: "KI-Beratung mit konkretem Anwendungsfall", example: "Zum Beispiel: wiederkehrende Anfragen oder die Übertragung von Daten zwischen vorhandenen Werkzeugen gemeinsam prüfen.", pricing: "Die Kosten hängen von Beratung, Umsetzung und den verwendeten Diensten ab. Lizenzen und weitere Voraussetzungen klären wir vorab im Angebot.", question: "Benötigt jeder Prozess künstliche Intelligenz?", answer: "Nein. Wir prüfen zuerst den Ablauf und besprechen, ob eine einfache Automatisierung oder der Einsatz von KI sinnvoll ist.", path: "/it/ki-beratung/" },
   web: { title: "Webdesign vom Anliegen bis zum Auftritt", example: "Zum Beispiel: eine neue Unternehmenswebsite strukturieren oder einen bestehenden Auftritt für mobile Geräte überarbeiten.", pricing: "Webdesign beginnt bei 500 € netto pro Projekt (595 € inklusive 19 % MwSt.). Der genaue Umfang und zusätzliche Leistungen werden im Angebot festgelegt.", question: "Was beeinflusst den Preis einer Website?", answer: "Seitenumfang, Inhalte, Funktionen und benötigte Integrationen bestimmen den Aufwand. Wir besprechen die Anforderungen vor Beginn.", path: "/webdesign/" },
-  video: { title: "Werbevideos aus Ihrem Material", example: "Zum Beispiel: bestehende Aufnahmen für Social Media schneiden oder Inhalte mit Animationen und Stockmaterial ergänzen. Ein eigener Kameradreh vor Ort ist nicht enthalten.", pricing: "Der Preis hängt von Material, Länge, Schnitt und gewünschten Formaten ab. Mögliche Stocklizenzen besprechen wir vorab.", question: "Kann ich vorhandene Bilder und Videos verwenden?", answer: "Ja, sofern Sie die erforderlichen Nutzungsrechte besitzen. Wir besprechen das vorhandene Material vor der Umsetzung.", path: "/videografie/" },
+  video: { title: "Werbevideos für Ihre Kanäle", example: "Zum Beispiel: bestehende Aufnahmen für Social Media schneiden oder Inhalte mit Animationen und Stockmaterial ergänzen. Ein Dreh vor Ort ist je nach Paket oder Zusatzleistung möglich.", pricing: "Videos beginnen bei 350 € netto pro Video (416,50 € inklusive 19 % MwSt.). Der Umfang und mögliche Zusatzleistungen werden vorab vereinbart.", question: "Kann ich vorhandene Bilder und Videos verwenden?", answer: "Ja, sofern Sie die erforderlichen Nutzungsrechte besitzen. Wir besprechen das vorhandene Material vor der Umsetzung.", path: "/videografie/" },
 };
 
 export function ServiceDetails({ kind }) {
@@ -117,6 +139,8 @@ export function ServiceDetails({ kind }) {
     h.jsx("p", { children: "Wir besprechen zunächst Ihr Anliegen und die vorhandene Ausgangslage. Anschließend stimmen wir Umfang und nächste Schritte mit Ihnen ab." }),
     h.jsxs("details", { children: [h.jsx("summary", { children: item.question }), h.jsx("p", { children: item.answer })] }),
     kind === "business" && h.jsxs("div", { children: [
+      h.jsx("h3", { id: "leistungen", children: "Weitere IT-Leistungen" }),
+      h.jsx("ul", { children: services.slice(0, 6).map(service => h.jsx("li", { children: h.jsx("a", { href: service.href, children: `${service.name} – ${service.label}` }) }, service.name)) }),
       h.jsx("h3", { children: "EasyLearn: Lernplattformen für Teams" }),
       h.jsx("p", { children: "Bei Bedarf besprechen wir die Einrichtung einer Lernplattform, die Strukturierung von Kursen und die Nutzung im Team. Umfang, benötigte Lizenzen und Kosten werden individuell abgestimmt." }),
       h.jsxs("details", { children: [

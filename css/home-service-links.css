@@ -11,6 +11,8 @@
 .home-service-links .home-service-details { margin-top: auto; padding-top: 8px; color: #245c76; font-weight: 700; }
 .home-service-links a:hover { background: #e7f2f5; border-color: #9dc5d0; transform: translateY(-2px); }
 .home-service-links a:focus-visible { outline: 3px solid #1295ae; outline-offset: 3px; }
+.home-service-links a.home-service-all { display: inline-flex; height: auto; min-height: 48px; margin-top: 20px; padding: 12px 20px; border-radius: 999px; background: #2e4a6f; color: #fff; font-weight: 700; }
+.home-service-links a.home-service-all:hover { background: #18364e; }
 #leistungen, #ablauf { scroll-margin-top: 110px; }
 .ehx-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 14px; color: #3b5573; font-size: 13px; }
 .ehx-badges img { width: auto; height: 82px; max-width: 100%; object-fit: contain; border-radius: 8px; border: 1px solid rgb(214 223 231); background: #fff; }
@@ -34,8 +36,7 @@
 @media (max-width: 768px) { .home-service-links ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 560px) {
   .home-service-links { margin-bottom: 28px; }
-  .home-service-links ul { grid-template-columns: none; grid-template-rows: repeat(2, 1fr); grid-auto-flow: column; grid-auto-columns: minmax(150px, 46%); gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 10px 2px 12px; }
-  .home-service-links li { scroll-snap-align: start; }
+  .home-service-links ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
   .home-service-links a { min-height: 200px; padding: 14px 12px; }
 }
 @media (max-width: 900px) {

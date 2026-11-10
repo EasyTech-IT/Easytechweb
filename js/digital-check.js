@@ -584,7 +584,7 @@
 
   function setupRegionalServiceSection() {
     const path = window.location.pathname.replace(/\/+$/, "") || "/";
-    if (path === "/" && document.querySelector(".it-home")) {
+    if (path === "/") {
       document.querySelector("#root .dc-regional-section")?.remove();
       return;
     }

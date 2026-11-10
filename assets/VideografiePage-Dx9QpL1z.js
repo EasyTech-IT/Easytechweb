@@ -1,4 +1,4 @@
-import { ServiceDetails } from "./ServiceCatalog.js?v=2";
+import { ServiceDetails, VideoPrices } from "./ServiceCatalog.js?v=3";
 import { j as jsx } from "./react-vendor-DAatkCok.js";
 import { L as Link } from "./react-router-D9cGlsqA.js";
 import { S as SEO } from "./SEO-CjiI-g6D.js";
@@ -16,7 +16,7 @@ const steps = [
   ["Abstimmen und ausliefern", "Nach gemeinsamer Abstimmung erhalten Sie das Video in den vereinbarten Formaten."],
 ];
 const questions = [
-  ["Wird vor Ort gefilmt?", "Nein. Das Angebot umfasst keinen eigenen Kameradreh vor Ort. Wir arbeiten mit vorhandenem Material, Stockmaterial, Animation und bei Bedarf KI-gestützten Elementen."],
+  ["Wird vor Ort gefilmt?", "Ein Dreh vor Ort ist im Premium-Paket als Alternative zur Animation oder als Zusatzleistung möglich. Umfang und Termin stimmen wir vorab ab."],
   ["Welches Material kann ich bereitstellen?", "Zum Beispiel vorhandene Videos, Fotos, Logos und Texte. Bitte stellen Sie sicher, dass die erforderlichen Nutzungsrechte vorliegen."],
   ["Welche Formate sind möglich?", "Hoch- oder Querformat für Website und Social Media sind nach Absprache möglich. Welche Varianten sinnvoll sind, hängt vom Ausgangsmaterial ab."],
   ["Welche Nutzungsrechte gelten?", "Die Nutzungsrechte und gegebenenfalls anfallende Lizenzkosten für Musik oder Stockmaterial werden vor der Umsetzung vereinbart."],
@@ -43,7 +43,7 @@ function VideografiePage() {
     children: [
       jsx.jsx(SEO, { config: {
         title: "Werbevideos und Motion Design | EasyTech Altenstadt",
-        description: "Werbevideos und Reels aus vorhandenem Material, Stockmaterial und Animation – ohne eigenen Kameradreh vor Ort.",
+        description: "Werbevideos, Reels und Motion Design für Unternehmen – mit Schnitt, Animation und optionalem Dreh vor Ort.",
         canonical: "https://easytechit.de/videografie/",
         keywords: "Werbevideos Altenstadt, Reels, Videoschnitt, Motion Design",
         breadcrumbs: [{ name: "Startseite", url: "https://easytechit.de/" }, { name: "Werbevideos", url: "https://easytechit.de/videografie/" }],
@@ -60,7 +60,7 @@ function VideografiePage() {
               children: [
                 jsx.jsx("p", { className: "text-sky-300 uppercase tracking-widest text-sm font-semibold mb-4", children: "Weitere Leistungen · Altenstadt & Wetterau" }),
                 jsx.jsx("h1", { className: "text-4xl sm:text-6xl font-bold max-w-3xl", children: "EasyVisual – Werbevideos und Motion Design für Unternehmen" }),
-                jsx.jsx("p", { className: "text-lg leading-relaxed text-white/80 max-w-2xl mt-6", children: "Wir gestalten Werbevideos und Reels aus vorhandenem Material, Stockmaterial und Animation. Ein eigener Kameradreh vor Ort gehört nicht zu diesem Angebot." }),
+                jsx.jsx("p", { className: "text-lg leading-relaxed text-white/80 max-w-2xl mt-6", children: "Wir gestalten Werbevideos und Reels aus vorhandenem Material, Stockmaterial und Animation. Ein Dreh vor Ort ist je nach Paket oder Zusatzleistung möglich." }),
                 jsx.jsxs("div", { className: "flex flex-wrap gap-4 mt-8", children: [
                   jsx.jsx(Link, { to: "/kontakt", className: "inline-flex bg-white text-slate-950 font-semibold rounded-full px-6 py-3", style: { color: "#172033" }, children: "Werbevideo anfragen" }),
                   jsx.jsx("a", { href: "#leistungen", className: "inline-flex border border-white/50 text-white rounded-full px-6 py-3", children: "Leistungen ansehen" }),
@@ -83,6 +83,7 @@ function VideografiePage() {
                 jsx.jsx("p", { className: "text-slate-600 leading-relaxed", children: text }),
               ] }, title)) }),
           }),
+          jsx.jsx(Section, { id: "preise", title: "Das passende Videopaket", children: jsx.jsx(VideoPrices, {}) }),
           jsx.jsx(Section, { id: "faq", title: "Häufige Fragen", children:
             jsx.jsx("div", { className: "max-w-3xl", children: questions.map(([question, answer]) =>
               jsx.jsxs("details", { className: "border-b border-slate-200 py-5", children: [

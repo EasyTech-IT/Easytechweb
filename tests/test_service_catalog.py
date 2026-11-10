@@ -35,8 +35,21 @@ class ServiceCatalogTests(unittest.TestCase):
         self.assertIn('kind === "web" ? "/preise/#preis-easyweb"', catalog)
         self.assertIn('kind === "video" ? "/preise/#preis-easyvisual"', catalog)
         groups = (ROOT / "assets" / "HomeServiceLinks.js").read_text(encoding="utf-8")
-        self.assertIn('["Hauptleistungen", services.slice(6)]', groups)
-        self.assertIn('["Weitere IT-Leistungen", services.slice(0, 6)]', groups)
+        self.assertIn('services.slice(6).map', groups)
+        self.assertNotIn('services.slice(0, 6)', groups)
+        self.assertIn('/it/business/#leistungen', groups)
+        self.assertIn('37,50 €', cards)
+        self.assertIn('416,50 €', cards)
+        self.assertIn('650 €', catalog)
+        self.assertIn('1.428 €', catalog)
+        business = (ROOT / "it" / "business" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('id="leistungen"', business)
+        for name in ("EasyConnect", "EasySupport", "EasyPhone", "EasyCloud", "EasyProtect", "EasyLiving"):
+            self.assertIn(name, business)
+        video = (ROOT / "videografie" / "index.html").read_text(encoding="utf-8")
+        for amount in ("416,50 €", "773,50 €", "1.428 €"):
+            self.assertIn(amount, catalog)
+            self.assertIn(amount, video)
 
 
 if __name__ == "__main__":

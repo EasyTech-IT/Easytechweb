@@ -59,3 +59,14 @@
   .et-service-prices .et-service-scroll-hint { display: none; }
 }
 .et-service-price-grid:focus-visible, .home-service-links ul:focus-visible { outline: 3px solid #1295ae; outline-offset: 3px; }
+.et-video-prices { max-width: 1200px; margin: 60px auto 0; color: #17243a; font-family: Satoshi, Inter, Arial, sans-serif; }
+.et-video-prices > p { max-width: 75ch; margin: 16px 0; line-height: 1.65; color: #405267; }
+.et-video-prices > h3 { margin-top: 32px; font-size: 22px; font-weight: 700; }
+.et-video-price-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 26px; }
+.et-video-price-grid article { display: flex; flex-direction: column; padding: 24px; border: 1px solid #d5e0e6; border-radius: 18px; background: #fff; }
+.et-video-price-grid h3 { font-size: 21px; font-weight: 700; }
+.et-video-price-grid p { margin: 8px 0; line-height: 1.55; color: #405267; }
+.et-video-price-grid .et-video-price { margin-top: 20px; color: #17243a; font-size: 20px; font-weight: 700; }
+.et-video-price-grid a { margin-top: auto; padding-top: 20px; color: #155878; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.et-video-price-grid a:focus-visible { outline: 3px solid #1295ae; outline-offset: 3px; }
+@media (max-width: 767px) { .et-video-price-grid { grid-template-columns: 1fr; } }

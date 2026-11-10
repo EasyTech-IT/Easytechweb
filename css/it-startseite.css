@@ -66,6 +66,11 @@
 .it-service-page .it-detail-copy ol li::before { content: counter(detail-steps, decimal-leading-zero); display: block; color: #24617a; font-weight: 700; margin-bottom: 8px; }
 .it-service-page .it-faq details { border: 1px solid #d5e0e6; border-radius: 14px; margin-bottom: 10px; padding: 0 18px; background: #fff; }
 .it-service-page .it-faq summary { min-height: 56px; }
+.it-service-page { background: #2e4a6f; }
+.it-service-page .it-detail-hero { margin: 0 clamp(16px, 3vw, 40px); padding: 150px 0 90px; border-radius: 0 0 32px 32px; }
+.it-service-page .it-section { margin: 0 clamp(16px, 3vw, 40px); padding: 20px 0; background: transparent; }
+.it-service-page .it-detail-copy { width: min(1200px, calc(100% - 32px)); padding: clamp(24px, 4vw, 56px); border-radius: 28px; background: #fff; }
+.it-service-page .it-section-soft .it-detail-copy { background: #f3f7fa; }
 @media (hover: hover) and (pointer: fine) { .it-button:hover { transform: translateY(-2px); } .it-button-primary:hover { background: #123e57; } }
 @media (max-width: 767px) {
   .it-wrap { width: calc(100% - 36px); }

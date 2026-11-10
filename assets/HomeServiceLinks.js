@@ -1,10 +1,10 @@
 import { j as h, r as React } from "./react-vendor-DAatkCok.js";
-import { services } from "/assets/ServiceCatalog.js?v=2";
+import { services } from "/assets/ServiceCatalog.js?v=3";
 
-if (!document.querySelector('link[href="/css/home-service-links.css?v=7"]')) {
+if (!document.querySelector('link[href="/css/home-service-links.css?v=8"]')) {
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = "/css/home-service-links.css?v=7";
+  stylesheet.href = "/css/home-service-links.css?v=8";
   document.head.append(stylesheet);
 }
 
@@ -22,14 +22,9 @@ export function HomeServiceLinks() {
     EasyConnect: "ichon9.png", EasySupport: "ichon6.png", EasyPhone: "ichon7.png",
     EasyCloud: "ichon9.png", EasyProtect: "ichon6.png", EasyLiving: "ichon7.png",
   };
-  const groups = [
-    ["Hauptleistungen", services.slice(6)],
-    ["Weitere IT-Leistungen", services.slice(0, 6)],
-  ];
-  return h.jsx("div", { className: "home-service-links", children: groups.map(([heading, items]) => h.jsxs("section", { className: "home-service-group", children: [
-    h.jsx("h3", { children: heading }),
-    h.jsx("p", { className: "et-service-scroll-hint", children: "Weitere Leistungen seitlich ansehen →" }),
-    h.jsx("ul", { tabIndex: 0, "aria-label": heading, children: items.map(service =>
+  return h.jsx("div", { className: "home-service-links", children: h.jsxs("section", { className: "home-service-group", children: [
+    h.jsx("h3", { children: "Hauptleistungen" }),
+    h.jsx("ul", { "aria-label": "Hauptleistungen", children: services.slice(6).map(service =>
       h.jsx("li", { children: h.jsxs("a", { href: service.href, children: [
         h.jsxs("div", { className: "et-service-card-top", children: [
           h.jsx("img", { className: "home-service-image", src: `/assets/${images[service.name]}`, width: 64, height: 64, loading: "lazy", alt: "" }),
@@ -40,5 +35,6 @@ export function HomeServiceLinks() {
         h.jsx("span", { children: service.description }),
         h.jsx("span", { className: "home-service-details", children: "Details entdecken →" }),
       ] }) }, service.name)) }),
-  ] }, heading)) });
+  h.jsx("a", { className: "home-service-all", href: "/it/business/#leistungen", children: "Weitere IT-Leistungen entdecken →" }),
+  ] }) });
 }

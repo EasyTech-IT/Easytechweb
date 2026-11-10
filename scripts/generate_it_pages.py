@@ -70,7 +70,7 @@ for page in pages:
     </main>
   </div>
   <script src="/js/easytech-nav.js"></script>
-  <script src="/js/seo-quality.js?v=19"></script>
+  <script src="/js/seo-quality.js?v=20"></script>
 </body>
 </html>
 """

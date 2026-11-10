@@ -537,7 +537,7 @@
   function setupHero() {
     const heading = document.querySelector("#root h1") || document.querySelector("#initial-home-hero:not([hidden]) h1");
     const hero = heading?.closest("section");
-    if (hero?.closest(".it-home")) return;
+    if (hero?.closest(".it-home, .ehx-sec")) return;
     if (!hero || hero.querySelector(".dc-hero-cta")) return;
 
     // Nur Anruf-Buttons ersetzen; Links mit sichtbarer Nummer (Kontaktkarte) bleiben erhalten.
@@ -566,7 +566,7 @@
   }
 
   function setupSection() {
-    if (document.querySelector("#root .it-home, #initial-home-hero:not([hidden])")) {
+    if (document.querySelector("#root .it-home, #initial-home-hero.it-home:not([hidden])")) {
       section.remove();
       return;
     }

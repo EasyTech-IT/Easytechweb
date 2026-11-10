@@ -3,6 +3,7 @@
 import html
 import json
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent.parent
 pages = json.loads((ROOT / "assets" / "it-leistungen.json").read_text(encoding="utf-8"))
@@ -18,6 +19,8 @@ def list_items(items):
 
 for page in pages:
     url = f"https://easytechit.de/it/{page['slug']}/"
+    message = f"Hallo EasyTech, ich interessiere mich für {page['short']} und möchte mein Anliegen besprechen."
+    whatsapp_url = f"https://wa.me/4960479974441?text={quote(message)}"
     title = escape(page["title"])
     description = escape(page["description"])
     faq = "".join(
@@ -66,7 +69,7 @@ for page in pages:
       <section class="it-section"><div class="it-wrap it-detail-copy"><h2>{escape(page["benefit"])}</h2><p>{escape(page["text"])}</p><ul>{list_items(page["items"])}</ul></div></section>
       <section class="it-section it-section-soft"><div class="it-wrap it-detail-copy"><h2>So gehen wir vor</h2><ol>{list_items(page["steps"])}</ol></div></section>
       <section class="it-section"><div class="it-wrap it-detail-copy"><h2>Häufige Fragen</h2><div class="it-faq">{faq}</div></div></section>
-      <section class="it-section it-section-soft"><div class="it-wrap it-detail-copy"><h2>Ihr Anliegen besprechen</h2><p>Kontaktieren Sie uns für Unterstützung in Altenstadt, der Wetterau und Umgebung.</p><div class="it-actions"><a class="it-button it-button-primary" href="/kontakt/">Kontaktformular</a><a class="it-button it-button-outline" href="tel:+4960479974441">Anrufen</a><a class="it-button it-button-outline" href="https://wa.me/4960479974441" target="_blank" rel="noopener noreferrer">WhatsApp schreiben</a></div><h3>Weitere IT-Leistungen</h3><ul>{others}</ul></div></section>
+      <section class="it-section it-section-soft"><div class="it-wrap it-detail-copy"><h2>Ihr Anliegen besprechen</h2><p>Kontaktieren Sie uns für Unterstützung in Altenstadt, der Wetterau und Umgebung.</p><div class="it-actions"><a class="it-button it-button-primary" href="/kontakt/">Kontaktformular</a><a class="it-button it-button-outline" href="tel:+4960479974441">Anrufen</a><a class="it-button it-button-outline" href="{escape(whatsapp_url)}" target="_blank" rel="noopener noreferrer">Jetzt sofort über WhatsApp kontaktieren</a></div><h3>Weitere IT-Leistungen</h3><ul>{others}</ul></div></section>
     </main>
   </div>
   <script src="/js/easytech-nav.js"></script>

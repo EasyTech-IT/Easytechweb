@@ -1,5 +1,6 @@
 import { j as h, r as React } from "./react-vendor-DAatkCok.js";
 import { S as SEO, P as pages } from "./SEO-CjiI-g6D.js";
+import { whatsappUrl } from "./whatsapp-contact.js";
 
 if (!document.querySelector('link[href="/css/it-startseite.css?v=1"]')) {
   const stylesheet = document.createElement("link");
@@ -105,7 +106,7 @@ export function HomePage() {
         h.jsxs("div", { className: "it-actions", children: [
           h.jsx("a", { className: "it-button it-button-primary", href: "/kontakt/", children: "Zum Kontaktformular" }),
           h.jsx("a", { className: "it-button it-button-outline", href: "tel:+4960479974441", children: "06047 9974441 anrufen" }),
-          h.jsx("a", { className: "it-button it-button-outline", href: "https://wa.me/4960479974441", target: "_blank", rel: "noopener noreferrer", children: "WhatsApp schreiben" }),
+          h.jsx("a", { className: "it-button it-button-outline", href: whatsappUrl(window.location.pathname), target: "_blank", rel: "noopener noreferrer", children: "Jetzt sofort über WhatsApp kontaktieren" }),
         ] }),
         h.jsxs("p", { children: ["Oder per E-Mail: ", h.jsx("a", { href: "mailto:info@easytechit.de", children: "info@easytechit.de" }), " · Altenstadt und Umgebung"] }),
         h.jsx("button", { className: "it-analysis-link", type: "button", "data-dc-open": "", children: "Kostenlose Analyse starten →" }),

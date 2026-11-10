@@ -1,5 +1,6 @@
 import { j as h, r as React } from "./react-vendor-DAatkCok.js";
 import { u as useLocation } from "./react-router-D9cGlsqA.js";
+import { whatsappUrl } from "./whatsapp-contact.js";
 
 if (!document.querySelector('link[href="/css/it-startseite.css?v=2"]')) {
   const stylesheet = document.createElement("link");
@@ -90,7 +91,7 @@ export function ITLeistung() {
       h.jsxs("div", { className: "it-actions", children: [
         h.jsx("a", { href: "/kontakt/", className: "it-button it-button-primary", children: "Kontaktformular" }),
         h.jsx("a", { href: "tel:+4960479974441", className: "it-button it-button-outline", children: "Anrufen" }),
-        h.jsx("a", { href: "https://wa.me/4960479974441", className: "it-button it-button-outline", target: "_blank", rel: "noopener noreferrer", children: "WhatsApp schreiben" }),
+        h.jsx("a", { href: whatsappUrl(pathname), className: "it-button it-button-outline", target: "_blank", rel: "noopener noreferrer", children: "Jetzt sofort über WhatsApp kontaktieren" }),
       ] }),
       h.jsx("h3", { children: "Weitere IT-Leistungen" }),
       h.jsx("ul", { children: state.pages.filter(item => item.slug !== slug).map(item => h.jsx("li", { children: h.jsx("a", { href: `/it/${item.slug}/`, children: item.short }) }, item.slug)) }),

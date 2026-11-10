@@ -694,6 +694,17 @@
     cleanStructuredData();
   }
 
+  document.addEventListener("easytech-service-metadata", (event) => {
+    const { path, title, description } = event.detail || {};
+    if (path !== window.location.pathname.replace(/\/+$/, "") ||
+        typeof title !== "string" || typeof description !== "string") {
+      console.error("Invalid service-page metadata.");
+      return;
+    }
+    pageMetadata[path] = { title, description };
+    synchronizePageMetadata();
+  });
+
   deferOffscreenImages();
   synchronizePageMetadata();
   setupAnalyticsConsent();

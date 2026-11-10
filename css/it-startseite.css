@@ -49,6 +49,15 @@
 .it-faq p { max-width: 70ch; margin: 0 0 20px; color: #405267; }
 .it-contact p { color: #405267; margin-top: 24px; }
 .it-analysis-link { padding: 10px 0; border: 0; background: none; cursor: pointer; text-align: left; }
+.it-detail-hero { padding: 150px 0 80px; background: #18364e; color: #fff; }
+.it-detail-hero h1 { max-width: 20ch; margin: 20px 0; color: #fff; font: 700 clamp(38px, 5vw, 64px)/1.1 Satoshi, Inter, Arial, sans-serif; letter-spacing: -.03em; }
+.it-detail-hero p { max-width: 60ch; color: #e4eff5; font-size: 18px; }
+.it-back { color: #fff; font-weight: 700; }
+.it-detail-copy p, .it-detail-copy li { max-width: 70ch; color: #405267; }
+.it-detail-copy li { margin: 10px 0; }
+.it-detail-copy ul, .it-detail-copy ol { padding-left: 24px; }
+.it-detail-copy h3 { margin-top: 40px; }
+.it-detail-copy a:not(.it-button) { color: #155878; }
 @media (hover: hover) and (pointer: fine) { .it-button:hover { transform: translateY(-2px); } .it-button-primary:hover { background: #123e57; } }
 @media (max-width: 767px) {
   .it-wrap { width: calc(100% - 36px); }

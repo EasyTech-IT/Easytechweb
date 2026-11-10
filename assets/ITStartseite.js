@@ -19,6 +19,15 @@ const services = [
   ["home", "Smart Home & Multimedia", "Unterstützung für vernetzte Geräte und Unterhaltung zu Hause.", ["Smart-Home-Einrichtung", "Audio und Streaming", "Vernetzte Geräte"]],
 ];
 
+const serviceLinks = {
+  wifi: "netzwerk-wlan",
+  computer: "pc-hilfe",
+  phone: "telefonie-voip",
+  cloud: "email-cloud",
+  shield: "backup-sicherheit",
+  home: "smart-home",
+};
+
 const paths = {
   wifi: "M3 9a15 15 0 0 1 18 0M6 12a10 10 0 0 1 12 0M9 15a5 5 0 0 1 6 0M12 19h.01",
   computer: "M4 5h16v11H4zM8 20h8M12 16v4",
@@ -69,7 +78,7 @@ export function HomePage() {
       ] }) }),
       h.jsx(Section, { id: "leistungen", title: "IT-Hilfe, die zu Ihrem Alltag passt", intro: "Wählen Sie ein Thema, um zu sehen, wobei wir Sie unterstützen können.", children: h.jsx("div", { className: "it-services", children: services.map(([icon, title, description, items]) => h.jsxs("details", { className: "it-service", children: [
         h.jsxs("summary", { children: [h.jsx("span", { className: "it-icon", children: h.jsx(Icon, { name: icon }) }), h.jsxs("span", { children: [h.jsx("strong", { children: title }), h.jsx("span", { className: "it-service-description", children: description })] }), h.jsx("span", { className: "it-plus", "aria-hidden": "true", children: "+" })] }),
-        h.jsxs("div", { className: "it-service-more", children: [h.jsx("ul", { children: items.map(item => h.jsx("li", { children: item }, item)) }), h.jsx("a", { href: "/kontakt/", children: "Zu diesem Thema anfragen →" })] }),
+        h.jsxs("div", { className: "it-service-more", children: [h.jsx("ul", { children: items.map(item => h.jsx("li", { children: item }, item)) }), h.jsx("a", { href: serviceLinks[icon] ? `/it/${serviceLinks[icon]}/` : "/kontakt/", children: serviceLinks[icon] ? "Mehr über diese Leistung →" : "Zu diesem Thema anfragen →" })] }),
       ] }, title)) }) }),
       h.jsx(Section, { id: "ablauf", title: "So läuft die Zusammenarbeit ab", className: "it-section-soft", children: h.jsx("ol", { className: "it-steps", children: [
         ["Anfrage", "Sie schildern uns, wobei Sie Hilfe benötigen."],

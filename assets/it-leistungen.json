@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "netzwerk-wlan",
+    "short": "Netzwerk & WLAN",
+    "title": "WLAN und Netzwerk einrichten in Altenstadt | EasyTech",
+    "description": "Hilfe bei WLAN und Netzwerken in Altenstadt und der Wetterau: Router, Mesh und Verbindungsprobleme für Zuhause und Büro.",
+    "heading": "Netzwerk und WLAN in Altenstadt",
+    "intro": "Wenn das WLAN nicht überall ankommt oder Geräte ihre Verbindung verlieren, schauen wir uns Ihre vorhandene Netzwerkumgebung an.",
+    "benefit": "Ein passendes Netzwerk für Ihren Alltag",
+    "text": "Ob Homeoffice, Büro oder Streaming: Wir prüfen Router, Abdeckung und angeschlossene Geräte und besprechen, welche Anpassung zu Ihrer Umgebung passt.",
+    "items": ["Router und WLAN einrichten", "Mesh, Repeater und Powerline prüfen", "Verbindungsprobleme eingrenzen"],
+    "steps": ["Sie beschreiben, wo die Verbindung Schwierigkeiten macht.", "Wir prüfen die vorhandene Technik und den Bedarf vor Ort oder per Fernwartung.", "Wir richten die vereinbarten Komponenten ein und erklären die Änderungen."],
+    "faq": [["Brauche ich für besseres WLAN immer neue Geräte?", "Nicht unbedingt. Zunächst prüfen wir die vorhandene Einrichtung und besprechen, ob zusätzliche Technik sinnvoll ist."], ["Unterstützen Sie auch kleine Büros?", "Ja. Wir besprechen Netzwerk und WLAN sowohl für private Haushalte als auch für kleine Unternehmen."]]
+  },
+  {
+    "slug": "pc-hilfe",
+    "short": "PC- und Mac-Hilfe",
+    "title": "PC-Hilfe und Mac-Support in Altenstadt | EasyTech",
+    "description": "PC- und Mac-Hilfe in Altenstadt: Fehlerdiagnose, Updates, Schadsoftware und Datenrettung für Privatpersonen und Unternehmen.",
+    "heading": "PC-Hilfe und Mac-Support in Altenstadt",
+    "intro": "Ein langsamer Rechner, eine Fehlermeldung oder Schwierigkeiten nach einem Update? Wir helfen bei der Einordnung und besprechen die nächsten Schritte.",
+    "benefit": "Unterstützung für Ihre Geräte",
+    "text": "Wir kümmern uns um Softwareprobleme, Wartung und Schadsoftware. Auch bei verlorenen Daten besprechen wir die Möglichkeiten – eine erfolgreiche Wiederherstellung lässt sich nicht garantieren.",
+    "items": ["Fehler und Updates prüfen", "Wartung und Leistungsprobleme", "Schadsoftware und Datenrettung"],
+    "steps": ["Sie schildern das Problem und nennen das betroffene Gerät.", "Wir prüfen, ob eine Unterstützung aus der Ferne oder vor Ort passt.", "Wir besprechen die Diagnose und das weitere Vorgehen."],
+    "faq": [["Können Sie auch per Fernwartung helfen?", "Bei geeigneten Softwareproblemen ist Fernwartung möglich. Wir klären vorab, ob das für Ihr Gerät passt."], ["Können verlorene Daten immer gerettet werden?", "Nein. Die Möglichkeiten hängen von Ursache und Zustand des Datenträgers ab. Wir besprechen die Situation, ohne eine Wiederherstellung zu versprechen."]]
+  },
+  {
+    "slug": "telefonie-voip",
+    "short": "Telefonie & VoIP",
+    "title": "VoIP und Telefonie einrichten in Altenstadt | EasyTech",
+    "description": "Unterstützung für Telefonie und VoIP in Altenstadt und der Wetterau: DECT, Telefonanlagen und Telefonieren am PC.",
+    "heading": "Telefonie und VoIP in Altenstadt",
+    "intro": "Wir unterstützen Sie dabei, Telefonie und vorhandene Geräte auf Ihre Arbeitsweise abzustimmen – im Büro oder im Homeoffice.",
+    "benefit": "Telefonie passend zum Arbeitsplatz",
+    "text": "Von der Einrichtung einzelner Telefone bis zur Umstellung auf internetbasierte Telefonie: Wir betrachten Anschlüsse, Geräte und die Anforderungen Ihres Teams gemeinsam.",
+    "items": ["VoIP- und DECT-Geräte einrichten", "Telefonanlagen und Umstellungen begleiten", "Telefonie am PC und Sprachbox besprechen"],
+    "steps": ["Sie nennen Ihre vorhandenen Anschlüsse und Wünsche.", "Wir prüfen die Geräte und besprechen die passende Einrichtung.", "Wir setzen die vereinbarten Schritte um und erklären die Bedienung."],
+    "faq": [["Kann ich über meinen PC telefonieren?", "Je nach vorhandener Telefonie-Lösung und Einrichtung kann Telefonie am PC möglich sein. Wir prüfen die Voraussetzungen mit Ihnen."], ["Helfen Sie bei einer Umstellung auf VoIP?", "Ja. Wir besprechen die vorhandene Umgebung und unterstützen bei den vereinbarten Schritten der Umstellung."]]
+  },
+  {
+    "slug": "email-cloud",
+    "short": "E-Mail & Cloud",
+    "title": "E-Mail und Cloud einrichten in Altenstadt | EasyTech",
+    "description": "Hilfe bei E-Mail und Cloud in Altenstadt: Outlook, Microsoft 365, Cloud-Speicher und Videokonferenzen einrichten.",
+    "heading": "E-Mail und Cloud in Altenstadt",
+    "intro": "E-Mail auf mehreren Geräten nutzen, Dateien teilen oder Videokonferenzen einrichten: Wir helfen bei der passenden Konfiguration.",
+    "benefit": "Kommunikation und Dateien im Blick",
+    "text": "Wir unterstützen bei Outlook, Microsoft 365, Apple- und Google-Diensten sowie Cloud-Speichern. Welche Einstellungen sinnvoll sind, hängt von Ihren Konten und Geräten ab.",
+    "items": ["E-Mail-Konten und Outlook einrichten", "Cloud-Speicher und Zugriff abstimmen", "Teams, Zoom und Videokonferenzen einrichten"],
+    "steps": ["Sie schildern, welche Konten und Geräte Sie verwenden.", "Wir prüfen Zugang, Einstellungen und Ihre Anforderungen.", "Wir richten die vereinbarten Funktionen ein und erläutern die Nutzung."],
+    "faq": [["Können E-Mails auf mehreren Geräten genutzt werden?", "Häufig ja. Welche Synchronisierung möglich ist, hängt vom Anbieter und der Einrichtung des Kontos ab."], ["Ersetzt Cloud-Speicher eine Datensicherung?", "Nicht automatisch. Synchronisierung und Backup erfüllen unterschiedliche Aufgaben; eine passende Sicherung sollte separat besprochen werden."]]
+  },
+  {
+    "slug": "backup-sicherheit",
+    "short": "Backup & Sicherheit",
+    "title": "Backup und IT-Sicherheit in Altenstadt | EasyTech",
+    "description": "Datensicherung und IT-Sicherheit in Altenstadt: Backup, Wiederherstellungstests, Virenschutz und Firewall prüfen.",
+    "heading": "Backup und IT-Sicherheit in Altenstadt",
+    "intro": "Wichtige Daten schützen und die Wiederherstellung mitdenken: Wir besprechen eine Datensicherung passend zu Ihren Geräten und Abläufen.",
+    "benefit": "Sicherung und Schutz gemeinsam betrachten",
+    "text": "Externe Datenträger, NAS oder Cloud können unterschiedliche Aufgaben erfüllen. Wir prüfen die vorhandene Lösung und unterstützen bei Backup-Tests sowie grundlegenden Sicherheitseinstellungen.",
+    "items": ["Backup auf externen Datenträgern, NAS oder in der Cloud", "Wiederherstellung und Sicherungen prüfen", "Virenschutz, Firewall und Updates besprechen"],
+    "steps": ["Wir klären, welche Daten wichtig sind und wie sie bisher gesichert werden.", "Wir besprechen geeignete Sicherungsorte und den vereinbarten Umfang.", "Wir richten die Lösung ein und prüfen die vereinbarten Wiederherstellungsschritte."],
+    "faq": [["Wie oft sollte ein Backup erfolgen?", "Das hängt davon ab, wie häufig Daten verändert werden und wie viel Datenverlust Sie im Ernstfall tolerieren können."], ["Garantiert ein Backup den Schutz vor jedem Datenverlust?", "Nein. Regelmäßige Prüfungen und getrennte Sicherungskopien können Risiken senken, aber keinen vollständigen Schutz garantieren."]]
+  },
+  {
+    "slug": "smart-home",
+    "short": "Smart Home & Multimedia",
+    "title": "Smart Home einrichten in Altenstadt | EasyTech",
+    "description": "Hilfe für Smart Home und Multimedia in Altenstadt und der Wetterau: vernetzte Geräte, Audio und Streaming einrichten.",
+    "heading": "Smart Home und Multimedia in Altenstadt",
+    "intro": "Vernetzte Geräte sollen im Alltag zusammenpassen und einfach zu bedienen sein. Wir unterstützen bei Einrichtung und Verbindung.",
+    "benefit": "Vernetzte Geräte verständlich eingerichtet",
+    "text": "Wir helfen bei der Integration geeigneter Smart-Home-Geräte sowie bei Audio und Streaming. Zunächst prüfen wir gemeinsam, welche Technik bereits vorhanden und miteinander kompatibel ist.",
+    "items": ["Smart-Home-Geräte verbinden", "Audio und Streaming einrichten", "Kompatibilität und WLAN-Voraussetzungen prüfen"],
+    "steps": ["Sie beschreiben Ihre Geräte und was Sie damit erreichen möchten.", "Wir prüfen Netzwerk, Kompatibilität und mögliche Einstellungen.", "Wir richten die vereinbarten Geräte ein und erklären die Bedienung."],
+    "faq": [["Müssen alle Geräte vom selben Hersteller stammen?", "Nicht unbedingt. Ob Geräte zusammenarbeiten, hängt von den verwendeten Standards und der jeweiligen Lösung ab."], ["Kann ein schwaches WLAN Smart-Home-Geräte beeinträchtigen?", "Ja. Abdeckung und Netzwerkverbindung können eine Rolle spielen. Wir betrachten deshalb auch das vorhandene WLAN."]]
+  }
+]

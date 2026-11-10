@@ -46,9 +46,9 @@
         "Ausgewählte Webdesign-Projekte und digitale Lösungen von EasyTech IT-Solutions aus Altenstadt. Entdecken Sie Referenzen und Ideen für Ihr Vorhaben.",
     },
     "/preise": {
-      title: "Webdesign-Preise und Angebote | EasyTech IT-Solutions",
+      title: "IT- und Webdesign-Preise | EasyTech IT-Solutions",
       description:
-        "Webdesign ab 595 Euro inklusive Umsatzsteuer. Individuelle Angebote für Ihren Bedarf in Altenstadt und Umgebung.",
+        "IT-Preise für Privat- und Geschäftskunden sowie Webdesign ab 595 Euro inklusive Umsatzsteuer. Angebote für Altenstadt und Umgebung.",
     },
     "/ueber-mich": {
       title: "Über EasyTech IT-Solutions | Ahsin Ghumman, Altenstadt",

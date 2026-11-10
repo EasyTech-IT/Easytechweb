@@ -2,10 +2,10 @@ import { j as h, r as React } from "./react-vendor-DAatkCok.js";
 import { u as useLocation } from "./react-router-D9cGlsqA.js";
 import { whatsappUrl } from "./whatsapp-contact.js";
 
-if (!document.querySelector('link[href="/css/it-startseite.css?v=2"]')) {
+if (!document.querySelector('link[href="/css/it-startseite.css?v=3"]')) {
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = "/css/it-startseite.css?v=2";
+  stylesheet.href = "/css/it-startseite.css?v=3";
   document.head.append(stylesheet);
 }
 

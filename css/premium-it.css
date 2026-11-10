@@ -1,0 +1,51 @@
+.et-price-section, .et-comparison { font-family: Satoshi, Inter, Arial, sans-serif; color: #17243a; }
+.et-price-section { background: #eaf0f4; padding: clamp(56px, 7vw, 100px) 24px; }
+.et-price-wrap { max-width: 1200px; margin: auto; }
+.et-price-wrap h2 { max-width: 22ch; font-size: clamp(32px, 4vw, 52px); font-weight: 700; line-height: 1.12; letter-spacing: -.03em; margin: 0 0 20px; }
+.et-price-intro { max-width: 65ch; color: #405267; font-size: 17px; line-height: 1.65; }
+.et-price-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 36px; }
+.et-price-panel { border: 1px solid #d5e0e6; border-radius: 24px; background: #fff; padding: clamp(24px, 3vw, 40px); }
+.et-price-panel-dark { background: #18364e; border-color: #18364e; color: #fff; }
+.et-price-label { font-weight: 700; font-size: 13px; color: #245c76; margin: 0 0 10px; }
+.et-price-panel-dark .et-price-label { color: #b6e4ed; }
+.et-price-panel h3, .et-price-examples h3, .et-price-guidance h3, .et-comparison h3 { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.2; font-weight: 700; margin: 0 0 20px; }
+.et-price-list { margin: 0; }
+.et-price-list > div { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #dce5eb; }
+.et-price-panel-dark .et-price-list > div { border-color: #527084; }
+.et-price-list dt { min-width: 0; line-height: 1.45; }
+.et-price-list dd { flex-shrink: 0; margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.et-price-list small { display: block; font-size: 13px; opacity: .85; }
+.et-price-note, .et-price-guidance p, .et-price-examples p { margin: 20px 0 0; line-height: 1.65; }
+.et-price-note { font-size: 14px; }
+.et-price-examples { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 70px); margin-top: 18px; padding: clamp(24px, 4vw, 48px); background: #fff; border-radius: 24px; border: 1px solid #d5e0e6; }
+.et-price-examples p { color: #405267; }
+.et-price-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; margin-top: 24px; padding: 12px 22px; background: #18364e; color: #fff; border-radius: 99px; font-weight: 700; text-decoration: none; }
+.et-price-button:hover { background: #245c76; }
+.et-price-button:focus-visible, .et-comparison a:focus-visible { outline: 3px solid #1295ae; outline-offset: 3px; }
+.et-price-guidance { max-width: 75ch; padding: 44px 4px 0; }
+.et-price-guidance p { color: #405267; }
+.et-comparison { margin-top: 24px; padding: clamp(24px, 3vw, 40px); border: 1px solid #d5e0e6; border-radius: 24px; background: #f5f8fa; }
+.et-comparison > div:first-child p { color: #405267; line-height: 1.6; max-width: 68ch; }
+.et-comparison-hint { display: none; font-size: 13px; font-weight: 600; margin-top: 12px; }
+.et-comparison-scroll { overflow-x: auto; margin-top: 24px; }
+.et-comparison-scroll:focus-visible { outline: 3px solid #1295ae; outline-offset: 3px; }
+.et-comparison-list { width: 100%; min-width: 620px; border-collapse: collapse; text-align: left; line-height: 1.5; }
+.et-comparison-list th, .et-comparison-list td { padding: 16px 14px; border-bottom: 1px solid #d5e0e6; vertical-align: top; }
+.et-comparison-list th:first-child { padding-left: 0; }
+.et-comparison-list td { color: #405267; }
+.et-comparison-list thead th { color: #245c76; }
+.et-comparison-note { margin: 20px 0 0; color: #245c76; font-weight: 600; }
+.et-it-price-link { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1420px; margin: 0 auto 32px; padding: clamp(24px, 4vw, 48px); border: 1px solid #d5e0e6; border-radius: 24px; background: #f5f8fa; color: #17243a; font-family: Satoshi, Inter, Arial, sans-serif; }
+.et-it-price-link h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 700; line-height: 1.2; margin: 0 0 10px; }
+.et-it-price-link p { max-width: 60ch; color: #405267; line-height: 1.6; margin: 0; }
+.et-it-price-link a { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-height: 48px; padding: 12px 22px; background: #18364e; border-radius: 99px; color: #fff; font-weight: 700; text-decoration: none; }
+.et-it-price-link a:hover { background: #245c76; }
+.et-it-price-link a:focus-visible { outline: 3px solid #1295ae; outline-offset: 3px; }
+@media (max-width: 767px) {
+  .et-price-section { padding-inline: 18px; }
+  .et-price-columns, .et-price-examples { grid-template-columns: 1fr; }
+  .et-price-examples { gap: 24px; }
+  .et-comparison-hint { display: block; }
+  .et-it-price-link { display: block; margin: 0 18px 24px; }
+  .et-it-price-link a { margin-top: 20px; }
+}

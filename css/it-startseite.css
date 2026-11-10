@@ -49,7 +49,7 @@
 .it-faq p { max-width: 70ch; margin: 0 0 20px; color: #405267; }
 .it-contact p { color: #405267; margin-top: 24px; }
 .it-analysis-link { padding: 10px 0; border: 0; background: none; cursor: pointer; text-align: left; }
-.it-detail-hero { padding: 150px 0 80px; background: #18364e; color: #fff; }
+.it-detail-hero { padding: 150px 0 90px; background: linear-gradient(90deg, rgba(12,32,49,.97), rgba(20,54,78,.84)), url("/assets/unsplash/it-arbeitsplatz-1440.webp") center / cover; color: #fff; }
 .it-detail-hero h1 { max-width: 20ch; margin: 20px 0; color: #fff; font: 700 clamp(38px, 5vw, 64px)/1.1 Satoshi, Inter, Arial, sans-serif; letter-spacing: -.03em; }
 .it-detail-hero p { max-width: 60ch; color: #e4eff5; font-size: 18px; }
 .it-back { color: #fff; font-weight: 700; }
@@ -58,6 +58,14 @@
 .it-detail-copy ul, .it-detail-copy ol { padding-left: 24px; }
 .it-detail-copy h3 { margin-top: 40px; }
 .it-detail-copy a:not(.it-button) { color: #155878; }
+.it-service-page .it-section:nth-of-type(2) .it-detail-copy ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 0; margin: 32px 0 0; list-style: none; }
+.it-service-page .it-section:nth-of-type(2) .it-detail-copy ul li { position: relative; margin: 0; padding: 26px 22px 24px; border: 1px solid #d5e0e6; border-radius: 18px; background: #f7fafb; font-weight: 600; color: #173c59; }
+.it-service-page .it-section:nth-of-type(2) .it-detail-copy ul li::before { content: ""; display: block; width: 30px; height: 3px; margin-bottom: 18px; background: #29809a; }
+.it-service-page .it-detail-copy ol { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding: 0; margin: 32px 0 0; list-style: none; counter-reset: detail-steps; }
+.it-service-page .it-detail-copy ol li { counter-increment: detail-steps; padding: 18px 20px; margin: 0; background: #fff; border: 1px solid #d5e0e6; border-radius: 16px; }
+.it-service-page .it-detail-copy ol li::before { content: counter(detail-steps, decimal-leading-zero); display: block; color: #24617a; font-weight: 700; margin-bottom: 8px; }
+.it-service-page .it-faq details { border: 1px solid #d5e0e6; border-radius: 14px; margin-bottom: 10px; padding: 0 18px; background: #fff; }
+.it-service-page .it-faq summary { min-height: 56px; }
 @media (hover: hover) and (pointer: fine) { .it-button:hover { transform: translateY(-2px); } .it-button-primary:hover { background: #123e57; } }
 @media (max-width: 767px) {
   .it-wrap { width: calc(100% - 36px); }
@@ -65,5 +73,7 @@
   .it-services, .it-steps, .it-audience, .it-two-columns { grid-template-columns: 1fr; }
   .it-steps, .it-audience { gap: 20px; }
   .it-hero .it-button { flex: 1 1 100%; }
+  .it-detail-hero { background-image: linear-gradient(90deg, rgba(12,32,49,.97), rgba(20,54,78,.86)), url("/assets/unsplash/it-arbeitsplatz-720.webp"); }
+  .it-service-page .it-section:nth-of-type(2) .it-detail-copy ul, .it-service-page .it-detail-copy ol { grid-template-columns: 1fr; gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .it-button { transition: none; } .it-button:hover { transform: none; } }

@@ -1,4 +1,4 @@
-import { WebdesignPrice } from "./ITContent.js";
+import { WebdesignPrice } from "./ITContent.js?v=2";
 
 function ContactSection() {
   return null;

@@ -56,7 +56,7 @@ for page in pages:
   <script type="module" crossorigin src="/assets/index-CBKwgmPr.js"></script>
   <link rel="stylesheet" href="/assets/index-CJZBfvzu.css">
   <link rel="stylesheet" href="/css/easytech-nav.css">
-  <link rel="stylesheet" href="/css/it-startseite.css?v=2">
+  <link rel="stylesheet" href="/css/it-startseite.css?v=3">
 </head>
 <body>
   <div id="root">

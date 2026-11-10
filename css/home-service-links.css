@@ -9,7 +9,7 @@
 .home-service-links a:focus-visible { outline: 3px solid #1295ae; outline-offset: 3px; }
 #leistungen, #ablauf { scroll-margin-top: 110px; }
 .ehx-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 14px; color: #3b5573; font-size: 13px; }
-.ehx-badges img { width: auto; height: 40px; border-radius: 8px; border: 1px solid rgb(214 223 231); background: #fff; }
+.ehx-badges img { width: auto; height: 62px; max-width: 100%; object-fit: contain; border-radius: 8px; border: 1px solid rgb(214 223 231); background: #fff; }
 .ehx-badges span { color: #3b5573; font-size: 13px; line-height: 1.4; }
 .et-customer-more { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #2e4a6f; color: #2e4a6f; font-weight: 700; text-decoration: none; background: #f7fafb; }
 .et-customer-more:hover { background: #e7f2f5; }

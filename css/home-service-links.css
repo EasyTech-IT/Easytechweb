@@ -35,4 +35,8 @@
   .et-known-brand-list { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scroll-snap-type: x mandatory; padding-bottom: 4px; }
   .et-known-brand-list span { white-space: nowrap; scroll-snap-align: start; }
 }
+@media (max-width: 767px) {
+  .et-advantages-grid { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+  .et-advantages-grid article { flex: 0 0 84%; scroll-snap-align: start; }
+}
 @media (prefers-reduced-motion: reduce) { .home-service-links a { transition: none; } .home-service-links a:hover { transform: none; } }

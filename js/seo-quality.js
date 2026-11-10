@@ -173,10 +173,12 @@
       const analyticsState = getConsentPreferences()?.analytics === true ? "granted" : "denied";
       if (analyticsState === "denied") {
         window[`ga-disable-${analyticsId}`] = true;
-        if (window.__easytechAnalyticsState !== "denied") {
+        const previousState = window.__easytechAnalyticsState;
+        if (previousState !== "denied") {
           clearAnalyticsCookies();
         }
-        if (window.__easytechAnalyticsState === "granted") {
+        window.dispatchEvent(new CustomEvent("easytech-analytics-consent", { detail: { state: analyticsState } }));
+        if (previousState === "granted") {
           window.location.reload();
         }
         window.__easytechAnalyticsState = analyticsState;
@@ -214,6 +216,7 @@
         window.__easytechAnalyticsState = analyticsState;
         window.gtag("consent", "update", { analytics_storage: analyticsState });
       }
+      window.dispatchEvent(new CustomEvent("easytech-analytics-consent"));
     }
 
     function setupAnalyticsConsent() {
@@ -346,6 +349,7 @@
               <h3 class="text-[18px] sm:text-[20px] text-[#0a0a0b] mb-3 tracking-[-0.01em]" style="font-family:'Satoshi',sans-serif;font-weight:700;line-height:1.3">Google Analytics 4</h3>
               <div class="text-[17px] text-[#404040] space-y-3" style="font-family:'Inter',sans-serif;line-height:1.7">
                 <p>Wir nutzen Google Analytics 4, um die Nutzung unserer Website statistisch auszuwerten. Das Google-Tag wird erst geladen, wenn Sie in den Cookie-Einstellungen der Kategorie „Analyse“ zustimmen. Dabei können Analyse-Cookies gesetzt und Nutzungs-, Geräte- und Browserinformationen sowie aufgerufene Seiten und Interaktionen verarbeitet werden. Werbefunktionen und Personalisierung sind deaktiviert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO bzw. § 25 Abs. 1 TDDDG. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ ändern oder widerrufen. Ereignisdaten werden in Google Analytics 2 Monate, Nutzerdaten (mit Cookies, Nutzer- oder Werbe-IDs verknüpft) 14 Monate gespeichert; danach werden sie automatisch gelöscht.</p>
+                <p>Mit Ihrer Analyse-Einwilligung vergleichen wir zwei Texte des Kontaktbuttons auf der Startseite. Die zufällige Variante wird für den aktuellen Browser-Tab im Sitzungsspeicher gespeichert. An Google Analytics übermitteln wir die Variantenkennung, die Anzeige, Button- und WhatsApp-Klicks sowie erfolgreich abgesendete Kontaktformulare, aber keine Formularinhalte. Beim Widerruf wird die Variantenkennung entfernt.</p>
                 <p>Anbieter ist Google Ireland Limited. Eine Verarbeitung durch Google LLC in den USA kann nicht ausgeschlossen werden. Weitere Informationen: <a class="text-[#2e4a6f] hover:text-[#000000] transition-colors" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
               </div>
             </div>
@@ -591,7 +595,7 @@
       document.head.appendChild(stylesheet);
     }
 
-    for (const source of ["/js/digital-check.js?v=16"]) {
+    for (const source of ["/js/digital-check.js?v=16", "/js/hero-experiment.js?v=1"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

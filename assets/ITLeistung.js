@@ -1,6 +1,6 @@
 import { j as h, r as React } from "./react-vendor-DAatkCok.js";
 import { u as useLocation } from "./react-router-D9cGlsqA.js";
-import { whatsappUrl } from "./whatsapp-contact.js";
+import { whatsappUrl } from "./whatsapp-contact.js?v=2";
 
 if (!document.querySelector('link[href="/css/it-startseite.css?v=3"]')) {
   const stylesheet = document.createElement("link");
@@ -69,8 +69,8 @@ export function ITLeistung() {
       h.jsx("h1", { children: page.heading }),
       h.jsx("p", { children: page.intro }),
       h.jsxs("div", { className: "it-actions", children: [
-        h.jsx("a", { href: "/kontakt/", className: "it-button it-button-primary", children: "Anfrage senden" }),
-        h.jsx("a", { href: "tel:+4960479974441", className: "it-button it-button-light", children: "Jetzt anrufen" }),
+        h.jsx("a", { href: whatsappUrl(pathname), className: "it-button it-button-primary", target: "_blank", rel: "noopener noreferrer", children: "Jetzt über WhatsApp anfragen" }),
+        h.jsx("a", { href: "/kontakt/", className: "it-button it-button-light", children: "Anfrage per Formular" }),
       ] }),
     ] }) }),
     h.jsx("section", { className: "it-section", children: h.jsxs("div", { className: "it-wrap it-detail-copy", children: [
@@ -82,6 +82,11 @@ export function ITLeistung() {
       h.jsx("ol", { children: page.steps.map(step => h.jsx("li", { children: step }, step)) }),
     ] }) }),
     h.jsx("section", { className: "it-section", children: h.jsxs("div", { className: "it-wrap it-detail-copy", children: [
+      h.jsx("h2", { children: "Kosten und individuelles Angebot" }),
+      h.jsx("p", { children: "Der Preis richtet sich nach Ihrem Anliegen und dem vereinbarten Umfang. Mindestbuchungszeiten, Anfahrt und gegebenenfalls benötigte Geräte oder Lizenzen können zusätzlich relevant sein." }),
+      h.jsx("a", { href: "/preise/#it-preise", className: "it-button it-button-outline", children: "IT-Preise und Bedingungen ansehen" }),
+    ] }) }),
+    h.jsx("section", { className: "it-section", children: h.jsxs("div", { className: "it-wrap it-detail-copy", children: [
       h.jsx("h2", { children: "Häufige Fragen" }),
       h.jsx("div", { className: "it-faq", children: page.faq.map(([question, answer]) => h.jsxs("details", { children: [h.jsx("summary", { children: question }), h.jsx("p", { children: answer })] }, question)) }),
     ] }) }),
@@ -89,9 +94,9 @@ export function ITLeistung() {
       h.jsx("h2", { children: "Ihr Anliegen besprechen" }),
       h.jsx("p", { children: "Kontaktieren Sie uns für Unterstützung in Altenstadt, der Wetterau und Umgebung." }),
       h.jsxs("div", { className: "it-actions", children: [
-        h.jsx("a", { href: "/kontakt/", className: "it-button it-button-primary", children: "Kontaktformular" }),
+        h.jsx("a", { href: whatsappUrl(pathname), className: "it-button it-button-primary", target: "_blank", rel: "noopener noreferrer", children: "Jetzt sofort über WhatsApp kontaktieren" }),
+        h.jsx("a", { href: "/kontakt/", className: "it-button it-button-outline", children: "Kontaktformular" }),
         h.jsx("a", { href: "tel:+4960479974441", className: "it-button it-button-outline", children: "Anrufen" }),
-        h.jsx("a", { href: whatsappUrl(pathname), className: "it-button it-button-outline", target: "_blank", rel: "noopener noreferrer", children: "Jetzt sofort über WhatsApp kontaktieren" }),
       ] }),
       h.jsx("h3", { children: "Weitere IT-Leistungen" }),
       h.jsx("ul", { children: state.pages.filter(item => item.slug !== slug).map(item => h.jsx("li", { children: h.jsx("a", { href: `/it/${item.slug}/`, children: item.short }) }, item.slug)) }),

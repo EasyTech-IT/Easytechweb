@@ -702,9 +702,6 @@
     actions.className = "dc-floating-actions";
     actions.setAttribute("aria-label", "Schnellzugriff");
     actions.innerHTML = `
-      <a class="dc-mobile-call" href="tel:+4960479974441" aria-label="EasyTech telefonisch kontaktieren">
-        ${icon("phone")}<span>Anrufen</span>
-      </a>
       <button type="button" class="dc-floating-check" data-dc-open aria-label="Kostenlosen Digital-Check starten">
         ${icon("sparkles")}<span>Kostenloser Check</span>
       </button>
@@ -726,6 +723,42 @@
     });
   }
 
+  let trustBadgeClosed = false;
+  function setupTrustBadge() {
+    if (trustBadgeClosed || document.querySelector(".dc-rotating-trust")) return;
+    const badges = [
+      ["/assets/trust-badge-empfehlung.png", "Trustsiegel.de: 81 Bewertungen und 100 % Empfehlungen"],
+      ["/assets/trust-badge-service.png", "Wer kennt den BESTEN: Sehr gut"],
+      ["/assets/cylex-trusted-badge.webp", "Cylex Trusted Siegel"],
+    ];
+    const panel = document.createElement("aside");
+    panel.className = "dc-rotating-trust";
+    panel.setAttribute("aria-label", "Vertrauenssiegel");
+    panel.innerHTML = '<img width="66" height="66" alt=""><div><button type="button" class="dc-trust-toggle" aria-label="Siegelwechsel pausieren">Pause</button><button type="button" class="dc-trust-close" aria-label="Vertrauenssiegel schließen">×</button></div>';
+    const image = panel.querySelector("img");
+    const toggle = panel.querySelector(".dc-trust-toggle");
+    let current = 0;
+    let timer = null;
+    const show = () => { image.src = badges[current][0]; image.alt = badges[current][1]; };
+    const start = () => {
+      timer = window.setInterval(() => { current = (current + 1) % badges.length; show(); }, 6000);
+      toggle.textContent = "Pause";
+      toggle.setAttribute("aria-label", "Siegelwechsel pausieren");
+    };
+    show();
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) start();
+    else { toggle.textContent = "Start"; toggle.setAttribute("aria-label", "Siegelwechsel starten"); }
+    toggle.addEventListener("click", () => {
+      if (timer !== null) {
+        clearInterval(timer); timer = null;
+        toggle.textContent = "Start";
+        toggle.setAttribute("aria-label", "Siegelwechsel starten");
+      } else start();
+    });
+    panel.querySelector(".dc-trust-close").addEventListener("click", () => { trustBadgeClosed = true; clearInterval(timer); panel.remove(); });
+    document.body.append(panel);
+  }
+
   function setupPage() {
     setupHeader();
     setupFooter();
@@ -733,6 +766,7 @@
     setupSection();
     setupRegionalServiceSection();
     setupFloatingActions();
+    setupTrustBadge();
   }
 
   document.addEventListener("click", (event) => {

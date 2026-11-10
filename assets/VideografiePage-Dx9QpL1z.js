@@ -1,3 +1,4 @@
+import { ServiceDetails } from "./ServiceCatalog.js?v=2";
 import { j as jsx } from "./react-vendor-DAatkCok.js";
 import { L as Link } from "./react-router-D9cGlsqA.js";
 import { S as SEO } from "./SEO-CjiI-g6D.js";
@@ -89,6 +90,7 @@ function VideografiePage() {
                 jsx.jsx("p", { className: "mt-3 text-slate-600 leading-relaxed", children: answer }),
               ] }, question)) }),
           }),
+          jsx.jsx(ServiceDetails, { kind: "video" }),
           jsx.jsx(Section, { id: "kontakt-cta", title: "Sie haben eine Idee für ein Werbevideo?", children:
             jsx.jsxs("div", { children: [
               jsx.jsx("p", { className: "text-slate-600 mb-5", children: "Beschreiben Sie uns Ihr Vorhaben und das vorhandene Material." }),

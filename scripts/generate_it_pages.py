@@ -64,16 +64,17 @@ for page in pages:
       <section class="it-detail-hero"><div class="it-wrap">
         <a href="/#leistungen" class="it-back">← Alle Leistungen</a>
         <h1>{escape(page["heading"])}</h1><p>{escape(page["intro"])}</p>
-        <div class="it-actions"><a class="it-button it-button-primary" href="/kontakt/">Anfrage senden</a><a class="it-button it-button-light" href="tel:+4960479974441">Jetzt anrufen</a></div>
+        <div class="it-actions"><a class="it-button it-button-primary" href="{escape(whatsapp_url)}" target="_blank" rel="noopener noreferrer">Jetzt über WhatsApp anfragen</a><a class="it-button it-button-light" href="/kontakt/">Anfrage per Formular</a></div>
       </div></section>
       <section class="it-section"><div class="it-wrap it-detail-copy"><h2>{escape(page["benefit"])}</h2><p>{escape(page["text"])}</p><ul>{list_items(page["items"])}</ul></div></section>
       <section class="it-section it-section-soft"><div class="it-wrap it-detail-copy"><h2>So gehen wir vor</h2><ol>{list_items(page["steps"])}</ol></div></section>
+      <section class="it-section"><div class="it-wrap it-detail-copy"><h2>Kosten und individuelles Angebot</h2><p>Der Preis richtet sich nach Ihrem Anliegen und dem vereinbarten Umfang. Mindestbuchungszeiten, Anfahrt und gegebenenfalls benötigte Geräte oder Lizenzen können zusätzlich relevant sein.</p><a class="it-button it-button-outline" href="/preise/#it-preise">IT-Preise und Bedingungen ansehen</a></div></section>
       <section class="it-section"><div class="it-wrap it-detail-copy"><h2>Häufige Fragen</h2><div class="it-faq">{faq}</div></div></section>
-      <section class="it-section it-section-soft"><div class="it-wrap it-detail-copy"><h2>Ihr Anliegen besprechen</h2><p>Kontaktieren Sie uns für Unterstützung in Altenstadt, der Wetterau und Umgebung.</p><div class="it-actions"><a class="it-button it-button-primary" href="/kontakt/">Kontaktformular</a><a class="it-button it-button-outline" href="tel:+4960479974441">Anrufen</a><a class="it-button it-button-outline" href="{escape(whatsapp_url)}" target="_blank" rel="noopener noreferrer">Jetzt sofort über WhatsApp kontaktieren</a></div><h3>Weitere IT-Leistungen</h3><ul>{others}</ul></div></section>
+      <section class="it-section it-section-soft"><div class="it-wrap it-detail-copy"><h2>Ihr Anliegen besprechen</h2><p>Kontaktieren Sie uns für Unterstützung in Altenstadt, der Wetterau und Umgebung.</p><div class="it-actions"><a class="it-button it-button-primary" href="{escape(whatsapp_url)}" target="_blank" rel="noopener noreferrer">Jetzt sofort über WhatsApp kontaktieren</a><a class="it-button it-button-outline" href="/kontakt/">Kontaktformular</a><a class="it-button it-button-outline" href="tel:+4960479974441">Anrufen</a></div><h3>Weitere IT-Leistungen</h3><ul>{others}</ul></div></section>
     </main>
   </div>
   <script src="/js/easytech-nav.js"></script>
-  <script src="/js/seo-quality.js?v=23"></script>
+  <script src="/js/seo-quality.js?v=24"></script>
 </body>
 </html>
 """

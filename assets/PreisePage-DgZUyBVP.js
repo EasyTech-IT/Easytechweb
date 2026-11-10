@@ -1,8 +1,8 @@
 import { j as jsx } from "./react-vendor-DAatkCok.js";
 import { S as SEO, P as pages } from "./SEO-CjiI-g6D.js";
-import { WebdesignPrice, ITComparison } from "./ITContent.js?v=3";
+import { WebdesignPrice, ITComparison } from "./ITContent.js?v=4";
 import { ITPrices } from "./ITPrices.js";
-import { ServicePrices } from "./ServiceCatalog.js?v=1";
+import { ServicePrices } from "./ServiceCatalog.js?v=2";
 
 function PreisePage() {
   return jsx.jsxs(jsx.Fragment, {

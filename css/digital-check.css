@@ -831,6 +831,12 @@
   display: none;
 }
 
+.dc-rotating-trust { position: fixed; left: 16px; bottom: calc(150px + env(safe-area-inset-bottom)); z-index: 999; display: flex; align-items: center; gap: 4px; padding: 5px; background: #fff; border: 1px solid #dfe5ed; border-radius: 12px; box-shadow: 0 4px 14px rgba(17,24,39,.14); }
+.dc-rotating-trust img { display: block; width: 62px; height: 62px; object-fit: contain; }
+.dc-rotating-trust div { display: flex; flex-direction: column; }
+.dc-rotating-trust button { min-width: 44px; min-height: 44px; border: 0; background: transparent; color: #203957; font-size: 11px; font-weight: 700; cursor: pointer; }
+.dc-rotating-trust button:focus-visible { outline: 3px solid #1295ae; }
+
 @media (max-width: 1023px) {
   .dc-mobile-call {
     position: fixed;

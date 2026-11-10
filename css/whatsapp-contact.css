@@ -23,6 +23,8 @@
   text-decoration: none;
 }
 .et-static-whatsapp svg { width: 26px; height: 26px; }
+[aria-label="Nach oben scrollen"] { position: fixed !important; left: 16px; right: auto; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 999; }
+[aria-label="Nach oben scrollen"] > span { display: none; }
 @media (max-width: 480px) {
   .et-whatsapp { min-height: 50px; padding: 7px 12px; font-size: 12px; }
   .et-whatsapp svg { width: 21px; height: 21px; flex-basis: 21px; }

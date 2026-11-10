@@ -1,7 +1,7 @@
-if (!document.querySelector('link[href="/css/whatsapp-contact.css"]')) {
+if (!document.querySelector('link[href="/css/whatsapp-contact.css?v=2"]')) {
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = "/css/whatsapp-contact.css";
+  stylesheet.href = "/css/whatsapp-contact.css?v=2";
   document.head.append(stylesheet);
 }
 

@@ -24,6 +24,20 @@ class ServiceCatalogTests(unittest.TestCase):
             with self.subTest(file=name):
                 self.assertEqual((ROOT / "assets" / name).read_bytes(), (ROOT / "js" / name).read_bytes())
 
+    def test_homepage_pricing_and_separate_service_groups(self):
+        catalog = (ROOT / "assets" / "ServiceCatalog.js").read_text(encoding="utf-8")
+        cards = catalog.split("const homePrices = [", 1)[1].split("];", 1)[0]
+        self.assertEqual(cards.count("{ title:"), 4)
+        self.assertIn("Ab 595 €", cards)
+        self.assertNotIn("XX €", cards)
+        self.assertIn('href: "/preise/#preis-easyweb"', cards)
+        self.assertIn('href: "/preise/#preis-easyvisual"', cards)
+        self.assertIn('kind === "web" ? "/preise/#preis-easyweb"', catalog)
+        self.assertIn('kind === "video" ? "/preise/#preis-easyvisual"', catalog)
+        groups = (ROOT / "assets" / "HomeServiceLinks.js").read_text(encoding="utf-8")
+        self.assertIn('["Hauptleistungen", services.slice(6)]', groups)
+        self.assertIn('["Weitere IT-Leistungen", services.slice(0, 6)]', groups)
+
 
 if __name__ == "__main__":
     unittest.main()

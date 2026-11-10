@@ -65,7 +65,9 @@ export function ITComparison() {
       ] }, label)) }),
     ] }),
     jsx.jsx("p", { className: "et-comparison-note", children: "Nicht jedes IT-Angebot ist gleich. Bei EasyTech erhalten Sie persönliche Beratung, verständliche Lösungen und Unterstützung aus einer Hand. Gemeinsam stimmen wir den Leistungsumfang auf Ihre Anforderungen ab." }),
-    jsx.jsx(Link, { to: "/kontakt", className: "et-price-button", children: "Jetzt unverbindlich beraten lassen" }),
+    jsx.jsx("p", { children: "Sie möchten wissen, welche Lösung zu Ihnen passt? Lassen Sie sich persönlich beraten." }),
+    jsx.jsx("a", { href: "https://wa.me/4960479974441?text=Hallo%20EasyTech%2C%20ich%20m%C3%B6chte%20mich%20pers%C3%B6nlich%20beraten%20lassen.", target: "_blank", rel: "noopener noreferrer", className: "et-price-button", children: "Jetzt Beratung anfragen" }),
+    jsx.jsx("p", { children: jsx.jsx(Link, { to: "/kontakt", children: "Alternativ per Kontaktformular" }) }),
   ] });
 }
 

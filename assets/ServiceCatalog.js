@@ -1,9 +1,11 @@
-import { j as h } from "./react-vendor-DAatkCok.js";
+import { j as h, r as React } from "./react-vendor-DAatkCok.js";
+import { u as useLocation } from "./react-router-D9cGlsqA.js";
+import { whatsappUrl } from "./whatsapp-contact.js?v=2";
 
-if (!document.querySelector('link[href="/css/service-catalog.css?v=1"]')) {
+if (!document.querySelector('link[href="/css/service-catalog.css?v=2"]')) {
   const stylesheet = document.createElement("link");
   stylesheet.rel = "stylesheet";
-  stylesheet.href = "/css/service-catalog.css?v=1";
+  stylesheet.href = "/css/service-catalog.css?v=2";
   document.head.append(stylesheet);
 }
 
@@ -29,19 +31,103 @@ export function ServiceIcon({ path }) {
   ] });
 }
 
+const priceDetails = {
+  EasyConnect: ["Router, WLAN-Abdeckung und Verbindungen prüfen", "Zusätzliche Geräte nach Vereinbarung"],
+  EasySupport: ["Fehleranalyse, Updates und Gerätehilfe", "Ersatzteile und Anfahrt nach Vereinbarung"],
+  EasyPhone: ["Telefone und VoIP-Einrichtung besprechen", "Hardware und Anbietergebühren nach Vereinbarung"],
+  EasyCloud: ["E-Mail-Konten und Cloud-Zugriff einrichten", "Lizenzen und Speicher nach Vereinbarung"],
+  EasyProtect: ["Datensicherung und Schutzmaßnahmen besprechen", "Backup-Speicher und Softwarelizenzen nach Vereinbarung"],
+  EasyLiving: ["Vernetzte Geräte und Medien einrichten", "Geräte und Zubehör nach Vereinbarung"],
+  EasyBusiness: ["IT-Betreuung, Netzwerk und Arbeitsplätze", "Lizenzen, Hardware und Servicelevel nach Vereinbarung"],
+  EasyAI: ["KI-Potenziale und geeignete Prozesse besprechen", "Softwarelizenzen und Umsetzung nach Vereinbarung"],
+  EasyHome: ["Hilfe bei Geräten, WLAN und Datensicherung", "Anfahrt und Ersatzteile nach Vereinbarung"],
+  EasyLearn: ["Lernplattform und Schulungssystem besprechen", "Lizenzen und Integrationen nach Vereinbarung"],
+  EasyWeb: ["Individuelle Website und mobiloptimierter Auftritt", "Zusätzliche Funktionen und laufende Dienste nach Vereinbarung"],
+  EasyVisual: ["Schnitt und Motion Design aus vorhandenem oder Stockmaterial", "Stocklizenzen und weitere Formate nach Vereinbarung"],
+};
+
+const homePrices = [
+  { title: "IT-Betreuung & IT-Dienstleistungen", description: "Zuverlässige IT-Unterstützung für Privatpersonen und Unternehmen.", price: "Auf Anfrage", detail: "Preisrahmen und Beispiele auf der Preisseite", href: "/preise/#it-preise", action: "IT-Leistungen & Preise entdecken" },
+  { title: "Webdesign", description: "Moderne Websites, individuelle Gestaltung und professionelle Online-Auftritte.", price: "Ab 595 €", detail: "pro Projekt inkl. 19 % MwSt. · 500 € netto", href: "/preise/#preis-easyweb", action: "Webdesign-Preise entdecken" },
+  { title: "Videografie", description: "Werbevideos und visuelle Inhalte aus vorhandenem Material und Animation.", price: "Auf Anfrage", detail: "Preis nach vereinbartem Projektumfang", href: "/preise/#preis-easyvisual", action: "Videografie-Preise entdecken" },
+  { title: "Individuelles Angebot", description: "Sie haben ein besonderes Projekt oder benötigen mehrere Leistungen? Wir erstellen ein passendes Angebot.", price: "Auf Anfrage", detail: "Persönlich auf Ihren Bedarf abgestimmt", href: "https://wa.me/4960479974441?text=Hallo%20EasyTech%2C%20ich%20m%C3%B6chte%20ein%20individuelles%20Angebot%20anfragen.", action: "Angebot anfragen" },
+];
+
+export function HomePrices() {
+  return h.jsx("section", { className: "et-home-prices", children: h.jsxs("div", { className: "et-service-prices-wrap", children: [
+    h.jsx("h2", { children: "Die passende Lösung für Ihr Vorhaben" }),
+    h.jsx("div", { className: "et-home-price-grid", children: homePrices.map((item, index) => h.jsxs("article", { className: `et-home-price-card${index === 0 ? " et-home-price-featured" : ""}`, children: [
+      h.jsx("h3", { children: item.title }),
+      h.jsx("p", { className: "et-home-price-description", children: item.description }),
+      h.jsx("p", { className: "et-home-price-value", children: item.price }),
+      h.jsx("p", { className: "et-home-price-detail", children: item.detail }),
+      h.jsx("a", { href: item.href, ...(index === 3 ? { target: "_blank", rel: "noopener noreferrer" } : {}), children: item.action }),
+    ] }, item.title)) }),
+  ] }) });
+}
+
 export function ServicePrices() {
-  return h.jsx("section", { className: "et-service-prices", children: h.jsxs("div", { className: "et-service-prices-wrap", children: [
+  const { hash } = useLocation();
+  React.useEffect(() => {
+    if (!hash) return;
+    const id = decodeURIComponent(hash.slice(1));
+    const timer = setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "instant", block: "start" }), 500);
+    return () => clearTimeout(timer);
+  }, [hash]);
+  return h.jsx("section", { className: "et-service-prices", id: "it-preise", children: h.jsxs("div", { className: "et-service-prices-wrap", children: [
     h.jsx("h2", { children: "Alle Leistungen und Einstiegspreise" }),
     h.jsx("p", { className: "et-service-prices-intro", children: "Der konkrete Preis richtet sich nach Ihrem Anliegen. Noch nicht festgelegte Einstiegspreise nennen wir Ihnen im individuellen Angebot." }),
     h.jsx("p", { className: "et-service-scroll-hint", children: "Weitere Leistungen seitlich ansehen →" }),
-    h.jsx("div", { className: "et-service-price-grid", tabIndex: 0, "aria-label": "Preisübersicht der Leistungen", children: services.map(service => h.jsxs("article", { className: "et-service-price-card", children: [
+    h.jsx("p", { children: "IT-Betreuung und IT-Dienstleistungen: Umfang und Abrechnung nach individuellem Angebot. Für Privat- und Geschäftskunden finden Sie unten bestätigte Stundensätze und Preisbeispiele." }),
+    h.jsx("div", { className: "et-service-price-grid", "aria-label": "Preisübersicht der Leistungen", children: services.map(service => h.jsxs("article", { id: `preis-${service.name.toLowerCase()}`, className: "et-service-price-card", children: [
       h.jsxs("div", { className: "et-service-card-top", children: [h.jsx(ServiceIcon, { path: service.icon }), ["EasySupport", "EasyCloud", "EasyBusiness", "EasyWeb"].includes(service.name) && h.jsx("span", { className: "et-service-badge", children: service.badge })] }),
       h.jsx("h3", { children: service.name }),
       h.jsx("p", { className: "et-service-category", children: service.label }),
+      h.jsx("p", { className: "et-service-description", children: service.description }),
       h.jsx("p", { className: "et-service-amount", children: service.price || "Preis auf Anfrage" }),
       h.jsx("p", { className: "et-service-price-note", children: service.priceNote || "Umfang und Abrechnung nach Angebot" }),
-      h.jsx("a", { href: "/kontakt/", children: "Individuelles Angebot anfragen" }),
+      h.jsxs("dl", { className: "et-service-scope", children: [
+        h.jsx("dt", { children: "Möglicher Leistungsumfang" }),
+        h.jsx("dd", { children: priceDetails[service.name][0] }),
+        h.jsx("dt", { children: "Mögliche Zusatzkosten" }),
+        h.jsx("dd", { children: priceDetails[service.name][1] }),
+      ] }),
+      h.jsx("a", { href: service.href, children: "Leistung entdecken" }),
     ] }, service.name)) }),
     h.jsxs("p", { className: "et-service-prices-footnote", children: ["Bei IT-Einsätzen können Mindestbuchungszeiten, Anfahrt und Lizenzen zusätzlich relevant sein. Details und bestätigte IT-Preisbeispiele finden Sie in der ", h.jsx("a", { href: "/preise/", children: "Preisübersicht" }), "."] }),
+  ] }) });
+}
+
+const extraDetails = {
+  business: { title: "IT-Betreuung passend zu Ihrem Unternehmen", example: "Zum Beispiel: neue Arbeitsplätze einrichten, ein unzuverlässiges Büronetz prüfen oder den Bedarf für eine laufende Betreuung besprechen.", pricing: "Für Geschäftskunden gelten je nach Tätigkeitsbereich die veröffentlichten Netto-Stundensätze. Bei laufender Betreuung werden Leistungsumfang und Servicelevel vereinbart.", question: "Was ist bei laufender Betreuung enthalten?", answer: "Das hängt von Ihrer Infrastruktur und der vereinbarten Betreuung ab. Wartung, Überwachung und gegebenenfalls Lizenzen werden im Angebot konkret aufgeführt.", path: "/it/business/" },
+  privat: { title: "IT-Hilfe für Ihren Alltag", example: "Zum Beispiel: einen neuen Computer einrichten, ein WLAN-Problem eingrenzen oder die Datensicherung auf einem vorhandenen Gerät besprechen.", pricing: "Für Privatkunden sind die Preise inklusive Umsatzsteuer ausgewiesen. Für Vor-Ort-Termine und Fernwartung gelten Mindestbuchungszeiten; Anfahrt kann zusätzlich anfallen.", question: "Ist Fernwartung für jedes Anliegen geeignet?", answer: "Nein. Wir klären vorab, ob sich Ihr Anliegen aus der Ferne bearbeiten lässt oder ein Termin vor Ort sinnvoll ist.", path: "/it/privat/" },
+  ai: { title: "KI-Beratung mit konkretem Anwendungsfall", example: "Zum Beispiel: wiederkehrende Anfragen oder die Übertragung von Daten zwischen vorhandenen Werkzeugen gemeinsam prüfen.", pricing: "Die Kosten hängen von Beratung, Umsetzung und den verwendeten Diensten ab. Lizenzen und weitere Voraussetzungen klären wir vorab im Angebot.", question: "Benötigt jeder Prozess künstliche Intelligenz?", answer: "Nein. Wir prüfen zuerst den Ablauf und besprechen, ob eine einfache Automatisierung oder der Einsatz von KI sinnvoll ist.", path: "/it/ki-beratung/" },
+  web: { title: "Webdesign vom Anliegen bis zum Auftritt", example: "Zum Beispiel: eine neue Unternehmenswebsite strukturieren oder einen bestehenden Auftritt für mobile Geräte überarbeiten.", pricing: "Webdesign beginnt bei 500 € netto pro Projekt (595 € inklusive 19 % MwSt.). Der genaue Umfang und zusätzliche Leistungen werden im Angebot festgelegt.", question: "Was beeinflusst den Preis einer Website?", answer: "Seitenumfang, Inhalte, Funktionen und benötigte Integrationen bestimmen den Aufwand. Wir besprechen die Anforderungen vor Beginn.", path: "/webdesign/" },
+  video: { title: "Werbevideos aus Ihrem Material", example: "Zum Beispiel: bestehende Aufnahmen für Social Media schneiden oder Inhalte mit Animationen und Stockmaterial ergänzen. Ein eigener Kameradreh vor Ort ist nicht enthalten.", pricing: "Der Preis hängt von Material, Länge, Schnitt und gewünschten Formaten ab. Mögliche Stocklizenzen besprechen wir vorab.", question: "Kann ich vorhandene Bilder und Videos verwenden?", answer: "Ja, sofern Sie die erforderlichen Nutzungsrechte besitzen. Wir besprechen das vorhandene Material vor der Umsetzung.", path: "/videografie/" },
+};
+
+export function ServiceDetails({ kind }) {
+  const item = extraDetails[kind];
+  return h.jsx("section", { className: "et-service-details", children: h.jsxs("div", { className: "et-service-details-wrap", children: [
+    h.jsx("h2", { children: item.title }),
+    h.jsx("h3", { children: "Anwendungsbeispiel" }),
+    h.jsx("p", { children: item.example }),
+    h.jsx("h3", { children: "Kosten und Zusammenarbeit" }),
+    h.jsx("p", { children: item.pricing }),
+    h.jsx("p", { children: "Wir besprechen zunächst Ihr Anliegen und die vorhandene Ausgangslage. Anschließend stimmen wir Umfang und nächste Schritte mit Ihnen ab." }),
+    h.jsxs("details", { children: [h.jsx("summary", { children: item.question }), h.jsx("p", { children: item.answer })] }),
+    kind === "business" && h.jsxs("div", { children: [
+      h.jsx("h3", { children: "EasyLearn: Lernplattformen für Teams" }),
+      h.jsx("p", { children: "Bei Bedarf besprechen wir die Einrichtung einer Lernplattform, die Strukturierung von Kursen und die Nutzung im Team. Umfang, benötigte Lizenzen und Kosten werden individuell abgestimmt." }),
+      h.jsxs("details", { children: [
+        h.jsx("summary", { children: "Für wen eignet sich EasyLearn?" }),
+        h.jsx("p", { children: "Für Unternehmen, die Schulungsinhalte und Lernabläufe für ihr Team digital bereitstellen möchten." }),
+      ] }),
+    ] }),
+    h.jsxs("div", { className: "et-service-details-actions", children: [
+      h.jsx("a", { href: whatsappUrl(item.path), target: "_blank", rel: "noopener noreferrer", children: "Jetzt über WhatsApp anfragen" }),
+      h.jsx("a", { href: kind === "web" ? "/preise/#preis-easyweb" : kind === "video" ? "/preise/#preis-easyvisual" : "/preise/#it-preise", children: "Preise und Bedingungen ansehen" }),
+      h.jsx("a", { href: "/kontakt/", children: "Alternativ Kontaktformular" }),
+    ] }),
   ] }) });
 }

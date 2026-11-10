@@ -1,4 +1,4 @@
-import { j as h } from "./react-vendor-DAatkCok.js";
+import { j as h, r as React } from "./react-vendor-DAatkCok.js";
 import { S as SEO, P as pages } from "./SEO-CjiI-g6D.js";
 
 if (!document.querySelector('link[href="/css/it-startseite.css?v=1"]')) {
@@ -49,10 +49,16 @@ const faq = [
 ];
 
 export function HomePage() {
+  const initialHero = document.getElementById("initial-home-hero");
+  React.useLayoutEffect(() => {
+    if (!initialHero) return;
+    initialHero.hidden = false;
+    return () => { initialHero.hidden = true; };
+  }, [initialHero]);
   return h.jsxs(h.Fragment, { children: [
     h.jsx(SEO, { config: pages.home }),
     h.jsxs("div", { className: "it-home", children: [
-      h.jsx("section", { className: "it-hero", children: h.jsxs("div", { className: "it-wrap it-hero-content", children: [
+      !initialHero && h.jsx("section", { className: "it-hero", children: h.jsxs("div", { className: "it-wrap it-hero-content", children: [
         h.jsx("h1", { children: "IT-Service in Altenstadt und der Wetterau" }),
         h.jsx("p", { children: "Persönliche Hilfe für Computer, WLAN und digitale Arbeitsplätze – für Privatpersonen und kleine Unternehmen, vor Ort und per Fernwartung." }),
         h.jsxs("div", { className: "it-actions", children: [

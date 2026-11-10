@@ -535,7 +535,7 @@
   }
 
   function setupHero() {
-    const heading = document.querySelector("h1");
+    const heading = document.querySelector("#root h1") || document.querySelector("#initial-home-hero:not([hidden]) h1");
     const hero = heading?.closest("section");
     if (hero?.closest(".it-home")) return;
     if (!hero || hero.querySelector(".dc-hero-cta")) return;
@@ -566,14 +566,14 @@
   }
 
   function setupSection() {
-    if (document.querySelector(".it-home")) {
+    if (document.querySelector("#root .it-home, #initial-home-hero:not([hidden])")) {
       section.remove();
       return;
     }
     renderSection();
     if (document.getElementById("digital-check")) return;
 
-    const hero = document.querySelector("h1")?.closest("section");
+    const hero = (document.querySelector("#root h1") || document.querySelector("#initial-home-hero:not([hidden]) h1"))?.closest("section");
     if (hero?.parentElement) {
       if (hero.nextElementSibling !== section) hero.insertAdjacentElement("afterend", section);
     } else {

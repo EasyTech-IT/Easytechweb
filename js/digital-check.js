@@ -475,7 +475,7 @@
     const nav = document.querySelector("nav");
     if (!nav) return;
 
-    const desktopCta = nav.querySelector('a[href="/kontakt"], a[href="/kontakt/"]');
+    const desktopCta = nav.querySelector(".dc-original-cta");
     if (desktopCta) desktopCta.classList.add("dc-hidden-cta");
     if (desktopCta && !nav.querySelector(".dc-inline-cta")) {
       const button = document.createElement("a");

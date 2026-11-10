@@ -11,5 +11,9 @@
 .home-service-links a { display: flex; align-items: center; min-height: 60px; padding: 16px 20px; border: 1px solid #d5e0e6; border-radius: 14px; background: #fff; color: #173c59; font-weight: 700; text-decoration: none; }
 .home-service-links a:hover { background: #e7f2f5; }
 .home-service-links a:focus-visible { outline: 3px solid #1295ae; outline-offset: 3px; }
+.home-service-links, .home-service-process { scroll-margin-top: 110px; }
+.home-service-process { margin-top: 56px; }
+.home-service-process ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin: 24px 0 0; padding-left: 24px; color: #405267; line-height: 1.6; }
 @media (max-width: 768px) { .home-service-links ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 480px) { .home-service-links ul { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .home-service-process ol { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 480px) { .home-service-links ul, .home-service-process ol { grid-template-columns: 1fr; } }

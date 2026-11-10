@@ -589,7 +589,7 @@
       document.head.appendChild(stylesheet);
     }
 
-    for (const source of ["/js/digital-check.js?v=8"]) {
+    for (const source of ["/js/digital-check.js?v=9"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

@@ -537,6 +537,7 @@
   function setupHero() {
     const heading = document.querySelector("h1");
     const hero = heading?.closest("section");
+    if (hero?.closest(".it-home")) return;
     if (!hero || hero.querySelector(".dc-hero-cta")) return;
 
     // Nur Anruf-Buttons ersetzen; Links mit sichtbarer Nummer (Kontaktkarte) bleiben erhalten.
@@ -565,6 +566,10 @@
   }
 
   function setupSection() {
+    if (document.querySelector(".it-home")) {
+      section.remove();
+      return;
+    }
     renderSection();
     if (document.getElementById("digital-check")) return;
 
@@ -578,6 +583,10 @@
 
   function setupRegionalServiceSection() {
     const path = window.location.pathname.replace(/\/+$/, "") || "/";
+    if (path === "/" && document.querySelector(".it-home")) {
+      document.querySelector("#root .dc-regional-section")?.remove();
+      return;
+    }
     const serviceAreas = {
       "/": {
         heading: "Unternehmen in Altenstadt und der Wetterau",

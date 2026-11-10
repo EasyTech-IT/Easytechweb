@@ -11,9 +11,9 @@
   const formInitialValues = new WeakMap();
   const pageMetadata = {
     "/": {
-      title: "IT-Betreuung für Unternehmen in Altenstadt | EasyTech",
+      title: "IT-Service in Altenstadt & Wetterau | EasyTech",
       description:
-        "IT-Betreuung und IT-Support für Unternehmen in Altenstadt und der Wetterau: Netzwerke, Geräte, Wartung und Datensicherung.",
+        "IT-Service für Privatpersonen und kleine Unternehmen in Altenstadt und der Wetterau: PC-Hilfe, WLAN, Geräte, Wartung und Datensicherung.",
     },
     "/webdesign": {
       title: "Webdesign für Unternehmen in Altenstadt & Wetterau | EasyTech",
@@ -589,7 +589,7 @@
       document.head.appendChild(stylesheet);
     }
 
-    for (const source of ["/js/digital-check.js?v=9"]) {
+    for (const source of ["/js/digital-check.js?v=10"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

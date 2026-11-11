@@ -1,0 +1,330 @@
+.et-webdesign-packages {
+  width: min(1200px, calc(100% - 32px));
+  margin: clamp(32px, 5vw, 56px) auto;
+  padding: clamp(22px, 4vw, 44px);
+  border: 1px solid #e1e8ed;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 48px rgb(23 36 58 / 7%);
+  color: #17243a;
+  font-family: Satoshi, Inter, Arial, sans-serif;
+}
+
+.et-webdesign-packages > h2 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.et-webdesign-packages-intro,
+.et-webdesign-comparison-intro {
+  max-width: 70ch;
+  margin: 0;
+  color: #405267;
+  line-height: 1.65;
+}
+
+.et-webdesign-package-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.et-webdesign-package-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid #d5e0e6;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.et-webdesign-package-card h3 {
+  margin: 0 0 16px;
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: 700;
+}
+
+.et-webdesign-package-price {
+  margin: 0;
+  color: #17243a;
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.et-webdesign-package-price-note {
+  margin: 8px 0 0;
+  color: #405267;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.et-webdesign-package-description {
+  max-width: 55ch;
+  margin: 18px 0 24px;
+  color: #405267;
+  line-height: 1.6;
+}
+
+.et-webdesign-package-card a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  padding: 11px 18px;
+  border: 1px solid #18364e;
+  border-radius: 999px;
+  background: #18364e;
+  color: #fff !important;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.et-webdesign-package-card a:hover {
+  background: #245c76;
+}
+
+.et-webdesign-package-card a:focus-visible {
+  outline: 3px solid #1295ae;
+  outline-offset: 3px;
+}
+
+.et-webdesign-package-card-custom {
+  border-color: #18364e;
+  background: #18364e;
+  color: #fff;
+}
+
+.et-webdesign-package-card-custom .et-webdesign-package-price,
+.et-webdesign-package-card-custom .et-webdesign-package-price-note,
+.et-webdesign-package-card-custom .et-webdesign-package-description {
+  color: #fff;
+}
+
+.et-webdesign-package-card-custom a {
+  border-color: #fff;
+  background: #fff;
+  color: #18364e !important;
+}
+
+.et-webdesign-package-card-custom a:hover {
+  background: #eaf0f4;
+}
+
+.et-webdesign-comparison-wrap {
+  margin-top: clamp(32px, 5vw, 52px);
+}
+
+.et-webdesign-comparison-wrap > h3 {
+  margin: 0 0 10px;
+  color: #18364e;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.et-webdesign-comparison {
+  width: 100%;
+  margin-top: 22px;
+  border: 1px solid #d5e0e6;
+  border-collapse: separate;
+  border-radius: 16px;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+.et-webdesign-comparison caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.et-webdesign-comparison th,
+.et-webdesign-comparison td {
+  padding: 15px 18px;
+  border-bottom: 1px solid #dfe7ec;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.et-webdesign-comparison thead th {
+  background: #f0f5f7;
+  color: #18364e;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.et-webdesign-comparison thead th:first-child {
+  width: 48%;
+}
+
+.et-webdesign-comparison tbody th {
+  color: #17243a;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.et-webdesign-comparison tbody td:last-child {
+  background: #f1f7f8;
+}
+
+.et-webdesign-comparison tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.et-webdesign-comparison tbody tr:hover > * {
+  background-color: #f7fafb;
+}
+
+.et-webdesign-comparison tbody tr:hover td:last-child {
+  background-color: #eaf2f4;
+}
+
+.et-webdesign-feature {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #405267;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.et-webdesign-feature svg {
+  width: 21px;
+  height: 21px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.et-webdesign-feature-included {
+  color: #176f3b;
+  font-weight: 700;
+}
+
+.et-webdesign-feature-excluded {
+  color: #596a78;
+}
+
+.et-webdesign-feature-custom {
+  color: #185573;
+  font-weight: 650;
+}
+
+.et-webdesign-package-note {
+  max-width: 75ch;
+  margin: 18px 0 0;
+  color: #405267;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .et-webdesign-package-card {
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .et-webdesign-package-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgb(23 36 58 / 10%);
+  }
+}
+
+@media (max-width: 640px) {
+  .et-webdesign-packages {
+    width: calc(100% - 24px);
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .et-webdesign-package-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .et-webdesign-comparison {
+    display: block;
+    border: 0;
+    overflow: visible;
+  }
+
+  .et-webdesign-comparison thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .et-webdesign-comparison tbody {
+    display: grid;
+    gap: 10px;
+  }
+
+  .et-webdesign-comparison tbody tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: hidden;
+    border: 1px solid #d5e0e6;
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .et-webdesign-comparison tbody th {
+    grid-column: 1 / -1;
+    padding: 13px 14px;
+    border-bottom: 1px solid #dfe7ec;
+    font-size: 14px;
+  }
+
+  .et-webdesign-comparison tbody td {
+    display: grid;
+    align-content: start;
+    gap: 7px;
+    padding: 12px 14px;
+    border: 0;
+    font-size: 12px;
+  }
+
+  .et-webdesign-comparison tbody td::before {
+    color: #405267;
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .et-webdesign-comparison tbody td:last-child {
+    background: #f1f7f8;
+  }
+
+  .et-webdesign-feature {
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .et-webdesign-package-card {
+    transition: none;
+  }
+
+  .et-webdesign-package-card:hover {
+    transform: none;
+  }
+}

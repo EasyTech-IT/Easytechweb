@@ -96,6 +96,12 @@
       ],
     },
   ];
+  const serviceGroups = [
+    { id: "it", title: "IT & Arbeitsplätze", description: "Support, Netzwerk und Geräte", icon: "devices", serviceIds: ["it-support", "netzwerk", "digitalization"] },
+    { id: "website", title: "Website & Auffindbarkeit", description: "Webdesign und lokale Sichtbarkeit", icon: "globe", serviceIds: ["website", "seo"] },
+    { id: "automation", title: "KI & Automatisierung", description: "Abläufe vereinfachen und Zeit sparen", icon: "sparkles", serviceIds: ["automation"] },
+    { id: "video", title: "Video & Inhalte", description: "Werbevideos und Social-Media-Inhalte", icon: "video", serviceIds: ["social"] },
+  ];
   const industryQuestion = ["Aus welcher Branche kommen Sie?", [["Handwerk / Bau", "tools"], ["Handel / Gastro", "euro"], ["Dienstleistung", "users"], ["Sonstiges", "building"]]];
   const budgetQuestion = ["Welches Budget ist geplant?", [["Unter 1.000 €", "euro"], ["1.000–5.000 €", "euro"], ["Über 5.000 €", "euro"], ["Noch offen", "help"]]];
   const timeQuestion = ["Wann soll es starten?", [["Sofort", "bolt"], ["In 1–3 Monaten", "clock"], ["Später", "clock"], ["Noch offen", "help"]]];
@@ -175,6 +181,9 @@
     [/^\/it\/business(?:\/|$)/, "it-support"],
     [/^\/it\/privat(?:\/|$)/, "digitalization"],
     [/^\/it\/ki-beratung(?:\/|$)/, "automation"],
+    [/^\/it\/netzwerk-wlan(?:\/|$)/, "netzwerk"],
+    [/^\/it\/backup-sicherheit(?:\/|$)/, "it-support"],
+    [/^\/it\/(?:email-cloud|pc-hilfe|telefonie-voip|smart-home)(?:\/|$)/, "digitalization"],
   ];
 
   const iconPaths = {
@@ -248,6 +257,7 @@
 
   let pageService = findPageService();
   let selectedService = pageService;
+  let selectedGroup = null;
   let routePath = window.location.pathname;
   let observerFrame = false;
   let sending = false;
@@ -280,15 +290,39 @@
     <p class="dc-step-label">Schritt ${current} von ${total}</p>`;
 
   function renderPicker() {
+    const group = serviceGroups.find((item) => item.id === selectedGroup);
+    if (group) {
+      const groupServices = group.serviceIds
+        .map((serviceId) => services.find((service) => service.id === serviceId))
+        .filter(Boolean);
+      return `
+        <div class="dc-step">
+          <h3 class="dc-question-bar">${escapeHtml(group.title)}</h3>
+          <p class="dc-hint">${escapeHtml(group.description)}. Wählen Sie ein Thema.</p>
+          <div class="dc-tiles dc-tiles-wide dc-topic-tiles">
+            ${groupServices.map((service) => `
+              <button class="dc-tile" type="button" data-dc-service="${service.id}">
+                <span class="dc-tile-icon">${icon(service.icon)}</span>
+                <span class="dc-tile-label">${escapeHtml(service.title)}</span>
+              </button>`).join("")}
+          </div>
+          <div class="dc-nav-row">
+            <button class="dc-back" type="button" data-dc-group-back aria-label="Zur Themenauswahl zurück">${icon("back")}</button>
+            <span class="dc-auto-hint">Thema wechseln</span>
+          </div>
+        </div>`;
+    }
+
     return `
       <div class="dc-step">
         <h3 class="dc-question-bar">Worum geht es bei Ihnen?</h3>
-        <p class="dc-hint">Wählen Sie ein Thema.</p>
-        <div class="dc-tiles dc-tiles-wide">
-          ${services.map((service) => `
-            <button class="dc-tile" type="button" data-dc-service="${service.id}">
-              <span class="dc-tile-icon">${icon(service.icon)}</span>
-              <span class="dc-tile-label">${escapeHtml(service.title)}</span>
+        <p class="dc-hint">Wählen Sie einen Bereich. Danach legen Sie das passende Thema fest.</p>
+        <div class="dc-tiles dc-tiles-wide dc-group-tiles">
+          ${serviceGroups.map((item) => `
+            <button class="dc-tile" type="button" data-dc-group="${item.id}">
+              <span class="dc-tile-icon">${icon(item.icon)}</span>
+              <span class="dc-tile-label">${escapeHtml(item.title)}</span>
+              <span class="dc-tile-description">${escapeHtml(item.description)}</span>
             </button>`).join("")}
         </div>
       </div>`;
@@ -311,7 +345,7 @@
             </button>`).join("")}
         </div>
         <div class="dc-nav-row">
-          <button class="dc-back" type="button" data-dc-back aria-label="Zurück">${icon("back")}</button>
+          ${pageService && index === 0 ? "" : `<button class="dc-back" type="button" data-dc-back aria-label="Zurück">${icon("back")}</button>`}
           <span class="dc-auto-hint">Antwort antippen, es geht automatisch weiter</span>
         </div>
       </div>`;
@@ -350,17 +384,37 @@
       </div>`;
   }
 
+  function focusDialogTarget(target) {
+    if (!target) return;
+    if (target.matches(".dc-question-bar")) target.tabIndex = -1;
+    target.focus({ preventScroll: true });
+  }
+
   function updateDialog() {
     const content = dialog.querySelector("[data-dc-content]");
     if (!selectedService) {
       content.innerHTML = renderPicker();
+      content.querySelectorAll("[data-dc-group]").forEach((button) => {
+        button.addEventListener("click", () => {
+          selectedGroup = button.dataset.dcGroup;
+          updateDialog();
+          focusDialogTarget(content.querySelector("[data-dc-service]"));
+        });
+      });
       content.querySelectorAll("[data-dc-service]").forEach((button) => {
         button.addEventListener("click", () => {
           selectedService = services.find((service) => service.id === button.dataset.dcService);
           step = 0;
           answers = [];
           updateDialog();
+          focusDialogTarget(content.querySelector(".dc-question-bar"));
         });
+      });
+      content.querySelector("[data-dc-group-back]")?.addEventListener("click", () => {
+        const previousGroup = selectedGroup;
+        selectedGroup = null;
+        updateDialog();
+        focusDialogTarget(content.querySelector(`[data-dc-group="${previousGroup}"]`));
       });
       return;
     }
@@ -371,8 +425,12 @@
         step -= 1;
       } else if (!pageService) {
         selectedService = null;
+        selectedGroup = null;
+      } else {
+        return;
       }
       updateDialog();
+      focusDialogTarget(content.querySelector(".dc-question-bar") || content.querySelector("[data-dc-group]"));
     };
 
     if (step >= lastQuestion) {
@@ -398,10 +456,13 @@
         window.setTimeout(() => {
           step += 1;
           updateDialog();
+          if (step < selectedService.questions.length) {
+            focusDialogTarget(content.querySelector(".dc-question-bar"));
+          }
         }, 220);
       });
     });
-    content.querySelector("[data-dc-back]").addEventListener("click", goBack);
+    content.querySelector("[data-dc-back]")?.addEventListener("click", goBack);
   }
 
   async function submitForm(event) {
@@ -460,6 +521,7 @@
   function openDialog() {
     if (!dialog.open) {
       selectedService = findPageService();
+      selectedGroup = null;
       step = 0;
       answers = [];
       updateDialog();

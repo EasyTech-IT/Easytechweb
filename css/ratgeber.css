@@ -76,7 +76,9 @@ a:hover {
 
 .site-header nav > a,
 .nav-group summary {
-  display: block;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
   padding: 10px 13px;
   border: 0;
   border-radius: 19px;
@@ -259,9 +261,27 @@ li {
   font-weight: 650;
 }
 
+.article-card .read-more {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #29476d;
+  color: #fff;
+  text-decoration: none;
+}
+
+.article-card .read-more:hover {
+  background: #1c3452;
+  color: #fff;
+}
+
 .preview-button {
+  min-height: 44px;
   margin-top: 16px;
-  padding: 0;
+  padding: 8px 0;
   border: 0;
   background: transparent;
   color: #526984;
@@ -310,8 +330,8 @@ li {
 
 .preview-close button {
   display: grid;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   border: 1px solid #e5e8ed;
   border-radius: 50%;
@@ -319,6 +339,16 @@ li {
   color: #171a20;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.site-header a:focus-visible,
+.site-header summary:focus-visible,
+.article-card a:focus-visible,
+.article-card button:focus-visible,
+.preview-close button:focus-visible,
+.article-preview a:focus-visible {
+  outline: 3px solid #1295ae;
+  outline-offset: 3px;
 }
 
 .article-preview .button {

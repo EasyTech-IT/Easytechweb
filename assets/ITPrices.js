@@ -28,7 +28,7 @@ export function ITPrices() {
       h.jsx("h2", { children: "IT-Preise, die Sie einordnen können." }),
       h.jsx("p", { className: "et-price-intro", children: "Ob einzelne Hilfe oder laufende Betreuung: Hier sehen Sie unsere Preisrahmen und die Bedingungen für Privat- und Geschäftskunden." }),
       h.jsxs("div", { className: "et-price-columns", children: [
-        h.jsxs("article", { className: "et-price-panel", children: [
+        h.jsxs("article", { id: "it-preise-privat", className: "et-price-panel", children: [
           h.jsx("p", { className: "et-price-label", children: "Privatkunden · inklusive MwSt." }),
           h.jsx("h3", { children: "Hilfe vor Ort & per Fernwartung" }),
           h.jsxs("dl", { className: "et-price-list", children: [
@@ -39,7 +39,7 @@ export function ITPrices() {
           ] }),
           h.jsx("p", { className: "et-price-note", children: "Mindestbuchung: vor Ort 1,5 Stunden (180 €), Fernwartung 30 Minuten (75 €). Anfahrt wird zusätzlich berechnet. Einsätze vor Ort zur Angebotserstellung oder Diagnose sind kostenpflichtig." }),
         ] }),
-        h.jsxs("article", { className: "et-price-panel et-price-panel-dark", children: [
+        h.jsxs("article", { id: "it-preise-business", className: "et-price-panel et-price-panel-dark", children: [
           h.jsx("p", { className: "et-price-label", children: "Geschäftskunden · netto zzgl. 19 % MwSt." }),
           h.jsx("h3", { children: "IT-Betreuung nach Bedarf" }),
           h.jsx("dl", { className: "et-price-list", children: business.map(([name, price, unit]) => h.jsxs("div", { children: [
@@ -49,7 +49,7 @@ export function ITPrices() {
           h.jsx("p", { className: "et-price-note", children: "Der konkrete Preis hängt von Umfang, Infrastruktur und vereinbartem Servicelevel ab. Lizenzkosten und Leistungen werden im Angebot geklärt." }),
         ] }),
       ] }),
-      h.jsxs("div", { className: "et-price-examples", children: [
+      h.jsxs("div", { id: "it-preisbeispiele", className: "et-price-examples", children: [
         h.jsxs("div", { children: [
           h.jsx("h3", { children: "Preisbeispiele für Privatkunden" }),
           h.jsx("p", { children: "Endpreise inklusive MwSt. Der konkrete Umfang wird vorab besprochen; nicht jede Leistung ist vor Ort möglich." }),

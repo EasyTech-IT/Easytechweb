@@ -1,5 +1,6 @@
 import { j as jsx, r as React } from "./react-vendor-DAatkCok.js";
 import { L as Link } from "./react-router-D9cGlsqA.js";
+import { whatsappUrl } from "./whatsapp-contact.js?v=2";
 
 if (!document.querySelector('link[href="/css/premium-it.css?v=2"]')) {
   const stylesheet = document.createElement("link");
@@ -143,9 +144,9 @@ export function WebdesignPrice({ page = false }) {
       className: "max-w-[1500px] mx-auto",
       style: { background: "#fff", borderRadius: "clamp(24px, 5vw, 64px)", padding: "clamp(24px, 5vw, 64px)" },
       children: [
-        jsx.jsx(page ? "h1" : "h2", { style: { fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: 1.2, fontWeight: 600, color: "#0a0a0a", marginBottom: "16px" }, children: page ? "Preise für IT und Webdesign." : "Webdesign: Ihr Projekt, Ihr Angebot." }),
-        jsx.jsx("p", { style: { maxWidth: "660px", fontSize: "17px", lineHeight: 1.65, color: "#404040", marginBottom: "24px" }, children: page ? "Hier finden Sie Preisrahmen für IT-Hilfe und laufende Betreuung sowie unseren Webdesign-Einstiegspreis." : "Ob neuer Auftritt oder Überarbeitung: Umfang und Leistungen stimmen wir auf Ihr Vorhaben ab." }),
-        jsx.jsxs("div", {
+        jsx.jsx(page ? "h1" : "h2", { style: { fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: 1.2, fontWeight: 600, color: "#0a0a0a", marginBottom: "16px" }, children: page ? "Preise für IT und digitale Leistungen." : "Webdesign: Ihr Projekt, Ihr Angebot." }),
+        jsx.jsx("p", { style: { maxWidth: "660px", fontSize: "17px", lineHeight: 1.65, color: "#404040", marginBottom: "24px" }, children: page ? "Vergleichen Sie die Preisrahmen für IT, Videografie und Webdesign. Was vom Umfang abhängt, stimmen wir vorab transparent mit Ihnen ab." : "Ob neuer Auftritt oder Überarbeitung: Umfang und Leistungen stimmen wir auf Ihr Vorhaben ab." }),
+        !page && jsx.jsxs("div", {
           style: { background: "#f7f8fa", border: "1px solid #e4e8ed", borderRadius: "24px", padding: "clamp(24px, 4vw, 36px)", maxWidth: "660px" },
           children: [
             jsx.jsx("p", { style: { color: "#2e4a6f", fontWeight: 600, marginBottom: "8px" }, children: "Webdesign-Einstiegspreis" }),
@@ -157,5 +158,79 @@ export function WebdesignPrice({ page = false }) {
         }),
       ],
     }),
+  });
+}
+
+const webdesignFeatures = [
+  { label: "Ziele, Zielgruppe und vorhandene Inhalte besprechen", standard: "included", individual: "included" },
+  { label: "Seitenstruktur und Inhalte planen", standard: "included", individual: "included" },
+  { label: "Gestaltung und responsive Umsetzung", standard: "included", individual: "included" },
+  { label: "Onpage-SEO-Basis: Titel, Überschriften und interne Links", standard: "included", individual: "included" },
+  { label: "Website prüfen und den Launch vorbereiten", standard: "included", individual: "included" },
+  { label: "Seitenumfang über den Einstieg hinaus", standard: "excluded", individual: "custom" },
+  { label: "Zusätzliche Funktionen und Integrationen", standard: "excluded", individual: "custom" },
+  { label: "Überarbeitung eines bestehenden Auftritts", standard: "excluded", individual: "custom" },
+];
+
+function WebdesignFeatureMark({ status, label }) {
+  const paths = {
+    included: "M5 12.5 9.5 17 19 7",
+    excluded: "M5 12h14",
+    custom: "M12 5v14M5 12h14",
+  };
+  const statusText = {
+    included: "Enthalten",
+    excluded: "Nicht automatisch im Einstieg enthalten",
+    custom: "Individuell im Angebot vereinbar",
+  };
+  return jsx.jsxs("span", { className: `et-webdesign-feature et-webdesign-feature-${status}`, children: [
+    jsx.jsx("svg", { viewBox: "0 0 24 24", "aria-hidden": "true", children: jsx.jsx("path", { d: paths[status] }) }),
+    jsx.jsx("span", { children: statusText[status] }),
+  ] });
+}
+
+export function WebdesignPackages() {
+  return jsx.jsxs("section", {
+    className: "et-webdesign-packages",
+    id: "preis-easyweb",
+    "aria-labelledby": "webdesign-packages-title",
+    children: [
+      jsx.jsx("h2", { id: "webdesign-packages-title", children: "Webdesign – zwei Wege zu Ihrem Auftritt" }),
+      jsx.jsx("p", { className: "et-webdesign-packages-intro", children: "Wählen Sie den Einstieg für einen klar definierten Umfang oder lassen Sie ein individuelles Projekt nach Ihren Anforderungen planen." }),
+      jsx.jsxs("div", { className: "et-webdesign-package-cards", children: [
+        jsx.jsxs("article", { className: "et-webdesign-package-card", children: [
+          jsx.jsx("h3", { children: "EasyWeb Standard" }),
+          jsx.jsx("p", { className: "et-webdesign-package-price", children: "Ab 595 €" }),
+          jsx.jsx("p", { className: "et-webdesign-package-price-note", children: "inkl. 19 % MwSt. · 500 € netto pro Projekt" }),
+          jsx.jsx("p", { className: "et-webdesign-package-description", children: "Der Webdesign-Einstieg für einen abgestimmten, klar strukturierten Firmenauftritt." }),
+          jsx.jsx("a", { href: whatsappUrl("/webdesign"), target: "_blank", rel: "noopener noreferrer", children: "Standard über WhatsApp anfragen" }),
+        ] }),
+        jsx.jsxs("article", { className: "et-webdesign-package-card et-webdesign-package-card-custom", children: [
+          jsx.jsx("h3", { children: "EasyWeb Individuell" }),
+          jsx.jsx("p", { className: "et-webdesign-package-price", children: "Preis auf Anfrage" }),
+          jsx.jsx("p", { className: "et-webdesign-package-price-note", children: "Umfang und Preis werden im Angebot festgehalten." }),
+          jsx.jsx("p", { className: "et-webdesign-package-description", children: "Für erweiterten Seitenumfang, zusätzliche Funktionen, Integrationen oder die Überarbeitung eines bestehenden Auftritts." }),
+          jsx.jsx("a", { href: whatsappUrl("/webdesign"), target: "_blank", rel: "noopener noreferrer", children: "Individuelles Angebot anfragen" }),
+        ] }),
+      ] }),
+      jsx.jsxs("div", { className: "et-webdesign-comparison-wrap", children: [
+        jsx.jsx("h3", { children: "Leistungen im direkten Vergleich" }),
+        jsx.jsx("p", { className: "et-webdesign-comparison-intro", children: "Ein Minus bedeutet: nicht automatisch im Einstiegspreis enthalten. Plus-Leistungen werden für EasyWeb Individuell passend zum Projekt angeboten." }),
+        jsx.jsxs("table", { className: "et-webdesign-comparison", children: [
+          jsx.jsx("caption", { children: "Leistungsumfang von EasyWeb Standard und EasyWeb Individuell" }),
+          jsx.jsx("thead", { children: jsx.jsxs("tr", { children: [
+            jsx.jsx("th", { scope: "col", children: "Leistung" }),
+            jsx.jsx("th", { scope: "col", children: "EasyWeb Standard" }),
+            jsx.jsx("th", { scope: "col", children: "EasyWeb Individuell" }),
+          ] }) }),
+          jsx.jsx("tbody", { children: webdesignFeatures.map((feature) => jsx.jsxs("tr", { children: [
+            jsx.jsx("th", { scope: "row", children: feature.label }),
+            jsx.jsx("td", { "data-label": "EasyWeb Standard", children: jsx.jsx(WebdesignFeatureMark, { status: feature.standard }) }),
+            jsx.jsx("td", { "data-label": "EasyWeb Individuell", children: jsx.jsx(WebdesignFeatureMark, { status: feature.individual }) }),
+          ] }, feature.label)) }),
+        ] }),
+      ] }),
+      jsx.jsx("p", { className: "et-webdesign-package-note", children: "Die konkrete Anzahl der Seiten, Inhalte und Funktionen wird vor Projektbeginn abgestimmt. Der Einstiegspreis ist kein Pauschalpreis für unbegrenzten Umfang." }),
+    ],
   });
 }

@@ -588,14 +588,14 @@
   }
 
   function loadSiteEnhancements() {
-    if (!document.querySelector('link[rel="stylesheet"][href="/css/digital-check.css?v=6"]')) {
+    if (!document.querySelector('link[rel="stylesheet"][href="/css/digital-check.css?v=8"]')) {
       const stylesheet = document.createElement("link");
       stylesheet.rel = "stylesheet";
-      stylesheet.href = "/css/digital-check.css?v=6";
+      stylesheet.href = "/css/digital-check.css?v=8";
       document.head.appendChild(stylesheet);
     }
 
-    for (const source of ["/js/digital-check.js?v=16", "/js/hero-experiment.js?v=1"]) {
+    for (const source of ["/js/digital-check.js?v=18", "/js/hero-experiment.js?v=1"]) {
       const script = document.createElement("script");
       script.src = source;
       document.body.appendChild(script);

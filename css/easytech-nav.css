@@ -1,0 +1,19 @@
+button[aria-label="Schliessen"] {
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+}
+
+button[aria-label="Menü öffnen"] {
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  min-height: 44px;
+}
+
+button[aria-label="Schliessen"]:focus-visible,
+button[aria-label="Menü öffnen"]:focus-visible {
+  outline: 3px solid #1295ae;
+  outline-offset: 3px;
+}

@@ -103,10 +103,10 @@ function emailLayout(string $title, string $intro, string $content, string $glyp
         ? '<tr><td style="padding:22px 28px;background:#f8fafc;border-top:1px solid #e3e9f1;color:#64748b;font-size:12px;line-height:1.65;">'
             . '<strong style="color:#334155;">Datenschutz &amp; Hinweise</strong><br>'
             . '<strong>Verantwortlich:</strong> EasyTech IT-Solutions, Inhaber Ahsin Ghumman, Mittelstra&szlig;e 63, 63674 Altenstadt, <a href="mailto:info@easytechit.de" style="color:' . MAIL_BLUE . ';">info@easytechit.de</a>.<br>'
-            . '<strong>Zweck &amp; Rechtsgrundlage:</strong> Wir verarbeiten Ihre Angaben ausschlie&szlig;lich, um Ihre Anfrage zu bearbeiten und zu beantworten (Art. 6 Abs. 1 lit. b DSGVO bzw. auf Grundlage Ihrer Einwilligung, Art. 6 Abs. 1 lit. a DSGVO).<br>'
+            . '<strong>Zweck &amp; Rechtsgrundlage:</strong> Wir verarbeiten Ihre Angaben ausschlie&szlig;lich, um Ihre Anfrage zu bearbeiten und zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage vorvertragliche Ma&szlig;nahmen betrifft.<br>'
             . '<strong>Empf&auml;nger:</strong> Eine Weitergabe an Dritte erfolgt nicht, au&szlig;er an technische Dienstleister (Hosting und E-Mail-Versand), die streng weisungsgebunden f&uuml;r uns arbeiten.<br>'
             . '<strong>Speicherdauer:</strong> Ihre Daten werden gel&ouml;scht, sobald die Anfrage abschlie&szlig;end bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.<br>'
-            . '<strong>Ihre Rechte:</strong> Auskunft, Berichtigung, L&ouml;schung, Einschr&auml;nkung der Verarbeitung, Daten&uuml;bertragbarkeit und Widerspruch. Eine erteilte Einwilligung k&ouml;nnen Sie jederzeit mit Wirkung f&uuml;r die Zukunft widerrufen &ndash; eine kurze E-Mail an <a href="mailto:info@easytechit.de" style="color:' . MAIL_BLUE . ';">info@easytechit.de</a> gen&uuml;gt. Zudem haben Sie das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbeh&ouml;rde (in Hessen: Der Hessische Beauftragte f&uuml;r Datenschutz und Informationsfreiheit).<br>'
+            . '<strong>Ihre Rechte:</strong> Auskunft, Berichtigung, L&ouml;schung, Einschr&auml;nkung der Verarbeitung, Daten&uuml;bertragbarkeit und Widerspruch. Sie k&ouml;nnen Ihre Rechte per E-Mail an <a href="mailto:info@easytechit.de" style="color:' . MAIL_BLUE . ';">info@easytechit.de</a> aus&uuml;ben. Zudem haben Sie das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbeh&ouml;rde (in Hessen: Der Hessische Beauftragte f&uuml;r Datenschutz und Informationsfreiheit).<br>'
             . 'Mehr dazu: <a href="https://easytechit.de/datenschutz/" style="color:' . MAIL_BLUE . ';">Datenschutzerkl&auml;rung</a> &middot; <a href="https://easytechit.de/impressum/" style="color:' . MAIL_BLUE . ';">Impressum</a><br><br>'
             . 'Diese E-Mail wurde automatisch erstellt und enth&auml;lt eine Kopie Ihrer Angaben. Haben Sie diese Anfrage nicht gestellt, k&ouml;nnen Sie diese Nachricht ignorieren oder uns kurz informieren. Vertrauliche Inhalte sind nur f&uuml;r den genannten Empf&auml;nger bestimmt.'
             . '</td></tr>'
@@ -228,7 +228,7 @@ if (!in_array($fields['urgency'], ['', 'Dringend', 'Zeitnah', 'Flexibel'], true)
 }
 
 if (($data['consent'] ?? '') !== 'true') {
-    respond(400, ['ok' => false, 'error' => 'Bitte stimmen Sie der Datenschutzerklärung zu.']);
+    respond(400, ['ok' => false, 'error' => 'Bitte bestätigen Sie die Kenntnisnahme der Datenschutzhinweise.']);
 }
 
 $phone = $fields['phone'] !== '' ? trim($fields['phoneCountry'] . ' ' . $fields['phone']) : '';

@@ -364,7 +364,7 @@
           <label class="dc-field dc-field-full"><span>E-Mail <b aria-hidden="true">*</b></span><input type="email" name="email" autocomplete="email" maxlength="254" required></label>
           <label class="dc-field dc-field-full"><span>Telefon <small>optional</small></span><input type="tel" name="phone" autocomplete="tel" maxlength="40"></label>
         </div>
-        <label class="dc-consent"><input type="checkbox" name="consent" required><span>Ich stimme der Verarbeitung meiner Angaben zu. <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutz</a> <b aria-hidden="true">*</b></span></label>
+        <label class="dc-consent"><input type="checkbox" name="consent" required><span>Ich habe die <a href="/datenschutz/" target="_blank" rel="noopener">Datenschutzhinweise</a> zur Kenntnis genommen. <b aria-hidden="true">*</b></span></label>
         <p class="dc-form-status" role="status" aria-live="polite" hidden></p>
         <div class="dc-nav-row">
           <button class="dc-back" type="button" data-dc-back aria-label="Zurück">${icon("back")}</button>

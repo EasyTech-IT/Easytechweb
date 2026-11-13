@@ -349,6 +349,7 @@
               <h3 class="text-[18px] sm:text-[20px] text-[#0a0a0b] mb-3 tracking-[-0.01em]" style="font-family:'Satoshi',sans-serif;font-weight:700;line-height:1.3">Google Analytics 4</h3>
               <div class="text-[17px] text-[#404040] space-y-3" style="font-family:'Inter',sans-serif;line-height:1.7">
                 <p>Wir nutzen Google Analytics 4, um die Nutzung unserer Website statistisch auszuwerten. Das Google-Tag wird erst geladen, wenn Sie in den Cookie-Einstellungen der Kategorie „Analyse“ zustimmen. Dabei können Analyse-Cookies gesetzt und Nutzungs-, Geräte- und Browserinformationen sowie aufgerufene Seiten und Interaktionen verarbeitet werden. Werbefunktionen und Personalisierung sind deaktiviert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO bzw. § 25 Abs. 1 TDDDG. Sie können Ihre Auswahl jederzeit über „Cookie-Einstellungen“ ändern oder widerrufen. Ereignisdaten werden in Google Analytics 2 Monate, Nutzerdaten (mit Cookies, Nutzer- oder Werbe-IDs verknüpft) 14 Monate gespeichert; danach werden sie automatisch gelöscht.</p>
+                <p>Ihre Cookie-Auswahl speichern wir mit den gewählten Kategorien und dem Zeitpunkt der Auswahl im lokalen Speicher Ihres Browsers. So bleibt Ihre Entscheidung bei späteren Besuchen auf diesem Gerät erhalten. Der Eintrag bleibt gespeichert, bis Sie Ihre Auswahl ändern oder den lokalen Browser-Speicher löschen; eine zentrale Protokollierung der Auswahl auf unserem Server findet nicht statt.</p>
                 <p>Mit Ihrer Analyse-Einwilligung vergleichen wir zwei Texte des Kontaktbuttons auf der Startseite. Die zufällige Variante wird für den aktuellen Browser-Tab im Sitzungsspeicher gespeichert. An Google Analytics übermitteln wir die Variantenkennung, die Anzeige, Button- und WhatsApp-Klicks sowie erfolgreich abgesendete Kontaktformulare, aber keine Formularinhalte. Beim Widerruf wird die Variantenkennung entfernt.</p>
                 <p>Anbieter ist Google Ireland Limited. Eine Verarbeitung durch Google LLC in den USA kann nicht ausgeschlossen werden. Weitere Informationen: <a class="text-[#2e4a6f] hover:text-[#000000] transition-colors" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
               </div>
@@ -363,7 +364,7 @@
       ));
       if (updatedNote) {
         updatedNote.textContent =
-          "Diese Datenschutzerklärung wurde zuletzt am 10. November 2026 aktualisiert und gilt für die Website von EasyTech IT-Solutions.";
+          "Diese Datenschutzerklärung wurde zuletzt am 13. November 2026 aktualisiert und gilt für die Website von EasyTech IT-Solutions.";
       }
   }
 

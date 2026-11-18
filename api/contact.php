@@ -174,6 +174,23 @@ if (stripos($contentType, 'application/json') !== 0) {
     respond(415, ['ok' => false, 'error' => 'Ungültiges Anfrageformat.']);
 }
 
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+if ($origin !== '' && !in_array(strtolower($origin), ['https://easytechit.de', 'https://www.easytechit.de'], true)) {
+    respond(403, ['ok' => false, 'error' => 'Diese Anfrage ist nicht erlaubt.']);
+}
+
+// Max. 5 Anfragen pro IP und 10 Minuten, damit das Formular kein Mail-Relay für Spam wird.
+$rateFile = sys_get_temp_dir() . '/easytech-contact-' . hash('sha256', $_SERVER['REMOTE_ADDR'] ?? '') . '.json';
+$now = time();
+$hits = is_file($rateFile) ? (json_decode((string) file_get_contents($rateFile), true) ?: []) : [];
+$hits = array_values(array_filter($hits, static fn($t) => is_int($t) && $t > $now - 600));
+if (count($hits) >= 5) {
+    header('Retry-After: 600');
+    respond(429, ['ok' => false, 'error' => 'Zu viele Anfragen. Bitte versuchen Sie es später erneut oder schreiben Sie an info@easytechit.de.']);
+}
+$hits[] = $now;
+file_put_contents($rateFile, json_encode($hits), LOCK_EX);
+
 $contentLength = (int) ($_SERVER['CONTENT_LENGTH'] ?? 0);
 if ($contentLength > 16384) {
     respond(413, ['ok' => false, 'error' => 'Die Anfrage ist zu groß.']);

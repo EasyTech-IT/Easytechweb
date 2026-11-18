@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/contact_rate_limit.php';
+
 function respond(int $status, array $payload): void
 {
     http_response_code($status);
@@ -103,9 +105,10 @@ function emailLayout(string $title, string $intro, string $content, string $glyp
         ? '<tr><td style="padding:22px 28px;background:#f8fafc;border-top:1px solid #e3e9f1;color:#64748b;font-size:12px;line-height:1.65;">'
             . '<strong style="color:#334155;">Datenschutz &amp; Hinweise</strong><br>'
             . '<strong>Verantwortlich:</strong> EasyTech IT-Solutions, Inhaber Ahsin Ghumman, Mittelstra&szlig;e 63, 63674 Altenstadt, <a href="mailto:info@easytechit.de" style="color:' . MAIL_BLUE . ';">info@easytechit.de</a>.<br>'
-            . '<strong>Zweck &amp; Rechtsgrundlage:</strong> Wir verarbeiten Ihre Angaben ausschlie&szlig;lich, um Ihre Anfrage zu bearbeiten und zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage vorvertragliche Ma&szlig;nahmen betrifft.<br>'
+            . '<strong>Zweck &amp; Rechtsgrundlage:</strong> Wir verarbeiten Ihre Angaben, um Ihre Anfrage zu bearbeiten und zu beantworten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage einen Vertrag oder vorvertragliche Ma&szlig;nahmen betrifft; bei sonstigen Anfragen Art. 6 Abs. 1 lit. f DSGVO.<br>'
+            . '<strong>Spam-Schutz:</strong> Zur Begrenzung missbr&auml;uchlicher Einsendungen speichern wir einen SHA-256-Hash Ihrer IP-Adresse und Zeitstempel (Art. 6 Abs. 1 lit. f DSGVO).<br>'
             . '<strong>Empf&auml;nger:</strong> Eine Weitergabe an Dritte erfolgt nicht, au&szlig;er an technische Dienstleister (Hosting und E-Mail-Versand), die streng weisungsgebunden f&uuml;r uns arbeiten.<br>'
-            . '<strong>Speicherdauer:</strong> Ihre Daten werden gel&ouml;scht, sobald die Anfrage abschlie&szlig;end bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.<br>'
+            . '<strong>Speicherdauer:</strong> Ihre Anfrage wird sp&auml;testens sechs Monate nach Abschluss der Bearbeitung gel&ouml;scht, sofern kein Vertrag zustande kommt und keine Aufbewahrungspflichten entgegenstehen. Rate-Limit-Eintr&auml;ge laufen nach zehn Minuten ab und werden bei einer sp&auml;teren g&uuml;ltigen Anfrage bereinigt.<br>'
             . '<strong>Ihre Rechte:</strong> Auskunft, Berichtigung, L&ouml;schung, Einschr&auml;nkung der Verarbeitung, Daten&uuml;bertragbarkeit und Widerspruch. Sie k&ouml;nnen Ihre Rechte per E-Mail an <a href="mailto:info@easytechit.de" style="color:' . MAIL_BLUE . ';">info@easytechit.de</a> aus&uuml;ben. Zudem haben Sie das Recht auf Beschwerde bei einer Datenschutz-Aufsichtsbeh&ouml;rde (in Hessen: Der Hessische Beauftragte f&uuml;r Datenschutz und Informationsfreiheit).<br>'
             . 'Mehr dazu: <a href="https://easytechit.de/datenschutz/" style="color:' . MAIL_BLUE . ';">Datenschutzerkl&auml;rung</a> &middot; <a href="https://easytechit.de/impressum/" style="color:' . MAIL_BLUE . ';">Impressum</a><br><br>'
             . 'Diese E-Mail wurde automatisch erstellt und enth&auml;lt eine Kopie Ihrer Angaben. Haben Sie diese Anfrage nicht gestellt, k&ouml;nnen Sie diese Nachricht ignorieren oder uns kurz informieren. Vertrauliche Inhalte sind nur f&uuml;r den genannten Empf&auml;nger bestimmt.'
@@ -179,18 +182,6 @@ if ($origin !== '' && !in_array(strtolower($origin), ['https://easytechit.de', '
     respond(403, ['ok' => false, 'error' => 'Diese Anfrage ist nicht erlaubt.']);
 }
 
-// Max. 5 Anfragen pro IP und 10 Minuten, damit das Formular kein Mail-Relay für Spam wird.
-$rateFile = sys_get_temp_dir() . '/easytech-contact-' . hash('sha256', $_SERVER['REMOTE_ADDR'] ?? '') . '.json';
-$now = time();
-$hits = is_file($rateFile) ? (json_decode((string) file_get_contents($rateFile), true) ?: []) : [];
-$hits = array_values(array_filter($hits, static fn($t) => is_int($t) && $t > $now - 600));
-if (count($hits) >= 5) {
-    header('Retry-After: 600');
-    respond(429, ['ok' => false, 'error' => 'Zu viele Anfragen. Bitte versuchen Sie es später erneut oder schreiben Sie an info@easytechit.de.']);
-}
-$hits[] = $now;
-file_put_contents($rateFile, json_encode($hits), LOCK_EX);
-
 $contentLength = (int) ($_SERVER['CONTENT_LENGTH'] ?? 0);
 if ($contentLength > 16384) {
     respond(413, ['ok' => false, 'error' => 'Die Anfrage ist zu groß.']);
@@ -246,6 +237,22 @@ if (!in_array($fields['urgency'], ['', 'Dringend', 'Zeitnah', 'Flexibel'], true)
 
 if (($data['consent'] ?? '') !== 'true') {
     respond(400, ['ok' => false, 'error' => 'Bitte bestätigen Sie die Kenntnisnahme der Datenschutzhinweise.']);
+}
+
+$rateResult = recordContactSubmission(
+    $_SERVER['REMOTE_ADDR'] ?? '',
+    time(),
+    sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'easytech-contact-rate-' . hash('sha256', __FILE__) . '.json',
+);
+if ($rateResult['status'] === 'unavailable') {
+    respond(503, [
+        'ok' => false,
+        'error' => 'Das Formular ist vorübergehend nicht verfügbar. Bitte schreiben Sie direkt an info@easytechit.de.',
+    ]);
+}
+if ($rateResult['status'] === 'limited') {
+    header('Retry-After: ' . $rateResult['retryAfter']);
+    respond(429, ['ok' => false, 'error' => 'Zu viele Anfragen. Bitte versuchen Sie es später erneut oder schreiben Sie an info@easytechit.de.']);
 }
 
 $phone = $fields['phone'] !== '' ? trim($fields['phoneCountry'] . ' ' . $fields['phone']) : '';
@@ -384,9 +391,11 @@ if ($freeMessage !== '') {
 $confirmationPlain .= "\r\nMöchten Sie etwas ergänzen? Antworten Sie einfach auf diese E-Mail.\r\n\r\n"
     . "Viele Grüße\r\nIhr Team von EasyTech IT-Solutions\r\n\r\n"
     . "--\r\nDatenschutz: Verantwortlich ist EasyTech IT-Solutions, Inhaber Ahsin Ghumman, Mittelstraße 63, 63674 Altenstadt, info@easytechit.de. "
-    . "Wir verarbeiten Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. b bzw. lit. a DSGVO) und geben sie nicht an Dritte weiter, außer an technische Dienstleister (Hosting, E-Mail-Versand). "
-    . "Die Daten werden gelöscht, sobald die Anfrage bearbeitet ist und keine Aufbewahrungspflichten entgegenstehen. "
-    . "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie auf jederzeitigen Widerruf einer Einwilligung (E-Mail genügt) und auf Beschwerde bei einer Aufsichtsbehörde "
+    . "Wir verarbeiten Ihre Angaben zur Bearbeitung Ihrer Anfrage (Art. 6 Abs. 1 lit. b DSGVO bei vorvertraglichen Anfragen; bei sonstigen Anfragen Art. 6 Abs. 1 lit. f DSGVO). "
+    . "Zum Schutz des Kontaktformulars begrenzen wir Anfragen zusätzlich anhand eines gehashten IP-Werts (Art. 6 Abs. 1 lit. f DSGVO). "
+    . "Eine Weitergabe erfolgt nur an technische Dienstleister (Hosting und E-Mail-Versand). "
+    . "Die Anfrage wird spätestens sechs Monate nach Abschluss der Bearbeitung gelöscht, sofern kein Vertrag zustande kommt und keine Aufbewahrungspflichten entgegenstehen. Rate-Limit-Einträge laufen nach zehn Minuten ab und werden bei einer späteren gültigen Anfrage bereinigt. "
+    . "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie auf Beschwerde bei einer Aufsichtsbehörde "
     . "(Hessen: Der Hessische Beauftragte für Datenschutz und Informationsfreiheit). Mehr: https://easytechit.de/datenschutz/ | Impressum: https://easytechit.de/impressum/\r\n"
     . "Diese E-Mail wurde automatisch erstellt. Haben Sie die Anfrage nicht gestellt, ignorieren Sie sie bitte oder informieren Sie uns kurz.";
 $confirmationHtml = emailLayout(

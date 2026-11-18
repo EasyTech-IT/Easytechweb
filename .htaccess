@@ -3,16 +3,19 @@ AddDefaultCharset UTF-8
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # HTTP auf HTTPS umstellen und die www-Adresse beibehalten
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} ^www\.easytechit\.de(?::[0-9]+)?$ [NC]
+  RewriteRule ^ https://www.easytechit.de%{REQUEST_URI} [L,R=301]
+
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://easytechit.de%{REQUEST_URI} [L,R=301]
+
   # Alte Landingpage-URL direkt auf das passende Website-Angebot weiterleiten
-  RewriteRule ^landingpage/?$ https://easytechit.de/webdesign/ [R=301,L]
+  RewriteRule ^landingpage/?$ /webdesign/ [R=301,L]
 
   # Die frühere Analyse-Seite führt zum aktuellen Digital-Check auf der Startseite
-  RewriteRule ^analyse/?$ https://easytechit.de/#digital-check [R=301,L,NE]
-
-  # Alle Varianten (http, www) per 301 auf https://easytechit.de
-  RewriteCond %{HTTPS} !=on [OR]
-  RewriteCond %{HTTP_HOST} ^www\. [NC]
-  RewriteRule ^ https://easytechit.de%{REQUEST_URI} [L,R=301]
+  RewriteRule ^analyse/?$ /#digital-check [R=301,L,NE]
 
   # Projekt-Detailrouten existieren nur in der App, Direktaufrufe auf die Übersicht
   RewriteCond %{REQUEST_FILENAME} !-f

@@ -16,12 +16,12 @@
         "IT-Service für Privatpersonen und kleine Unternehmen in Altenstadt und der Wetterau: PC-Hilfe, WLAN, Geräte, Wartung und Datensicherung.",
     },
     "/webdesign": {
-      title: "Webdesign für Unternehmen in Altenstadt & Wetterau | EasyTech",
+      title: "Webdesign für Unternehmen in Altenstadt | EasyTech",
       description:
         "Webdesign für Unternehmen in Altenstadt und der Wetterau: responsive Firmenwebsites mit klarer Struktur, Nutzerführung und technischer SEO-Grundlage.",
     },
     "/it/business": {
-      title: "IT-Service Altenstadt: IT-Betreuung für Unternehmen | EasyTech",
+      title: "IT-Betreuung für Unternehmen in Altenstadt | EasyTech",
       description:
         "IT-Betreuung für Unternehmen in Altenstadt und der Wetterau: Support für Arbeitsplätze, Geräte, Netzwerke und Server im regionalen Kerngebiet.",
     },

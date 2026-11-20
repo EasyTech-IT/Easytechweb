@@ -418,6 +418,26 @@ li {
   margin-top: 8px;
 }
 
+.article-content table {
+  width: 100%;
+  margin: 24px 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.article-content th,
+.article-content td {
+  padding: 12px;
+  border: 1px solid #e5e8ed;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.article-content thead {
+  background: #f1f5f9;
+}
+
 .callout {
   margin: 26px 0;
   padding: 18px 20px;
@@ -573,6 +593,15 @@ li {
 }
 
 @media (max-width: 600px) {
+  .article-content table {
+    font-size: 0.875rem;
+  }
+
+  .article-content th,
+  .article-content td {
+    padding: 8px 6px;
+  }
+
   .site-header {
     align-items: center;
     min-height: auto;

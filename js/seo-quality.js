@@ -53,7 +53,7 @@
     "/ueber-mich": {
       title: "Über EasyTech IT-Solutions | Ahsin Ghumman, Altenstadt",
       description:
-        "Lernen Sie Ahsin Ghumman und EasyTech IT-Solutions aus Altenstadt kennen: pers?nliche Beratung f?r Webdesign und IT-Betreuung.",
+        "Ahsin Ghumman führt EasyTech IT-Solutions in Altenstadt. Persönliche Beratung und Umsetzung für IT-Betreuung, Webdesign und digitale Lösungen in der Wetterau.",
     },
     "/kontakt": {
       title: "Kontakt | EasyTech IT-Solutions Altenstadt",

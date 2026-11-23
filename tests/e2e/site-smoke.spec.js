@@ -4,7 +4,7 @@ test("homepage exposes consistent EasyTech search metadata", async ({ page }) =>
   const response = await page.goto("/");
   expect(response.status()).toBe(200);
   await expect(page).toHaveTitle("IT-Service in Altenstadt & Wetterau | EasyTech");
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://easytechit.de/");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /^https:\/\/easytechit\.de\/?$/);
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
     "IT-Service in Altenstadt & Wetterau | EasyTech",
@@ -13,6 +13,22 @@ test("homepage exposes consistent EasyTech search metadata", async ({ page }) =>
     "content",
     /IT-Service für Privatpersonen/,
   );
+});
+
+test("software development is discoverable and works on mobile", async ({ page }) => {
+  await page.goto("/");
+  const serviceLink = page.locator('.home-service-links a[href="/softwareentwicklung/"]');
+  await expect(serviceLink).toBeVisible();
+  await serviceLink.click();
+  await expect(page).toHaveURL(/\/softwareentwicklung\/$/);
+  await expect(page.getByRole("heading", { name: /Ihre Idee/ })).toBeVisible();
+  await expect(page.getByText("sie sind keine dargestellten Kundenprojekte")).toBeVisible();
+  await expect(page.getByRole("link", { name: "Projekte ansehen" })).toHaveAttribute("href", "/projekte/");
+  await expect(page.getByRole("link", { name: /Projekt besprechen/ }).first()).toHaveAttribute("href", "/kontakt/");
+
+  await page.setViewportSize({ width: 320, height: 800 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+  await expect(page.getByRole("heading", { name: "Web-Apps" })).toBeVisible();
 });
 
 test("IT-cost guide has valid metadata, sources, and a mobile-friendly price table", async ({ page }) => {

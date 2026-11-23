@@ -34,7 +34,13 @@ export function HomeServiceLinks() {
         h.jsx("span", { className: "home-service-label", children: service.label }),
         h.jsx("span", { children: service.description }),
         h.jsx("span", { className: "home-service-details", children: "Details entdecken →" }),
-      ] }) }, service.name)) }),
+      ] }) }, service.name)).concat(h.jsx("li", { children: h.jsxs("a", { href: "/softwareentwicklung/", children: [
+        h.jsx("img", { className: "home-service-image", src: "/assets/ichon1.png", width: 64, height: 64, loading: "lazy", alt: "" }),
+        h.jsx("strong", { children: "Softwareentwicklung" }),
+        h.jsx("span", { className: "home-service-label", children: "Apps & Web-Apps" }),
+        h.jsx("span", { children: "Individuelle digitale Lösungen für Ihre Ideen und Abläufe." }),
+        h.jsx("span", { className: "home-service-details", children: "Details entdecken →" }),
+      ] }) }, "softwareentwicklung")) }),
   h.jsx("a", { className: "home-service-all", href: "/it/business/#leistungen", children: "Weitere IT-Leistungen entdecken →" }),
   ] }) });
 }
